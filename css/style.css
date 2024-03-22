@@ -1,0 +1,51 @@
+@import url("./window.css");
+
+:root {
+    --header-height: 70px;
+    --footer-height: 20px;
+
+    --main-theme-color: #fefefe;
+    --secondary-theme-color: #010101;
+    --gradient-color: #1100ff;
+}
+
+body {
+    min-height: 100svh;
+    font-weight: 700;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: grid;
+    grid-template-rows:
+        var(--header-height)
+        1fr
+        var(--footer-height);
+}
+
+header, footer {
+    background-color: var(--secondary-theme-color);
+    color: var(--main-theme-color);
+    display: grid;
+    place-items: center;
+}
+
+main {
+    background-color: var(--main-theme-color);
+    color: var(--secondary-theme-color);
+    background: linear-gradient(
+        var(--gradient-color) 50%,
+        var(--secondary-theme-color)
+    );
+    display: grid;
+    place-items: center;
+}
+
+*, *::before, *::auto {
+    box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+

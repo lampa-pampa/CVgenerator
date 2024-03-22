@@ -1,0 +1,103 @@
+.window {
+    --header-height: 70px;
+    --content-height: 500px;
+    --loading-bar-height: 40px;
+    --border-width: 3px;
+    --border-style: solid;
+    --reset-button-width: calc(var(--header-height) - 2 * var(--border-width));      
+    
+    width: 800px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows:
+        var(--header-height)
+        var(--content-height)
+        var(--loading-bar-height);
+    border-width: var(--border-width);
+    border-style: var(--border-style);
+    border-color: var(--main-theme-color);
+}
+
+.window-header {
+    color: var(--main-theme-color);
+    display: grid;
+    grid-template-columns: 1fr var(--reset-button-width);
+    z-index: 1;
+    box-shadow: var(--list-box-shadow);
+}
+
+.window-header {
+    background-color: var(--secondary-theme-color);
+    box-shadow: 0 0 1em var(--secondary-theme-color);
+}
+
+.window-progress-bar-container {
+    background-color: var(--main-theme-color);
+    border-width: var(--border-width);
+    border-style: var(--border-style);
+    border-color: var(--secondary-theme-color);
+}
+
+.window-progress-bar {
+    background-color: var(--secondary-theme-color);
+    width: 25%;
+    height: 100%;
+}
+
+.window-header > * {
+    display: grid;
+    align-content: center;
+}
+
+.window-header-title {
+    margin-inline: 1em;
+}
+
+.window-header-reset-button {
+    justify-content: center;
+}
+
+.window-content {
+    background-color: var(--main-theme-color);
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.window-list > li {
+    font-weight: 800;
+    padding-block: 0.5em;
+    font-size: large;
+}
+
+.window-list {
+    list-style-type: none;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding: 1em;
+    margin: 0;
+}
+
+.window-buttons-container
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+.reset-icon {
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--main-theme-color);
+}
+
+.window-button {
+    background-color: var(--gradient-color);
+    color: var(--main-theme-color);
+    font-size: large;
+    font-weight: 800;
+    padding: 1em;
+    border-radius: calc(2 * var(--border-width));
+    border-width: var(--border-width);
+    border-style: var(--border-style);
+    border-color: var(--secondary-theme-color);
+}
