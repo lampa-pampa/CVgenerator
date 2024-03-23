@@ -31,7 +31,10 @@ body {
     color: var(--main-theme-color);
 
     display: grid;
-    grid-template-rows: var(--header-height) 1fr var(--footer-height);
+    grid-template-rows: 
+        var(--header-height)
+        1fr
+        var(--footer-height);
 }
 
 header {
@@ -70,12 +73,12 @@ footer {
     transition: border-color 200ms;
 }
 
-.focusable.border:hover, .text-field.focusable:focus-visible {
+.focusable.border:hover:not(.text-field) {
     border-color: var(--gradient-color);
 }
 
 .text-field {
-    padding: 0.1em;
+    padding: 0.12em;
 }
 
 .focusable:focus-visible {
@@ -93,7 +96,7 @@ footer {
 .spin-icon:hover > .icon {
     transition: transform 300ms;
     transform: rotate(1turn);
-    opacity: .9;
+    opacity: .8;
 }
 
 .max-height {
