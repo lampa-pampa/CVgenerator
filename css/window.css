@@ -2,70 +2,50 @@
     --header-height: 70px;
     --content-height: 500px;
     --loading-bar-height: 40px;
+    --border-color: var(--main-theme-color);
     --border-width: 3px;
     --border-style: solid;
-    --reset-button-width: calc(var(--header-height) - 2 * var(--border-width));      
-    
+
     width: 800px;
+    position: relative;
     overflow: hidden;
     display: grid;
     grid-template-rows:
         var(--header-height)
         var(--content-height)
         var(--loading-bar-height);
-    border-width: var(--border-width);
-    border-style: var(--border-style);
-    border-color: var(--main-theme-color);
 }
 
 .window-header {
-    color: var(--main-theme-color);
-    display: grid;
-    grid-template-columns: 1fr var(--reset-button-width);
+    font-size: x-large;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1;
-    box-shadow: var(--list-box-shadow);
-}
-
-.window-header {
-    background-color: var(--secondary-theme-color);
     box-shadow: 0 0 1em var(--secondary-theme-color);
-}
-
-.window-progress-bar-container {
-    background-color: var(--main-theme-color);
-    border-width: var(--border-width);
-    border-style: var(--border-style);
-    border-color: var(--secondary-theme-color);
-}
-
-.window-progress-bar {
     background-color: var(--secondary-theme-color);
-    width: 25%;
-    height: 100%;
-}
-
-.window-header > * {
-    display: grid;
-    align-content: center;
 }
 
 .window-header-title {
-    margin-inline: 1em;
+    margin-left: 1em;
 }
 
-.window-header-reset-button {
-    justify-content: center;
+.window-header-reset-button-container {
+    --border-radius: 3px;
+}
+
+.window-header-reset-button-container .button {
+    height: 30px;
+    border: none;
+    background: none;
 }
 
 .window-content {
     background-color: var(--main-theme-color);
+    color: var(--secondary-theme-color);
     display: grid;
     grid-template-rows: 1fr auto;
-}
-
-.window-list > li {
-    font-weight: 800;
-    font-size: large;
+    --border-color: var(--secondary-theme-color);
 }
 
 .window-list {
@@ -73,30 +53,80 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding: 1em 1.5em;
-    margin: 0;
+}
+
+.window-list .custom-checkbox-label {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 30px;
+    column-gap: 0.5em;
+    margin-block: 1em;
+    --border-radius: var(--border-width);
 }
 
 .window-buttons-container
 {
+    --border-radius: calc(2 * var(--border-width));
+    color: var(--main-theme-color);
     display: flex;
     justify-content: space-between;
     padding: 2em;
 }
 
-.reset-icon {
-    width: 1.7em;
-    height: 1.7em;
-    fill: var(--main-theme-color);
+.window-buttons-container .button {
+    width: 12em;
+    height: 3.5em;
+    position: relative;
 }
 
-.window-button {
+.window-previous-button {
+    --before-content: "<<";
+    --hover-offset: 1em;
+}
+
+.window-next-button {
+    --after-content: ">>";
+    --hover-offset: -1em;
+}
+
+.window-buttons-container .button > span {
+    transition: transform 200ms; 
+}
+
+.window-buttons-container .button:hover > span {
+    transform: translateX(var(--hover-offset));
+}
+
+.window-buttons-container .button > span::before,
+.window-buttons-container .button > span::after {
+    position: absolute;
+    transition: opacity 200ms;
+    opacity: 0;
+}
+
+.window-buttons-container .button > span::before {
+    content: var(--before-content);
+    right: calc(100% + 0.5em);
+}
+
+.window-buttons-container .button > span::after {
+    content: var(--after-content);
+    left: calc(100% + 0.5em);
+}
+
+.window-buttons-container .button:hover > span::before,
+.window-buttons-container .button:hover > span::after {
+    opacity: 1;
+}
+
+.window-progress-bar-container {
+    background-color: var(--secondary-theme-color);
+    --border-color: var(--secondary-theme-color);
+}
+
+.window-progress-bar {
     background-color: var(--gradient-color);
-    color: var(--main-theme-color);
-    font-size: large;
-    font-weight: 800;
-    padding: 1em;
-    border-radius: calc(2 * var(--border-width));
-    border-width: var(--border-width);
-    border-style: var(--border-style);
-    border-color: var(--secondary-theme-color);
+    transition: width 400ms;
+    width: 25%;
 }

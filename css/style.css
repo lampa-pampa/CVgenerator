@@ -1,5 +1,17 @@
 @import "./window.css";
-@import "./custom_checkbox.css";
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+}
 
 :root {
     --header-height: 70px;
@@ -12,40 +24,102 @@
 
 body {
     min-height: 100svh;
-    font-weight: 700;
-    margin: 0;
+    font-weight: 800;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: var(--main-theme-color);
 
     display: grid;
-    grid-template-rows:
-        var(--header-height)
-        1fr
-        var(--footer-height);
+    grid-template-rows: var(--header-height) 1fr var(--footer-height);
 }
 
-header, footer {
+header {
+    font-size: xx-large;
     background-color: var(--secondary-theme-color);
-    color: var(--main-theme-color);
-    display: grid;
-    place-items: center;
 }
 
 main {
-    background-color: var(--main-theme-color);
-    color: var(--secondary-theme-color);
     background: linear-gradient(
         var(--gradient-color) 50%,
-        var(--secondary-theme-color)
-    );
-    display: grid;
-    place-items: center;
+        var(--secondary-theme-color));
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
+footer {
+    background-color: var(--secondary-theme-color);
+    font-size: medium;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    fill: var(--main-theme-color);
+}
+
+.button {
+    background-color: var(--gradient-color);
+}
+
+.border {
+    border-radius: var(--border-radius);
+    border: var(--border-width) var(--border-style) var(--border-color);
+    transition: border-color 200ms;
+}
+
+.focusable.border:hover, .text-field.focusable:focus-visible {
+    border-color: var(--gradient-color);
+}
+
+.text-field {
+    padding: 0.1em;
+}
+
+.focusable:focus-visible {
+    outline: 2px solid var(--gradient-color);
+}
+
+.button.focusable, .custom-checkbox.focusable {
+    cursor: pointer;
+}
+
+.square {
+    aspect-ratio: 1 / 1;
+}
+
+.spin-icon:hover > .icon {
+    transition: transform 300ms;
+    transform: rotate(1turn);
+    opacity: .9;
+}
+
+.max-height {
+    height: 100%;
+}
+
+.custom-checkbox-label .checkbox {
+    display: none;
+}
+
+.custom-checkbox {
+    position: relative;
+}
+
+.custom-checkbox::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background-color: var(--gradient-color);
+    transform: scale(0);
+    transition-property: transform, opacity;
+    transition-duration: 200ms;
+    opacity: 0;
+}
+
+.custom-checkbox-label .checkbox:checked + .custom-checkbox::after {
+    transform: scale(1);
+    opacity: 1;
 }
