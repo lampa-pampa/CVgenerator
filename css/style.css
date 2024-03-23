@@ -42,7 +42,7 @@ main {
     place-items: center;
 }
 
-*, *::before, *::auto {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
