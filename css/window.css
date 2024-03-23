@@ -52,14 +52,14 @@
     list-style-type: none;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    padding: 1em 1.5em;
+    padding: 1em 1.6em;
 }
 
 .window-list .custom-checkbox-label {
-    display: flex;
+    display: grid;
     align-items: center;
-    width: fit-content;
     height: 30px;
+    grid-template-columns: 30px 1fr 30px;
     column-gap: 0.5em;
     margin-block: 1em;
     --border-radius: var(--border-width);
@@ -71,7 +71,7 @@
     color: var(--main-theme-color);
     display: flex;
     justify-content: space-between;
-    padding: 2em;
+    padding: 2.1em;
 }
 
 .window-buttons-container .button {
