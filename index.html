@@ -34,9 +34,63 @@
                     </li>
                     <li>
                         <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
+                            <span>option 2</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
+                            <span>option 3</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
+                            <span>option 4</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
+                            <span>option 5</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
+                            <span>option 6</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
+                            <span>option 7</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
                             <input class="checkbox" type="checkbox" checked disabled>
                             <span class="custom-checkbox border max-height square"></span>
-                            <span>custom option</span>
+                            <span>custom option 1</span>
+                            <button type="button" class="button max-height border focusable square" title="Remove element">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
+                                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                </svg>
+                            </button>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox" checked disabled>
+                            <span class="custom-checkbox border max-height square"></span>
+                            <span>custom option 2</span>
                             <button type="button" class="button max-height border focusable square" title="Remove element">
                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
                                     <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
@@ -71,16 +125,13 @@
         Author: Marek Kandulski
     </footer>
     <script>
-        document.getElementsByClassName("button")[0].addEventListener("click", () => console.log("sas"))
-        for(const node of document.getElementsByClassName("focusable"))
-        {
+        for(const node of document.getElementsByClassName("focusable")) {
             node.addEventListener("keydown", (e) => {
                 if(e.key === "Enter") {
                     e.target.click()
                     e.preventDefault()
                 }
             })
-            console.log(node)
         }
     </script>
 </body>
