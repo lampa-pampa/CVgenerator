@@ -1,0 +1,19 @@
+name, surname
+
+company name
+
+contact
+
+experience
+
+education
+
+about me
+
+skills
+
+interests
+
+additional info
+
+download
