@@ -19,6 +19,7 @@
     --main-theme-color: #fefefe;
     --secondary-theme-color: #010101;
     --gradient-color: #1100ff;
+    --animation-duration: 600ms;
 }
 
 body {
@@ -204,7 +205,7 @@ footer {
     var(--header-height)
     var(--content-height)
     var(--footer-height);
-    animation: show-window 600ms;
+    animation: show-window var(--animation-duration);
 }
 
 .window-header {
@@ -217,7 +218,7 @@ footer {
 
 .window-title {
     margin-inline: 1em;
-    animation: show-title 600ms;
+    animation: show-title var(--animation-duration);
 }
 
 .window-content {
@@ -234,5 +235,5 @@ footer {
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding: 1em 1.6em;
-    animation: show-list 600ms;
+    animation: show-list var(--animation-duration);
 }
