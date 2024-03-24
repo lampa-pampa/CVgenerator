@@ -19,7 +19,6 @@
     --main-theme-color: #fefefe;
     --secondary-theme-color: #010101;
     --gradient-color: #1100ff;
-    --animation-duration: 600ms;
 }
 
 body {
@@ -196,15 +195,16 @@ footer {
     --border-color: var(--main-theme-color);
     --border-width: 3px;
     --border-style: solid;
-    font-size: x-large;
+    --animation-duration: 600ms;
     
     width: 800px;
+    font-size: x-large;
     overflow: hidden;
     display: grid;
     grid-template-rows:
-    var(--header-height)
-    var(--content-height)
-    var(--footer-height);
+        var(--header-height)
+        var(--content-height)
+        var(--footer-height);
     animation: show-window var(--animation-duration);
 }
 
