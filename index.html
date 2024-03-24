@@ -4,135 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Generator</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="script/main.js"></script>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="script/main.js" type="module" defer></script>
 </head>
 <body>
-    <header class="center-content">
-        <h1>CV Generator</h1>
+    <header>
+        <img src="img/baner.png" class="baner" alt="baner">
+        <nav>
+            <ul tabindex="-1" class="max-height">
+                <li class="max-height center-content">
+                    <a href="/" class="link focusable">Home</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main class="center-content">
         <div class="window border">
-            <div class="window-header">
-                <h2 class="window-header-title">Step 1 | Title</h2>
-                <div class="window-header-reset-button-container square center-content max-height">
-                    <button class="button spin-icon focusable border square" title="Start over">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                            <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="window-content">
-                <ul class="window-list" tabindex="-1">
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 1</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 2</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 3</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 4</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 5</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 6</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox">
-                            <span tabindex="0" class="custom-checkbox max-height border focusable square"></span>
-                            <span>option 7</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox" checked disabled>
-                            <span class="custom-checkbox border max-height square"></span>
-                            <span>custom option 1</span>
-                            <button type="button" class="button max-height border focusable square" title="Remove element">
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-                                </svg>
-                            </button>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox" checked disabled>
-                            <span class="custom-checkbox border max-height square"></span>
-                            <span>custom option 2</span>
-                            <button type="button" class="button max-height border focusable square" title="Remove element">
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-                                </svg>
-                            </button>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="custom-checkbox-label">
-                            <input class="checkbox" type="checkbox" disabled>
-                            <span class="custom-checkbox border max-height square"></span>
-                            <input maxlength="64" class="text-field border max-height focusable" type="text">
-                            <button type="button" class="button max-height border focusable square" title="Add element">
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                                </svg>
-                            </button>
-                        </label>
-                    </li>
-                </ul>
-                <div class="window-buttons-container">
-                    <button class="button center-content window-previous-button border focusable" title="Go to the previous step"><span>PREVIOUS STEP</span></button>
-                    <button class="button center-content window-next-button border focusable" title="Go to the next step"><span>NEXT STEP</span></button>
-                </div>
-            </div>
-            <div class="window-progress-bar-container border">
-                <div class="window-progress-bar max-height"></div>
-            </div>
+            <div class="window-header"></div>
+            <div class="window-content"></div>
+            <div class="window-footer"></div>
         </div>
     </main>
     <footer class="center-content">
         Author: Marek Kandulski
     </footer>
-    <script>
-        for(const node of document.getElementsByClassName("focusable")) {
-            node.addEventListener("keydown", (e) => {
-                if(e.key === "Enter") {
-                    e.target.click()
-                    e.preventDefault()
-                }
-            })
-        }
-    </script>
 </body>
 </html>
