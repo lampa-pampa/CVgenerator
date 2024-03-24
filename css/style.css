@@ -1,5 +1,3 @@
-@import "./window.css";
-
 *, *::before, *::after {
     box-sizing: inherit;
     font-size: inherit;
@@ -11,6 +9,7 @@
     outline: none;
     border: none;
     background: none;
+    text-decoration: none;
 }
 
 :root {
@@ -31,21 +30,33 @@ body {
     color: var(--main-theme-color);
 
     display: grid;
+    grid-auto-columns: 100%;
     grid-template-rows: 
-        var(--header-height)
         1fr
         var(--footer-height);
 }
 
 header {
-    font-size: xx-large;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: var(--header-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 7em;
     background-color: var(--secondary-theme-color);
+}
+
+nav ul {
+    list-style-type: none;
 }
 
 main {
     background: linear-gradient(
         var(--gradient-color) 50%,
         var(--secondary-theme-color));
+    padding-block: 5em;
 }
 
 footer {
@@ -73,7 +84,7 @@ footer {
     transition: border-color 200ms;
 }
 
-.focusable.border:hover:not(.text-field) {
+.border.focusable:hover:not(.text-field) {
     border-color: var(--gradient-color);
 }
 
@@ -85,8 +96,13 @@ footer {
     outline: 2px solid var(--gradient-color);
 }
 
-.button.focusable, .custom-checkbox.focusable {
+.button.focusable, .custom-checkbox.focusable, .link.focusable {
     cursor: pointer;
+}
+
+.link.focusable:hover {
+    text-decoration: underline;
+    opacity: .8;
 }
 
 .square {
@@ -125,4 +141,98 @@ footer {
 .custom-checkbox-label .checkbox:checked + .custom-checkbox::after {
     transform: scale(1);
     opacity: 1;
+}
+
+.animated-button {
+    position: relative;
+}
+
+.animated-button.previous {
+    --before-content: "<<";
+    --hover-offset: 1em;
+}
+
+.animated-button.next {
+    --after-content: ">>";
+    --hover-offset: -1em;
+}
+
+.animated-button > span {
+    transition: transform 200ms; 
+}
+
+.animated-button:hover > span {
+    transform: translateX(var(--hover-offset));
+}
+
+.animated-button > span::before,
+.animated-button > span::after {
+    position: absolute;
+    transition: opacity 200ms;
+    opacity: 0;
+}
+
+.animated-button > span::before {
+    content: var(--before-content);
+    right: calc(100% + 0.5em);
+}
+
+.animated-button > span::after {
+    content: var(--after-content);
+    left: calc(100% + 0.5em);
+}
+
+.animated-button:hover > span::before,
+.animated-button:hover > span::after {
+    opacity: 1;
+}
+
+.window {
+    --header-height: 70px;
+    --content-height: 500px;
+    --footer-height: 40px;
+    
+    --border-color: var(--main-theme-color);
+    --border-width: 3px;
+    --border-style: solid;
+    font-size: x-large;
+    
+    width: 800px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows:
+    var(--header-height)
+    var(--content-height)
+    var(--footer-height);
+    animation: show-window 600ms;
+}
+
+.window-header {
+    background-color: var(--secondary-theme-color);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 0 0 1em var(--secondary-theme-color);
+}
+
+.window-title {
+    margin-inline: 1em;
+    animation: show-title 600ms;
+}
+
+.window-content {
+    color: var(--secondary-theme-color);
+    background-color: var(--main-theme-color);
+}
+
+.window-footer {
+    background-color: var(--secondary-theme-color);
+}
+
+.window-list {
+    list-style-type: none;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding: 1em 1.6em;
+    animation: show-list 600ms;
 }
