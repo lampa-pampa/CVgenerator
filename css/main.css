@@ -42,6 +42,8 @@ header {
 
 nav ul {
     list-style-type: none;
+    display: flex;
+    column-gap: 1em;
 }
 
 main {
