@@ -1,35 +1,46 @@
-const subpages_dir = "subpages"
-const subpages_paths = {
-    home: "home",
-    form: "form"
+const subpages = {
+    dir: "subpages",
+    paths: {
+        home: "home",
+        form: "form",
+    }
+}
+const images = {
+    dir: "../../img",
+    paths: {
+        icon: "icon.png",
+        baner: "baner.png",
+    }
 }
 
-function create_subpage_path(subpage)
+function create_path(dir, path_name)
 {
-    return `/${subpages_dir}/${subpages_paths[subpage]}/`
+    return `${dir.dir}/${dir.paths[path_name]}`
 }
 
 const config = { 
     router: {
-        home_page_path: create_subpage_path("home"),
+        home_page_path: create_path(subpages, "home"),
     },
     main_window: {
         ui: {
             section_class_names: {
+                head: "head",
                 header: "main-header",
                 footer: "main-footer",
             },
             focusable_class_name: "focusable"
         },
         content: {
+            head: {
+                icon_path: create_path(images, "icon"),
+            },
             header: {
-                baner_path: "../../img/baner.png",
-                nav: [
-                    {
-                        text: "Home",
-                        href: create_subpage_path("home")
-                    }
-                ]
+                baner_path: create_path(images, "baner"),
+                nav: [{
+                    text: "Home",
+                    href: create_path(subpages, "home")
+                }]
             },
             footer: {
                 text: "Author: Marek Kandulski"
@@ -53,7 +64,7 @@ const config = {
                     button: {
                         text: "CREATE",
                         title_prefix: "Create CV for ",
-                        form_path: create_subpage_path("form"),
+                        form_path: create_path(subpages, "form"),
                     },
                 }
             },
@@ -62,7 +73,7 @@ const config = {
                 link: {
                     text: "create CV without template",
                     profession: "custom",
-                    form_path: create_subpage_path("form"),
+                    form_path: create_path(subpages, "form"),
                 },
             },
         },

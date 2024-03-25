@@ -1,6 +1,6 @@
-import config from "../../config.js"
-import MainWindow from "../../script/main_window.js"
-import MainWindowUi from "../../script/main_window_ui.js"
+import config from "../../../config.js"
+import MainWindow from "../../../script/main_window.js"
+import MainWindowUi from "../../../script/main_window_ui.js"
 
 let main_window = null
 let form_controller = null
