@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading…</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .spinner {
@@ -29,12 +28,15 @@
     <header class="main-header"></header>
     <main class="center-content">
         <span class="spinner square border"></span>
-        <span>Loading…</span>
+        <span class="loading-text"></span>
     </main>
     <footer class="main-footer center-content"></footer>
     <script type="module">
         import config from "../../config.js"    
         import route from "./script/router.js"
+
+        document.getElementsByClassName("loading-text")[0].textContent
+            = config.router_window_content.loading_text
         route(config.home_page_path)
     </script>
 </body>

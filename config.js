@@ -23,6 +23,10 @@ const config = {
     home_page_path: paths.get("subpages", "home"),
     form_page_path: paths.get("subpages", "form"),
 
+    router_window_content: {
+        loading_text: "Loading…",
+    },
+
     main_window_content: {
         head: {
             title: "Generator",
