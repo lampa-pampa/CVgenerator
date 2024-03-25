@@ -3,10 +3,6 @@
     --content-height: 500px;
     --footer-height: 40px;
     
-    --border-color: var(--main-theme-color);
-    --border-width: 3px;
-    --border-style: solid;
-    
     width: 800px;
     font-size: x-large;
     overflow: hidden;

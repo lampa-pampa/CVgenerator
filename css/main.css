@@ -5,7 +5,10 @@
     --main-theme-color: #fefefe;
     --secondary-theme-color: #010101;
     --gradient-color: #1100ff;
-    --border-radius: 3px;
+    --border-width: 3px;
+    --border-style: solid;
+    --border-color: var(--main-theme-color);
+    --border-radius: var(--border-width);
 }
 
 ::selection {
