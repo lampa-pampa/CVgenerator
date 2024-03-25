@@ -78,6 +78,22 @@ class WindowFactory
                     kwargs.windows_content.name
                 )
             },
+            "10": () => {
+                return new NameWindow(
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
+                )
+            },
+            "11": () => {
+                return new NameWindow(
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
+                )
+            },
         }
     }
 
