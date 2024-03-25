@@ -6,6 +6,12 @@ class HomeWindow
         this._node_creator = node_creator
         this._content = content
         this._professions = professions
+        this._create_window()
+        this._clear_form_data()
+    }
+
+    _create_window()
+    {
         this._create_header()
         this._create_content()
         this._create_footer()
@@ -40,6 +46,11 @@ class HomeWindow
                 this._handle_profession_button_click
             )
         )
+    }
+
+    _clear_form_data()
+    {
+        sessionStorage.removeItem("profession")
     }
 
     _handle_profession_button_click()
