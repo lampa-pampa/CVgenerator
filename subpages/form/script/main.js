@@ -35,10 +35,13 @@ function _main()
             section_class_names: config.window_ui.section_class_names,
         }),
         config.form_window_codes,
+        config.code_to_form_window_name,
         {
             skills: config.profession_code_to_skill_codes[profession_code],
             interests: config.profession_code_to_interest_codes[profession_code],
-        }
+        },
+        config.code_to_skill_name,
+        config.code_to_interest_name,
     )
     main_window.enable_all_focusable_nodes()
 }
