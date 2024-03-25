@@ -5,25 +5,22 @@ import HomeWindowUi from "./home_window_ui.js"
 import HomeWindow from "./home_window.js"
 
 
-let main_window = null
-let window = null
 _main()
 
 function _main()
 {
-    main_window = new MainWindow(
+    new HomeWindow(
+        new HomeWindowUi(
+            config.window_ui.section_class_names,
+        ),
+        config.home_window_content,
+        Object.keys(config.professions),
+    )
+    new MainWindow(
         new MainWindowUi(
             config.main_window.ui.section_class_names,
             config.main_window.ui.focusable_class_name
         ),
         config.main_window.content
-    )
-    window = new HomeWindow(
-        new HomeWindowUi(
-            config.window_ui.section_class_names,
-        ),
-        config.window_contents.home,
-        Object.keys(config.professions),
-    )
-    main_window.enable_all_focusable_nodes()
+    ).enable_all_focusable_nodes()
 }

@@ -22,6 +22,7 @@ const config = {
     router: {
         home_page_path: create_path(subpages, "home"),
     },
+
     main_window: {
         ui: {
             section_class_names: {
@@ -47,6 +48,7 @@ const config = {
             },
         },
     },
+
     window_ui: {
         section_class_names: {
             header: "window-header",
@@ -54,70 +56,101 @@ const config = {
             footer: "window-footer",
         },
     },
-    window_contents: {
-        home: {
-            header: {
-                text: "Choose your profession",
-            },
-            content: {
-                list_element: {
-                    button: {
-                        text: "CREATE",
-                        title_prefix: "Create CV for ",
-                        form_path: create_path(subpages, "form"),
-                    },
-                }
-            },
-            footer: {
-                text: "Can't find your profession?",
-                link: {
-                    text: "create CV without template",
-                    profession: "custom",
+
+    home_window_content: {
+        header: {
+            text: "Choose your profession",
+        },
+        content: {
+            list_element: {
+                button: {
+                    text: "CREATE",
+                    title_prefix: "Create CV for ",
                     form_path: create_path(subpages, "form"),
                 },
+            }
+        },
+        footer: {
+            text: "Can't find your profession?",
+            link: {
+                text: "create CV without template",
+                profession: "custom",
+                form_path: create_path(subpages, "form"),
             },
         },
     },
+
+    form_windows_content: {
+        name: {
+            header: {
+                title: "Name and Surname"
+            },
+            content: {
+
+            },
+        },
+    },
+
+    form_window_names: [
+        "name",
+        "contact",
+        "experience",
+        "education",
+        "about me",
+        "skills",
+        "interests",
+        "additional info",
+        "download",
+    ],
+
     skills: {
         1: "skill 1",
         2: "skill 2",
         3: "skill 3",
     },
+
     interests: {
         1: "interest 1",
         2: "interest 2",
         3: "interest 3",
     },
+
     professions: {
         "Profession 1": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
+            hints: {
+                skills: [
+                    1,
+                    2
+                ],
+                interests: [
+                    1,
+                    2
+                ],
+            }
         },
         "Profession 2": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
+            hints: {
+                skills: [
+                    1,
+                    2
+                ],
+                interests: [
+                    1,
+                    2
+                ],
+            }
         },
         "Profession 3": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
+            hints: {
+                skills: [
+                    1,
+                    2
+                ],
+                interests: [
+                    1,
+                    2
+                ],
+            }
         },
     },
 
