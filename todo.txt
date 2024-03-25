@@ -1,7 +1,5 @@
 name, surname
 
-company name
-
 contact
 
 experience
