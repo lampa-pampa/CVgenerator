@@ -1,35 +1,16 @@
 class MainWindow
 {
-    constructor(ui, node_creator, content)
+    constructor(ui, content)
     {
         this._ui = ui
-        this._node_creator = node_creator
         this._content = content
         this._create_window()
     }
 
     _create_window()
     {
-        this._create_header()
-        this._create_footer()
-    }
-
-    _create_header()
-    {
-        this._ui.draw_header(
-            this._node_creator.create_header(
-                this._content.header
-            )
-        )
-    }
-
-    _create_footer()
-    {
-        this._ui.draw_footer(
-            this._node_creator.create_footer(
-                this._content.footer
-            )
-        )
+        this._ui.create_header(this._content.header)
+        this._ui.create_footer(this._content.footer)
     }
 
     enable_all_focusable_nodes()
