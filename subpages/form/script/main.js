@@ -1,11 +1,11 @@
 import config from "../../../config.js"
+import Form from "./form.js"
+import FormUi from "./form_ui.js"
+import FormWindowFactory from "./form_window_factory.js"
 import MainWindow from "../../../script/main_window.js"
 import MainWindowUi from "../../../script/main_window_ui.js"
 import route from "../../../script/router.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
-import Form from "./form.js"
-import FormUi from "./form_ui.js"
-import FormWindowFactory from "./form_window_factory.js"
 
 let main_window = null
 let form_controller = null

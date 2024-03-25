@@ -1,9 +1,8 @@
 import config from "../../../config.js"
+import HomeWindow from "./home_window.js"
+import HomeWindowUi from "./home_window_ui.js"
 import MainWindow from "../../../script/main_window.js"
 import MainWindowUi from "../../../script/main_window_ui.js"
-import HomeWindowUi from "./home_window_ui.js"
-import HomeWindow from "./home_window.js"
-
 
 _main()
 

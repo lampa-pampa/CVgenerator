@@ -1,5 +1,5 @@
-import Ui from "./ui.js"
 import route from "./router.js"
+import Ui from "./ui.js"
 
 class MainWindowUi
 {
