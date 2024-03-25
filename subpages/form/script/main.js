@@ -27,10 +27,12 @@ function _main()
         config.main_window_content,
     )
     form_controller = new Form(
-        new FormUi(),
+        new FormUi(
+            config.form_ui.section_class_names,
+        ),
         new WindowFactory({
             windows_content: config.form_windows_content,
-            section_class_names: config.window_ui.section_class_names
+            section_class_names: config.window_ui.section_class_names,
         }),
         config.form_window_codes,
         {
