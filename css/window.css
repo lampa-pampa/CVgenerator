@@ -45,7 +45,7 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding: 1em 1.6em;
-    scrollbar-color: var(--secondary-theme-color) var(--main-theme-color);
+    scrollbar-color: var(--secondary-theme-color) transparent;
 }
 
 .window-list > li {
