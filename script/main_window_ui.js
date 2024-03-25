@@ -27,7 +27,7 @@ class MainWindowUi
     {
         Ui.draw_nodes_in([
                 this._create_baner(content.baner_path),
-                this._create_nav(content.nav),
+                this._create_nav(content.nav_links),
             ],
         this._section_class_names.header)
     }
@@ -40,23 +40,26 @@ class MainWindowUi
         })
     }
 
-    _create_nav(content)
+    _create_nav(nav_links)
     {
         return Ui.new_node("nav", {}, [
             Ui.new_node("ul", {
                 tabIndex: "-1",
                 className: "max-height"
             }, 
-                this._create_nav_links(content)
+                this._create_nav_links(nav_links)
             )
         ])
     }
 
-    _create_nav_links(content)
+    _create_nav_links(nav_links)
     {
         const links = new Array()
-        for(const nav_link of content)
-            links.push(this._create_nav_link(nav_link))
+        for(const link_text in nav_links)
+            links.push(this._create_nav_link({
+                text: link_text,
+                href: nav_links[link_text],
+            }))
         return links
     }
 
