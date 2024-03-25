@@ -1,3 +1,5 @@
+import route from "../../../script/router.js"
+
 class HomeWindow
 {
     constructor(ui, node_creator, content, professions)
@@ -15,7 +17,6 @@ class HomeWindow
         this._create_header()
         this._create_content()
         this._create_footer()
-        this._ui.enable_all_focusable_nodes()
     }
 
     _create_header()
@@ -56,7 +57,7 @@ class HomeWindow
     _handle_profession_button_click()
     {
         sessionStorage.setItem("profession", JSON.stringify(this.profession))
-        document.location.pathname = this.form_path
+        route(this.form_path)
     }
 }
 

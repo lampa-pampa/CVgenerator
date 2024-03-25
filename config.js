@@ -6,26 +6,27 @@ const subpages_paths = {
 
 function create_subpage_path(subpage)
 {
-    return `${subpages_dir}/${subpages_paths[subpage]}/`
+    return `/${subpages_dir}/${subpages_paths[subpage]}/`
 }
 
 const config = { 
     router: {
         home_page_path: create_subpage_path("home"),
     },
-    main: {
+    main_window: {
         ui: {
             section_class_names: {
                 header: "main-header",
                 footer: "main-footer",
             },
+            focusable_class_name: "focusable"
         },
         content: {
             header: {
                 baner_path: "../../img/baner.png",
                 nav: [
                     {
-                        text: "home",
+                        text: "Home",
                         href: create_subpage_path("home")
                     }
                 ]
@@ -35,36 +36,33 @@ const config = {
             },
         },
     },
-    window: {
-        ui: {
-            section_class_names: {
-                header: "window-header",
-                content: "window-content",
-                footer: "window-footer",
-            },
-            focusable_class_name: "focusable"
+    window_ui: {
+        section_class_names: {
+            header: "window-header",
+            content: "window-content",
+            footer: "window-footer",
         },
-        content: {
-            home: {
-                header: {
-                    text: "Choose your profession",
-                },
-                content: {
-                    list_element: {
-                        button: {
-                            text: "CREATE",
-                            title_prefix: "Create CV for ",
-                            form_path: create_subpage_path("form"),
-                        },
-                    }
-                },
-                footer: {
-                    text: "Can't find your profession?",
-                    link: {
-                        text: "create CV without template",
-                        profession: "custom",
+    },
+    window_contents: {
+        home: {
+            header: {
+                text: "Choose your profession",
+            },
+            content: {
+                list_element: {
+                    button: {
+                        text: "CREATE",
+                        title_prefix: "Create CV for ",
                         form_path: create_subpage_path("form"),
                     },
+                }
+            },
+            footer: {
+                text: "Can't find your profession?",
+                link: {
+                    text: "create CV without template",
+                    profession: "custom",
+                    form_path: create_subpage_path("form"),
                 },
             },
         },

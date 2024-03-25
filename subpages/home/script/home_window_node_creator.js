@@ -1,4 +1,4 @@
-import new_node from "./node_creator.js"
+import new_node from "../../../script/node_creator.js"
 
 class HomeNodeCreator
 {

@@ -8,11 +8,9 @@
 <body>
     Loading…
     <script type="module">
-        import config_dict from "../../config.js"
-        import ConfigReader from "../../script/config_reader.js"
-    
-        const config = ConfigReader.read(config_dict)
-        document.location.pathname = config.router.home_page_path
+        import config from "../../config.js"    
+        import route from "./script/router.js"
+        route(config.router.home_page_path)
     </script>
 </body>
 </html>
