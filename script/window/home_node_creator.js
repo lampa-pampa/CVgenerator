@@ -54,7 +54,7 @@ class HomeNodeCreator
 
     create_footer(content, handler)
     {
-        return [
+        return new_node("span", {}, [
             new_node("span", {
                 textContent: content.text,
             }),
@@ -68,7 +68,7 @@ class HomeNodeCreator
                     form_path: content.link.form_path,
                 })
             }),
-        ]
+        ])
     }
 }
 
