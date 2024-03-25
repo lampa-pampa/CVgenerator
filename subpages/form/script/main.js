@@ -5,7 +5,7 @@ import route from "../../../script/router.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 import Form from "./form.js"
 import FormUi from "./form_ui.js"
-import WindowFactory from "./window_factory.js"
+import FormWindowFactory from "./form_window_factory.js"
 
 let main_window = null
 let form_controller = null
@@ -30,7 +30,7 @@ function _main()
         new FormUi(
             config.form_ui.section_class_names,
         ),
-        new WindowFactory({
+        new FormWindowFactory({
             windows_content: config.form_windows_content,
             section_class_names: config.window_ui.section_class_names,
         }),

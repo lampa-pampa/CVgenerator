@@ -1,7 +1,7 @@
 import NameWindow from "./form_windows/name_window.js"
 import NameWindowUi from "./form_windows/name_window_ui.js"
 
-class WindowFactory
+class FormWindowFactory
 {
     constructor(kwargs)
     {
@@ -103,4 +103,4 @@ class WindowFactory
     }
 }
 
-export default WindowFactory
+export default FormWindowFactory
