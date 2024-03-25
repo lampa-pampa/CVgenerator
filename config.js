@@ -32,7 +32,7 @@ const config = {
         },
         content: {
             head: {
-                title: "CV Generator",
+                title: "Generator",
                 icon_path: create_path(images, "icon"),
             },
             header: {
