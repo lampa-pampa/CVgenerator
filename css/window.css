@@ -6,7 +6,6 @@
     --border-color: var(--main-theme-color);
     --border-width: 3px;
     --border-style: solid;
-    --animation-duration: 600ms;
     
     width: 800px;
     font-size: x-large;
@@ -16,7 +15,6 @@
         var(--header-height)
         var(--content-height)
         var(--footer-height);
-    animation: show-window var(--animation-duration);
 }
 
 .window-header {
@@ -28,7 +26,6 @@
 
 .window-title {
     margin-inline: 1em;
-    animation: show-title var(--animation-duration);
 }
 
 .window-content {
@@ -46,8 +43,4 @@
     scroll-behavior: smooth;
     padding: 1em 1.6em;
     scrollbar-color: var(--secondary-theme-color) transparent;
-}
-
-.window-list > li {
-    animation: show-list var(--animation-duration);
 }

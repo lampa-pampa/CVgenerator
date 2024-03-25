@@ -1,5 +1,5 @@
 .window {
-    --show-animation-offset: -100%;
+    --show-animation-slide-direction: -1;
 }
 
 .window-list li {
