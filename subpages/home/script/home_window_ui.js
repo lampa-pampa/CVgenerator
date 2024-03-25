@@ -16,65 +16,66 @@ class HomeWindowUi {
         this._section_class_names.header)
     }
 
-    create_content(professions, content, handler)
+    create_content(kwargs)
     {
         Ui.draw_nodes_in(
             Ui.new_node("ul", {
                 tabIndex: "-1",
                 className: "window-list max-height",
             }, 
-                this._create_list_elements(professions, content, handler)
+                this._create_list_elements(kwargs)
             ),
         this._section_class_names.content)
     }
 
-    _create_list_elements(professions, content, handler)
+    _create_list_elements(kwargs)
     {
         const elements = new Array()
-        for(const profession of professions)
+        for(const profession_code of kwargs.content.profession_codes)
             elements.push(
-                this._create_list_element(profession, content, handler)
+                this._create_list_element({
+                    profession_code: profession_code,
+                    profession_name: kwargs.code_to_profession_name[
+                        profession_code
+                    ],
+                    content: kwargs.content,
+                    handler: kwargs.handler,
+                })
             )
         return elements                   
     }
 
-    _create_list_element(profession, content, handler)
+    _create_list_element(kwargs)
     {
         return Ui.new_node("li", {}, [
             Ui.new_node("span", {
-                textContent: profession
+                textContent: kwargs.profession_name
             }, []),
             Ui.new_node("button", {
                 className: "button max-height center-content animated-button next border focusable",
-                title: content.list_element.button.title_prefix + profession
+                title: kwargs.content.list_element.button.title_prefix + kwargs.profession_name
             }, [
                 Ui.new_node("span", {
-                    textContent: content.list_element.button.text
+                    textContent: kwargs.content.list_element.button.text
                 }, [])
             ], {
-                click: () => handler(
-                    profession,
-                    content.list_element.button.form_path
-                )
+                click: () => kwargs.handler(kwargs.profession_code)
             })
         ])
     }
 
-    create_footer(content, handler)
+    create_footer(kwargs)
     {
             Ui.draw_nodes_in(Ui.new_node("span", {}, [
                 Ui.new_node("span", {
-                    textContent: content.text,
+                    textContent: kwargs.content.text,
                 }),
                 Ui.new_node("span", {
                     className: "link focusable",
                     tabIndex: "0",
-                    textContent: content.link.text,
+                    textContent: kwargs.content.link.text,
                 }, [], {
-                    click: () => handler(
-                        content.link.profession,
-                        content.link.form_path,
-                    )
+                    click: kwargs.handler
                 }),
             ]),
         this._section_class_names.footer)

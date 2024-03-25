@@ -1,39 +1,46 @@
 import route from "../../../script/router.js"
+import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 class HomeWindow
 {
-    constructor(ui, content, professions)
+    constructor(ui, kwargs)
     {
         this._ui = ui
-        this._content = content
-        this._professions = professions
-        this._create_window()
-        this._clear_form_data()
+        this._create_window(kwargs)
+        this._clear_form_data(kwargs.profession_code_storage_key)
     }
 
-    _create_window()
+    _create_window(kwargs)
     {
-        this._ui.create_header(this._content.header)
-        this._ui.create_content(
-            this._professions,
-                this._content.content,
-                this._handle_profession_button_click,
-        )
-        this._ui.create_footer(
-            this._content.footer,
-            this._handle_profession_button_click,
-        )
+        this._ui.create_header(kwargs.content.header)
+        this._ui.create_content({
+            code_to_profession_name: kwargs.code_to_profession_name,
+            content: kwargs.content.content,
+            handler: (profession_code) => this._handle_profession_button_click(
+                kwargs.profession_code_storage_key,
+                profession_code,
+                kwargs.form_page_path,
+            )
+        })
+        this._ui.create_footer({
+            content: kwargs.content.footer,
+            handler: () => this._handle_profession_button_click(
+                kwargs.profession_code_storage_key,
+                kwargs.custom_profession_code,
+                kwargs.form_page_path,
+            )
+        })
     }
 
-    _handle_profession_button_click(profession, path)
+    _handle_profession_button_click(storage_key, profession_code, path)
     {
-        sessionStorage.setItem("profession", JSON.stringify(profession))
+        SessionStorageManager.save(storage_key, profession_code)
         route(path)
     }
 
-    _clear_form_data()
+    _clear_form_data(storage_key)
     {
-        sessionStorage.removeItem("profession")
+        SessionStorageManager.remove(storage_key)
     }
 }
 

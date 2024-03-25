@@ -3,69 +3,87 @@ import NameWindowUi from "./form_windows/name_window_ui.js"
 
 class WindowFactory
 {
-    constructor(window_contents)
+    constructor(kwargs)
     {
-        this.windows = {
-            "name": () => {
+        this.window_code_to_creator = {
+            "1": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "contact": () => {
+            "2": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "experience": () => {
+            "3": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "education": () => {
+            "4": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "about me": () => {
+            "5": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "skills": () => {
+            "6": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "interests": () => {
+            "7": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "additional info": () => {
+            "8": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
-            "download": () => {
+            "9": () => {
                 return new NameWindow(
-                    new NameWindowUi(),
-                    window_contents.name
+                    new NameWindowUi(
+                        kwargs.section_class_names
+                    ),
+                    kwargs.windows_content.name
                 )
             },
         }
     }
 
-    create(window_name)
+    create(window_code)
     {
-        return this.windows[window_name]()
+        return this.window_code_to_creator[window_code]()
     }
 }
 
