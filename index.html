@@ -1,3 +1,18 @@
-<script>
-    document.location.pathname = "subpages/home/"
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading…</title>
+</head>
+<body>
+    Loading…
+    <script type="module">
+        import config_dict from "../../config.js"
+        import ConfigReader from "../../script/config_reader.js"
+    
+        const config = ConfigReader.read(config_dict)
+        document.location.pathname = config.router.home_page_path
+    </script>
+</body>
+</html>

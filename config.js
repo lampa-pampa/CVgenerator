@@ -10,6 +10,9 @@ function create_subpage_path(subpage)
 }
 
 const config = { 
+    router: {
+        home_page_path: create_subpage_path("home"),
+    },
     main: {
         ui: {
             section_class_names: {
