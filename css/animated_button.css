@@ -1,0 +1,43 @@
+.animated-button {
+    position: relative;
+}
+
+.animated-button.previous {
+    --before-content: "<<";
+    --hover-offset: 1em;
+}
+
+.animated-button.next {
+    --after-content: ">>";
+    --hover-offset: -1em;
+}
+
+.animated-button > span {
+    transition: transform 200ms; 
+}
+
+.animated-button:hover > span {
+    transform: translateX(var(--hover-offset));
+}
+
+.animated-button > span::before,
+.animated-button > span::after {
+    position: absolute;
+    transition: opacity 200ms;
+    opacity: 0;
+}
+
+.animated-button > span::before {
+    content: var(--before-content);
+    right: calc(100% + 0.5em);
+}
+
+.animated-button > span::after {
+    content: var(--after-content);
+    left: calc(100% + 0.5em);
+}
+
+.animated-button:hover > span::before,
+.animated-button:hover > span::after {
+    opacity: 1;
+}

@@ -1,3 +1,7 @@
+.window {
+    --show-animation-offset: -100%;
+}
+
 .window-list li {
     margin-block: 0.8em;
     height: 2.4em;
@@ -17,38 +21,14 @@
 .window-footer {
     font-size: medium;
     display: flex;
-    align-items: center;
     padding-inline: 1em;
-    column-gap: 1em;
+    align-items: center;
 }
 
-@keyframes show-window {
-    0% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: none;
-    }
+.window-footer > span {
+    animation: show-title var(--animation-duration);
 }
 
-@keyframes show-list {
-    0%, 50% {
-        opacity: 0;
-        transform: translateY(20%);
-    }
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-@keyframes show-title {
-    0%, 50% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: none;
-        opacity: 1;
-    }
+.window-footer .link{
+    margin-inline: 1em;
 }

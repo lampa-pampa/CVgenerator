@@ -1,0 +1,53 @@
+.window {
+    --header-height: 70px;
+    --content-height: 500px;
+    --footer-height: 40px;
+    
+    --border-color: var(--main-theme-color);
+    --border-width: 3px;
+    --border-style: solid;
+    --animation-duration: 600ms;
+    
+    width: 800px;
+    font-size: x-large;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows:
+        var(--header-height)
+        var(--content-height)
+        var(--footer-height);
+    animation: show-window var(--animation-duration);
+}
+
+.window-header {
+    background-color: var(--secondary-theme-color);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.window-title {
+    margin-inline: 1em;
+    animation: show-title var(--animation-duration);
+}
+
+.window-content {
+    color: var(--secondary-theme-color);
+    background-color: var(--main-theme-color);
+}
+
+.window-footer {
+    background-color: var(--secondary-theme-color);
+}
+
+.window-list {
+    list-style-type: none;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding: 1em 1.6em;
+    scrollbar-color: var(--secondary-theme-color) var(--main-theme-color);
+}
+
+.window-list > li {
+    animation: show-list var(--animation-duration);
+}

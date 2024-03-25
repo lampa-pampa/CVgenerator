@@ -1,0 +1,57 @@
+:root {
+    --header-height: 70px;
+    --footer-height: 20px;
+
+    --main-theme-color: #fefefe;
+    --secondary-theme-color: #010101;
+    --gradient-color: #1100ff;
+    --border-radius: 3px;
+}
+
+::selection {
+    color: var(--main-theme-color);
+    background: var(--gradient-color);
+}
+
+body {
+    min-height: 100svh;
+    font-weight: 800;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: var(--main-theme-color);
+
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-template-rows: 
+        1fr
+        var(--footer-height);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: var(--header-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 7em;
+    background-color: var(--secondary-theme-color);
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+main {
+    background: linear-gradient(
+        var(--gradient-color) 50%,
+        var(--secondary-theme-color));
+    padding-block: 5em;
+}
+
+footer {
+    background-color: var(--secondary-theme-color);
+    font-size: medium;
+}
