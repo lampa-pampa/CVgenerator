@@ -9,6 +9,7 @@ class MainWindow
 
     _create_window()
     {
+        this._ui.create_head(this._content.head)
         this._ui.create_header(this._content.header)
         this._ui.create_footer(this._content.footer)
     }

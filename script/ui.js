@@ -27,6 +27,14 @@ class Ui
             container.appendChild(child)
     }
 
+    static draw_nodes_in_head(child)
+    {
+        if(child?.[Symbol.iterator])
+            child.forEach(node => document.head.appendChild(node));
+        else
+            document.head.appendChild(child)
+    }
+
     static clear_node(node)
     {
         while(node.firstChild)

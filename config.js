@@ -1,12 +1,12 @@
 const subpages = {
-    dir: "subpages",
+    dir: "subpages/",
     paths: {
         home: "home",
         form: "form",
     }
 }
 const images = {
-    dir: "../../img",
+    dir: "../../img/",
     paths: {
         icon: "icon.png",
         baner: "baner.png",
@@ -15,7 +15,7 @@ const images = {
 
 function create_path(dir, path_name)
 {
-    return `${dir.dir}/${dir.paths[path_name]}`
+    return dir.dir + dir.paths[path_name]
 }
 
 const config = { 
@@ -25,7 +25,6 @@ const config = {
     main_window: {
         ui: {
             section_class_names: {
-                head: "head",
                 header: "main-header",
                 footer: "main-footer",
             },
@@ -33,6 +32,7 @@ const config = {
         },
         content: {
             head: {
+                title: "CV Generator",
                 icon_path: create_path(images, "icon"),
             },
             header: {
@@ -110,56 +110,6 @@ const config = {
             ],
         },
         "Profession 3": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
-        },
-        "Profession 4": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
-        },
-        "Profession 5": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
-        },
-        "Profession 6": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
-        },
-        "Profession 7": {
-            possible_skills: [
-                1,
-                2
-            ],
-            possible_interests: [
-                1,
-                2
-            ],
-        },
-        "Profession 8": {
             possible_skills: [
                 1,
                 2

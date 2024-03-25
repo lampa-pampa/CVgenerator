@@ -9,6 +9,20 @@ class MainWindowUi
         this._focusable_class_name = focusable_class_name
     }
 
+    create_head(content)
+    {
+        Ui.draw_nodes_in_head([
+            Ui.new_node("title", {
+                textContent: content.title    
+            }),
+            Ui.new_node("link", {
+                rel: "shortcut icon",
+                href: content.icon_path,
+                type: "icon",
+            }),
+        ])
+    }
+
     create_header(content)
     {
         Ui.draw_nodes_in([
