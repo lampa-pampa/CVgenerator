@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading…</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .spinner {
+            height: 2.5em;
+            --border-radius: 50%;
+            --border-width: 0.3em;
+            border-right-color: transparent;
+            animation: spin 500ms infinite;
+            margin-right: 1em;
+        }
+
+        @keyframes spin {
+            from {
+                transform: none;
+            }
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
 </head>
 <body>
-    Loading…
+    <header class="main-header"></header>
+    <main class="center-content">
+        <span class="spinner square border"></span>
+        <span>Loading…</span>
+    </main>
+    <footer class="main-footer center-content"></footer>
     <script type="module">
         import config from "../../config.js"    
         import route from "./script/router.js"
