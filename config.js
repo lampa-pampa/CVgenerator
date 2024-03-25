@@ -30,10 +30,9 @@ const config = {
         },
         header: {
             baner_path: paths.get("images", "baner"),
-            nav: [{
-                text: "Home",
-                href: paths.get("subpages", "home")
-            }]
+            nav_links: {
+                "Home": paths.get("subpages", "home")
+            }
         },
         footer: {
             text: "Author: Marek Kandulski"
@@ -73,6 +72,14 @@ const config = {
         },
     },
 
+    window_ui: {
+        section_class_names: {
+            header: "window-header",
+            content: "window-content",
+            footer: "window-footer",
+        },
+    },
+
     form_windows_content: {
         name: {
             header: {
@@ -84,12 +91,11 @@ const config = {
         },
     },
 
-    window_ui: {
+    form_ui: {
         section_class_names: {
             header: "window-header",
-            content: "window-content",
             footer: "window-footer",
-        },
+        }
     },
 
     form_window_codes: [
