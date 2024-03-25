@@ -108,18 +108,22 @@ const config = {
         "7",
         "8",
         "9",
+        "10",
+        "11",
     ],
 
     code_to_form_window_name: {
-        "1": "name",
-        "2": "contact",
-        "3": "experience",
-        "4": "education",
-        "5": "about me",
-        "6": "skills",
-        "7": "interests",
-        "8": "additional info",
-        "9": "download"
+        "1": "Name & Surname",
+        "2": "Contact",
+        "3": "Experience",
+        "4": "Education",
+        "5": "About you",
+        "6": "Skills",
+        "7": "Interests",
+        "8": "Additional Info",
+        "9": "Clause",
+        "10": "Theme",
+        "11": "Generate & Download",
     },
 
     code_to_skill_name: {
