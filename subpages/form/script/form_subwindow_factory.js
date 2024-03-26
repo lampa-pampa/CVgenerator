@@ -9,7 +9,8 @@ class FormSubwindowFactory
             "1": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -18,7 +19,8 @@ class FormSubwindowFactory
             "2": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -27,7 +29,8 @@ class FormSubwindowFactory
             "3": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -36,7 +39,8 @@ class FormSubwindowFactory
             "4": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -45,7 +49,8 @@ class FormSubwindowFactory
             "5": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -54,7 +59,8 @@ class FormSubwindowFactory
             "6": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -63,7 +69,8 @@ class FormSubwindowFactory
             "7": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -72,7 +79,8 @@ class FormSubwindowFactory
             "8": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -81,7 +89,8 @@ class FormSubwindowFactory
             "9": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -90,7 +99,8 @@ class FormSubwindowFactory
             "10": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
@@ -99,7 +109,8 @@ class FormSubwindowFactory
             "11": () => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name
+                        kwargs.subwindows.name.ui.content_class_name,
+                        kwargs.subwindows.name.ui.content,
                     ), {
                         content: kwargs.subwindows.name.content
                     }
