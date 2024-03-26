@@ -19,15 +19,15 @@ class UiNode
         if(tag_name)
         {
             this._dom = document.createElement(tag_name)
-            this._set_attributes(attributes)
+            this.set_attributes(attributes)
             this.append_nodes(child_nodes)
-            this._add_listeners(listeners)
+            this.add_listeners(listeners)
         }
     }
 
     draw_nodes(nodes)
     {
-        this._clear()
+        this.clear()
         this.append_nodes(nodes)
     }
 
@@ -39,13 +39,13 @@ class UiNode
             this._dom.appendChild(nodes._dom)
     }
 
-    _clear()
+    clear()
     {
         while(this._dom.firstChild)
             this._dom.firstChild.remove()
     }
 
-    _set_attributes(attributes)
+    set_attributes(attributes)
     {
         for(const attribute in attributes)
         {
@@ -56,7 +56,7 @@ class UiNode
         }
     }
 
-    _add_listeners(listeners)
+    add_listeners(listeners)
     {
         for(const listener_name in listeners)
             this._dom.addEventListener(listener_name, listeners[listener_name])
