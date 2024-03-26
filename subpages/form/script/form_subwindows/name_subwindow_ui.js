@@ -2,14 +2,14 @@ import UiNode from "../../../../script/ui_node.js"
 
 class NameSubwindowUi
 {
-    constructor(section_class_names)
+    constructor(content_class_name)
     {
-        this._section_class_names = section_class_names
+        this._content_class_name = content_class_name
     }
 
     create_content(content)
     {
-        UiNode.get_by_class(this._section_class_names.content).draw_nodes(
+        UiNode.get_by_class(this._content_class_name).draw_nodes(
             new UiNode("span", {
                 textContent: content.text
             })
