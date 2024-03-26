@@ -1,5 +1,5 @@
 import route from "./router.js"
-import Ui from "./ui.js"
+import UiNode from "./ui_node.js"
 
 class MainWindowUi
 {
@@ -12,11 +12,11 @@ class MainWindowUi
     create_head(content)
     {
         this._preload_image(content.icon_path)
-        Ui.draw_nodes_in_head([
-            Ui.new_node("title", {
+        UiNode.get_head().append_nodes([
+            new UiNode("title", {
                 textContent: content.title    
             }),
-            Ui.new_node("link", {
+            new UiNode("link", {
                 rel: "shortcut icon",
                 href: content.icon_path,
                 type: "icon",
@@ -26,17 +26,16 @@ class MainWindowUi
 
     create_header(content)
     {
-        Ui.draw_nodes_in([
-                this._create_baner(content.baner_path),
-                this._create_nav(content.nav_links),
-            ],
-        this._section_class_names.header)
+        UiNode.get_by_class(this._section_class_names.header).draw_nodes([
+            this._create_baner(content.baner_path),
+            this._create_nav(content.nav_links),
+        ])
     }
 
     _create_baner(path)
     {
         this._preload_image(path)
-        return Ui.new_node("img", {
+        return new UiNode("img", {
             src: path,
             className: "baner",
         })
@@ -50,8 +49,8 @@ class MainWindowUi
 
     _create_nav(nav_links)
     {
-        return Ui.new_node("nav", {}, [
-            Ui.new_node("ul", {
+        return new UiNode("nav", {}, [
+            new UiNode("ul", {
                 tabIndex: "-1",
                 className: "max-height"
             }, 
@@ -73,10 +72,10 @@ class MainWindowUi
 
     _create_nav_link(content)
     {
-        return Ui.new_node("li", {
+        return new UiNode("li", {
             className: "max-height center-content",
         }, [
-            Ui.new_node("span", {
+            new UiNode("span", {
                 className: "link focusable",
                 tabIndex: "0",
                 textContent: content.text,
@@ -88,11 +87,11 @@ class MainWindowUi
 
     create_footer(content)
     {
-        Ui.draw_nodes_in(
-            Ui.new_node("span", {
+        UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
+            new UiNode("span", {
                 textContent: content.text
-            }),
-        this._section_class_names.footer)
+            })
+        )
     }
 
     enable_all_focusable_nodes()

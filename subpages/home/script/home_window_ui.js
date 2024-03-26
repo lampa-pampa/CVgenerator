@@ -1,4 +1,4 @@
-import Ui from "../../../script/ui.js"
+import UiNode from "../../../script/ui_node.js"
 
 class HomeWindowUi {
     constructor(section_class_names)
@@ -8,24 +8,24 @@ class HomeWindowUi {
 
     create_header(content)
     {
-        Ui.draw_nodes_in(
-            Ui.new_node("h2", {
+        UiNode.get_by_class(this._section_class_names.header).draw_nodes(
+            new UiNode("h2", {
                 textContent: content.text,
                 className: "window-title",
-            }),
-        this._section_class_names.header)
+            })
+        )
     }
 
     create_content(kwargs)
     {
-        Ui.draw_nodes_in(
-            Ui.new_node("ul", {
+        UiNode.get_by_class(this._section_class_names.content).draw_nodes(
+            new UiNode("ul", {
                 tabIndex: "-1",
                 className: "window-list max-height",
             }, 
                 this._create_list_elements(kwargs)
-            ),
-        this._section_class_names.content)
+            )
+        )
     }
 
     _create_list_elements(kwargs)
@@ -47,15 +47,15 @@ class HomeWindowUi {
 
     _create_list_element(kwargs)
     {
-        return Ui.new_node("li", {}, [
-            Ui.new_node("span", {
+        return new UiNode("li", {}, [
+            new UiNode("span", {
                 textContent: kwargs.profession_name
             }, []),
-            Ui.new_node("button", {
+            new UiNode("button", {
                 className: "button max-height center-content animated-button next border focusable",
                 title: kwargs.content.list_element.button.title_prefix + kwargs.profession_name
             }, [
-                Ui.new_node("span", {
+                new UiNode("span", {
                     textContent: kwargs.content.list_element.button.text
                 }, [])
             ], {
@@ -66,11 +66,12 @@ class HomeWindowUi {
 
     create_footer(kwargs)
     {
-            Ui.draw_nodes_in(Ui.new_node("span", {}, [
-                Ui.new_node("span", {
+        UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
+            new UiNode("span", {}, [
+                new UiNode("span", {
                     textContent: kwargs.content.text,
                 }),
-                Ui.new_node("span", {
+                new UiNode("span", {
                     className: "link focusable",
                     tabIndex: "0",
                     textContent: kwargs.content.link.text,
@@ -78,7 +79,7 @@ class HomeWindowUi {
                     click: kwargs.handler
                 }),
             ]),
-        this._section_class_names.footer)
+        )
     }
 }
 
