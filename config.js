@@ -23,35 +23,31 @@ const config = {
     home_page_path: paths.get("subpages", "home"),
     form_page_path: paths.get("subpages", "form"),
 
+    main_ui: {
+        section_class_names: {
+            header: "main-header",
+            footer: "main-footer",
+        },
+        focusable_class_name: "focusable",
+        content: {
+            head: {
+                title: "Generator",
+                icon_path: paths.get("images", "icon"),
+            },
+            header: {
+                baner_path: paths.get("images", "baner"),
+                nav_links: {
+                    "Home": paths.get("subpages", "home"),
+                },
+            },
+            footer: "Author: Marek Kandulski",
+        },
+    },
+
     window: {
         router: {
             content: {
                 loading_text: "Loading…",
-            },
-        },
-
-        main: {
-            content: {
-                head: {
-                    title: "Generator",
-                    icon_path: paths.get("images", "icon"),
-                },
-                header: {
-                    baner_path: paths.get("images", "baner"),
-                    nav_links: {
-                        "Home": paths.get("subpages", "home"),
-                    },
-                },
-                footer: {
-                    text: "Author: Marek Kandulski",
-                },
-            },
-            ui: {
-                section_class_names: {
-                    header: "main-header",
-                    footer: "main-footer",
-                },
-                focusable_class_name: "focusable",
             },
         },
 
@@ -82,7 +78,7 @@ const config = {
             ui: {
                 section_class_names: {
                     header: "window-header",
-                    content: "window-content",
+                    list: "window-content",
                     footer: "window-footer",
                 },
             },
@@ -92,18 +88,13 @@ const config = {
             ui: {
                 section_class_names: {
                     header: "window-header",
+                    subwindow_display: "window-content",
                     footer: "window-footer",
                 },
-            },
-            subwindow: {
-                name: {
-                    content: {
-                        text: "example text",
-                    },
-                    ui: {
-                        section_class_names: {
-                            content: "window-content",
-                        },
+                content: {
+                    step_number: {
+                        prefix: "Step ",
+                        suffix: " | ",
                     },
                 },
             },
@@ -120,6 +111,16 @@ const config = {
                 "10",
                 "11",
             ],
+            subwindow: {
+                name: {
+                    content: {
+                        text: "example text",
+                    },
+                    ui: {
+                        content_class_name: "window-list",
+                    },
+                },
+            },
         },
     },
 

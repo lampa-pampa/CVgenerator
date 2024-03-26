@@ -1,34 +1,42 @@
 import route from "./router.js"
 import UiNode from "./ui_node.js"
 
-class MainWindowUi
+class MainUi
 {
-    constructor(section_class_names, focusable_class_name)
+    constructor(section_class_names, focusable_class_name, content)
     {
         this._section_class_names = section_class_names
         this._focusable_class_name = focusable_class_name
+        this._content = content
     }
 
-    create_head(content)
+    create_window()
     {
-        this._preload_image(content.icon_path)
+        this._create_head()
+        this._create_header()
+        this._create_footer()
+    }
+
+    _create_head()
+    {
+        this._preload_image(this._content.head.icon_path)
         UiNode.get_head().append_nodes([
             new UiNode("title", {
-                textContent: content.title    
+                textContent: this._content.head.title    
             }),
             new UiNode("link", {
                 rel: "shortcut icon",
-                href: content.icon_path,
+                href: this._content.head.icon_path,
                 type: "icon",
             }),
         ])
     }
 
-    create_header(content)
+    _create_header()
     {
         UiNode.get_by_class(this._section_class_names.header).draw_nodes([
-            this._create_baner(content.baner_path),
-            this._create_nav(content.nav_links),
+            this._create_baner(this._content.header.baner_path),
+            this._create_nav(this._content.header.nav_links),
         ])
     }
 
@@ -85,11 +93,11 @@ class MainWindowUi
         ])
     }
 
-    create_footer(content)
+    _create_footer()
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
             new UiNode("span", {
-                textContent: content.text
+                textContent: this._content.footer
             })
         )
     }
@@ -109,4 +117,4 @@ class MainWindowUi
     }
 }
 
-export default MainWindowUi
+export default MainUi

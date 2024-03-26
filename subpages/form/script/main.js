@@ -2,8 +2,7 @@ import config from "../../../config.js"
 import Form from "./form.js"
 import FormUi from "./form_ui.js"
 import FormSubwindowFactory from "./form_subwindow_factory.js"
-import MainWindow from "../../../script/main_window.js"
-import MainWindowUi from "../../../script/main_window_ui.js"
+import MainUi from "../../../script/main_ui.js"
 import route from "../../../script/router.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
@@ -19,15 +18,14 @@ function _main()
         route(config.home_page_path)
 
     form = new Form(
-        new MainWindow(
-            new MainWindowUi(
-                config.window.main.ui.section_class_names,
-                config.window.main.ui.focusable_class_name,
-            ),
-            config.window.main.content,
+        new MainUi(
+            config.main_ui.section_class_names,
+            config.main_ui.focusable_class_name,
+            config.main_ui.content,
         ),
         new FormUi(
             config.window.form.ui.section_class_names,
+            config.window.form.ui.content,
         ),
         new FormSubwindowFactory({
             subwindows: config.window.form.subwindow,

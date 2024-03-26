@@ -1,28 +1,23 @@
 class Form
 {
     constructor(
-        main_window,
+        main_ui,
         ui,
         window_factory,
         subwindow_codes,
         subwindow_code_to_name,
     ){
-        this._main_window = main_window
+        this._main_ui = main_ui
         this._ui = ui
         this._window_factory = window_factory
         this._subwindow_codes = subwindow_codes
         this._subwindow_code_to_name = subwindow_code_to_name
-        this._create_window()
+        this._main_ui.create_window()
+        this._ui.create_window()
 
         this._subwindow = null
         this._cur_window_code_index = 0
         this._open_subwindow(0)
-    }
-
-    _create_window()
-    {
-        this._ui.create_header()
-        this._ui.create_footer()
     }
 
     _open_subwindow(code_index)
@@ -31,13 +26,23 @@ class Form
             this._subwindow_codes[code_index]
         )
         this._cur_window_code_index = code_index
+        this._update_subwindow_title()
         this._update_progress_bar()
-        this._main_window.enable_all_focusable_nodes()
+        this._main_ui.enable_all_focusable_nodes()
+    }
+
+    _update_subwindow_title()
+    {
+        this._ui.set_subwindow_title(
+            this._cur_window_code_index + 1,
+            this._subwindow_code_to_name[
+                this._subwindow_codes[this._cur_window_code_index]
+            ])
     }
 
     _update_progress_bar()
     {
-        this._ui.update_progress_bar(
+        this._ui.set_progress_bar_value(
             this._compute_progress_bar_percentage_progress()
         )
     }
