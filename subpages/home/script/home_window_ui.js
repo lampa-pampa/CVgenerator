@@ -35,7 +35,7 @@ class HomeWindowUi {
             elements.push(
                 this._create_list_element({
                     profession_code: profession_code,
-                    profession_name: kwargs.code_to_profession_name[
+                    profession_name: kwargs.profession_code_to_name[
                         profession_code
                     ],
                     content: kwargs.content,

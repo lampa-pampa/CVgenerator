@@ -5,13 +5,13 @@ class Form
         ui,
         window_factory,
         subwindow_codes,
-        code_to_subwindow_name,
+        subwindow_code_to_name,
     ){
         this._main_window = main_window
         this._ui = ui
         this._window_factory = window_factory
         this._subwindow_codes = subwindow_codes
-        this._code_to_subwindow_name = code_to_subwindow_name
+        this._subwindow_code_to_name = subwindow_code_to_name
         this._create_window()
 
         this._subwindow = null

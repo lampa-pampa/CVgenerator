@@ -37,16 +37,16 @@ function _main()
             interest_codes: config.profession_code_to_interest_codes[
                 profession_code
             ],
-            code_to_skill_name: config.code_to_skill_name,
-            code_to_interest_name: config.code_to_interest_name,
+            skill_code_to_name: config.skill_code_to_name,
+            interest_code_to_name: config.interest_code_to_name,
         }),
         config.window.form.subwindow_codes,
-        config.code_to_form_subwindow_name,
+        config.subwindow_code_to_name,
     )
 }
 
 function _profession_code_exist(profession_code)
 {
-    return Object.keys(config.code_to_profession_name)
+    return Object.keys(config.profession_code_to_name)
         .includes(profession_code)
 }

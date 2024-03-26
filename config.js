@@ -122,7 +122,7 @@ const config = {
         },
     },
 
-    code_to_form_subwindow_name: {
+    subwindow_code_to_name: {
         "1": "Name & Surname",
         "2": "Contact",
         "3": "Experience",
@@ -136,19 +136,19 @@ const config = {
         "11": "Generate & Download",
     },
 
-    code_to_skill_name: {
+    skill_code_to_name: {
         "1": "skill 1",
         "2": "skill 2",
         "3": "skill 3",
     },
 
-    code_to_interest_name: {
+    interest_code_to_name: {
         "1": "interest 1",
         "2": "interest 2",
         "3": "interest 3",
     },
 
-    code_to_profession_name: {
+    profession_code_to_name: {
         "0": "custom",
         "1": "Profession 1",
         "2": "Profession 2",

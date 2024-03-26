@@ -14,7 +14,7 @@ function _main()
         ), {
             content: config.window.home.content,
             custom_profession_code: config.custom_profession_code,
-            code_to_profession_name: config.code_to_profession_name,
+            profession_code_to_name: config.profession_code_to_name,
             profession_code_storage_key: config.storage_keys.profession_code,
             form_page_path: config.form_page_path,
         }
