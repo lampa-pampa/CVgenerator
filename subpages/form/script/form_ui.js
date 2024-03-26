@@ -6,14 +6,16 @@ class FormUi
     {
         this._section_class_names = section_class_names
         this._content = content
+        this._previous_button = null
+        this._next_button = null
         this._subwindow_title_display = null
         this._progress_bar = null
     }
 
-    create_window()
+    create_window(kwargs)
     {
         this._create_header()
-        this._create_subwindow_display()
+        this._create_subwindow_display(kwargs)
         this._create_footer()
     }
 
@@ -32,7 +34,7 @@ class FormUi
         })
     }
 
-    _create_subwindow_display()
+    _create_subwindow_display(kwargs)
     {
         UiNode.get_by_class(
             this._section_class_names.subwindow_display).draw_nodes([
@@ -40,7 +42,52 @@ class FormUi
                     className: "window-list",
                     tabIndex: -1,
                 }),
+                this._create_buttons_container(kwargs),
         ])
+    }
+
+    _create_buttons_container(kwargs)
+    {
+        this._previous_button = this._create_previous_button(
+            kwargs.previous_button_click_handler
+        )
+        this._next_button = this._create_next_button(
+            kwargs.next_button_click_handler
+        )
+        return new UiNode("div", {
+            className: "form-buttons-container shadow",
+        }, [
+            this._previous_button,
+            this._next_button,
+        ])
+    }
+
+    _create_previous_button(handler)
+    {
+        return new UiNode("button", {
+            className: "button center-content animated-button previous border focusable",
+            title: this._content.buttons.previous.title
+        }, [
+            new UiNode("span", {
+                textContent: this._content.buttons.previous.text
+            })
+        ], {
+            "click": handler
+        })
+    }
+
+    _create_next_button(handler)
+    {
+        return new UiNode("button", {
+            className: "button center-content animated-button next border focusable",
+            title: this._content.buttons.next.title
+        }, [
+            new UiNode("span", {
+                textContent: this._content.buttons.next.text
+            })
+        ], {
+            "click": handler
+        })
     }
 
     _create_footer()

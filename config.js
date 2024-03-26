@@ -99,6 +99,16 @@ const config = {
                         prefix: "Step ",
                         suffix: " | ",
                     },
+                    buttons: {
+                        previous: {
+                            title: "Go to the previous step",
+                            text: "PREVIOUS STEP",
+                        },
+                        next: {
+                            title: "Go to the next step",
+                            text: "NEXT STEP",
+                        },
+                    },
                 },
             },
             subwindow: {
