@@ -47,9 +47,9 @@ const config = {
     },
 
     window: {
-        router: {
+        router_ui: {
             content: {
-                loading_text: "Loading…",
+                text: "Loading…",
             },
         },
 
