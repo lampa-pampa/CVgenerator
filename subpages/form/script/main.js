@@ -7,8 +7,7 @@ import MainWindowUi from "../../../script/main_window_ui.js"
 import route from "../../../script/router.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
-let main_window = null
-let form_controller = null
+let form = null
 _main()
 
 function _main()
@@ -19,14 +18,14 @@ function _main()
     if(!_profession_code_exist(profession_code))
         route(config.home_page_path)
 
-    main_window = new MainWindow(
-        new MainWindowUi(
-            config.window.main.ui.section_class_names,
-            config.window.main.ui.focusable_class_name,
+    form = new Form(
+        new MainWindow(
+            new MainWindowUi(
+                config.window.main.ui.section_class_names,
+                config.window.main.ui.focusable_class_name,
+            ),
+            config.window.main.content,
         ),
-        config.window.main.content,
-    )
-    form_controller = new Form(
         new FormUi(
             config.window.form.ui.section_class_names,
         ),
@@ -40,7 +39,6 @@ function _main()
         config.code_to_skill_name,
         config.code_to_interest_name,
     )
-    main_window.enable_all_focusable_nodes()
 }
 
 function _profession_code_exist(profession_code)
