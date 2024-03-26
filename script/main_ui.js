@@ -21,10 +21,8 @@ class MainUi
     {
         this._preload_image(this._content.icon_path)
         UiNode.get_head().append_nodes([
-            new UiNode("title", {
-                textContent: this._content.title    
-            }),
-            new UiNode("link", {}, {
+            new UiNode("title", this._content.title),
+            new UiNode("link", "", {
                 rel: "shortcut icon",
                 href: this._content.icon_path,
                 type: "icon",
@@ -43,7 +41,7 @@ class MainUi
     _create_baner(path)
     {
         this._preload_image(path)
-        return new UiNode("img", {}, {
+        return new UiNode("img", "", {
             src: path,
             class: "baner",
         })
@@ -57,8 +55,8 @@ class MainUi
 
     _create_nav(nav_links)
     {
-        return new UiNode("nav", {}, {}, [
-            new UiNode("ul", {}, {
+        return new UiNode("nav", "", {}, [
+            new UiNode("ul", "", {
                 tabindex: "-1",
                 class: "max-height"
             },
@@ -80,12 +78,10 @@ class MainUi
 
     _create_nav_link(content)
     {
-        return new UiNode("li", {}, {
+        return new UiNode("li", "", {
             class: "max-height center-content",
         }, [
-            new UiNode("span", {
-                textContent: content.text,
-            }, {
+            new UiNode("span", content.text, {
                 class: "link focusable",
                 tabindex: "0",
             }, [], {
@@ -97,9 +93,7 @@ class MainUi
     _create_footer()
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
-            new UiNode("span", {
-                textContent: this._content.footer
-            })
+            new UiNode("span", this._content.footer)
         )
     }
 

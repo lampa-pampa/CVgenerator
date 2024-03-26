@@ -11,9 +11,7 @@ class NameSubwindowUi
     create_window()
     {
         UiNode.get_by_class(this._content_class_name).draw_nodes(
-            new UiNode("span", {
-                textContent: this._content.text
-            })
+            new UiNode("span", this._content.text)
         )
     }
 }

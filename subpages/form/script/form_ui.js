@@ -31,14 +31,14 @@ class FormUi
     
     _create_subwindow_title_display()
     {
-        return new UiNode("h2", {}, {
+        return new UiNode("h2", "", {
             class: "window-title",
         })
     }
     
     _create_reset_button_container(click_handler)
     {
-        return new UiNode("div", {}, {
+        return new UiNode("div", "", {
             class: "reset-button-container square center-content max-height",
         }, [
             this._create_reset_button(click_handler)
@@ -47,16 +47,16 @@ class FormUi
 
     _create_reset_button(click_handler)
     {
-        return new UiNode("button", {}, {
+        return new UiNode("button", "", {
             class: "button spin-icon focusable square",
             "data-title": this._content.buttons.reset.title,
         }, [
-            new UiNodeNs("svg", {}, {
+            new UiNodeNs("svg", "", {
                 class: "icon",
                 viewBox: this._content.buttons.reset.icon.view_box,
                 toolBox: this._content.buttons.reset.icon.view_box,
             }, [
-                new UiNodeNs("path", {}, {
+                new UiNodeNs("path", "", {
                     d: this._content.buttons.reset.icon.path,
                 })
             ])
@@ -69,7 +69,7 @@ class FormUi
     {
         UiNode.get_by_class(
             this._section_class_names.subwindow_display).draw_nodes([
-                new UiNode("ul", {}, {
+                new UiNode("ul", "", {
                     class: "window-list",
                     tabindex: -1,
                 }),
@@ -85,7 +85,7 @@ class FormUi
         this._next_button = this._create_next_button(
             click_handlers.next_button
         )
-        return new UiNode("div", {}, {
+        return new UiNode("div", "", {
             class: "form-buttons-container shadow",
         }, [
             this._previous_button,
@@ -95,13 +95,11 @@ class FormUi
 
     _create_previous_button(click_handler)
     {
-        return new UiNode("button", {}, {
+        return new UiNode("button", "", {
             class: "button center-content animated-button previous border focusable",
             "data-title": this._content.buttons.previous.title,
         }, [
-            new UiNode("span", {
-                textContent: this._content.buttons.previous.text
-            })
+            new UiNode("span", this._content.buttons.previous.text)
         ], {
             click: click_handler
         })
@@ -109,13 +107,11 @@ class FormUi
 
     _create_next_button(click_handler)
     {
-        return new UiNode("button", {}, {
+        return new UiNode("button", "", {
             class: "button center-content animated-button next border focusable",
             "data-title": this._content.buttons.next.title
         }, [
-            new UiNode("span", {
-                textContent: this._content.buttons.next.text
-            })
+            new UiNode("span", this._content.buttons.next.text)
         ], {
             click: click_handler
         })
@@ -131,16 +127,16 @@ class FormUi
 
     _create_progress_bar()
     {
-        return new UiNode("div", {}, {
+        return new UiNode("div", "", {
             class: "form-progress-bar max-height",
         })
     }
 
     set_subwindow_title(step_number, title)
     {
-        this._subwindow_title_display.set_properties({
-            textContent: this._create_full_subwindow_title(step_number, title),
-        })
+        this._subwindow_title_display.set_text_content(
+            this._create_full_subwindow_title(step_number, title),
+        )
     }
 
     _create_full_subwindow_title(step_number, title)
@@ -151,7 +147,7 @@ class FormUi
 
     set_progress_bar_value(percentage_progress)
     {
-        this._progress_bar.set_properties({
+        this._progress_bar.set_attributes({
             style: `width: ${percentage_progress}%;`
         })
     }

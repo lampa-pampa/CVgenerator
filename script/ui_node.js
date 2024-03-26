@@ -16,7 +16,7 @@ class UiNode
 
     constructor(
         tag_name,
-        properties = {},
+        text_content = "",
         attributes = {},
         child_nodes = [],
         listeners = {}
@@ -24,7 +24,7 @@ class UiNode
         if(tag_name)
         {
             this._dom = this._create_element(tag_name)
-            this.set_properties(properties)
+            this._dom.textContent = text_content
             this.set_attributes(attributes)
             this.append_nodes(child_nodes)
             this.add_listeners(listeners)
@@ -34,6 +34,17 @@ class UiNode
     _create_element(tag_name)
     {
         return document.createElement(tag_name)
+    }
+
+    set_attributes(attributes)
+    {
+        for(const attribute in attributes)
+            this._dom.setAttribute(attribute, attributes[attribute])
+    }
+
+    set_text_content(text)
+    {
+        this._dom.textContent = text
     }
 
     draw_nodes(nodes)
@@ -49,29 +60,17 @@ class UiNode
         else
             this._dom.appendChild(nodes._dom)
     }
+    
+    add_listeners(listeners)
+    {
+        for(const listener_name in listeners)
+        this._dom.addEventListener(listener_name, listeners[listener_name])
+    }
 
     clear()
     {
         while(this._dom.firstChild)
             this._dom.firstChild.remove()
-    }
-
-    set_properties(properties)
-    {
-        for(const property in properties)
-            this._dom[property] = properties[property]
-    }
-
-    set_attributes(attributes)
-    {
-        for(const attribute in attributes)
-            this._dom.setAttribute(attribute, attributes[attribute])
-    }
-
-    add_listeners(listeners)
-    {
-        for(const listener_name in listeners)
-            this._dom.addEventListener(listener_name, listeners[listener_name])
     }
 }
 

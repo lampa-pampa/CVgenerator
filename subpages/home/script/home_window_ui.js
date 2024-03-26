@@ -23,9 +23,7 @@ class HomeWindowUi {
     _create_header()
     {
         UiNode.get_by_class(this._section_class_names.header).draw_nodes(
-            new UiNode("h2", {
-                textContent: this._content.title,
-            }, {
+            new UiNode("h2", this._content.title, {
                 class: "window-title",
             })
         )
@@ -34,7 +32,7 @@ class HomeWindowUi {
     _create_list(kwargs)
     {
         UiNode.get_by_class(this._section_class_names.list).draw_nodes(
-            new UiNode("ul", {}, {
+            new UiNode("ul", "", {
                 class: "window-list max-height",
                 tabindex: "-1",
             }, 
@@ -58,24 +56,20 @@ class HomeWindowUi {
 
     _create_list_element(profession_name, handler)
     {
-        return new UiNode("li", {}, {}, [
-            new UiNode("span", {
-                textContent: profession_name
-            }),
+        return new UiNode("li", "", {}, [
+            new UiNode("span", profession_name),
             this._create_list_element_button(profession_name, handler)
         ])
     }
 
     _create_list_element_button(profession_name, handler)
     {
-        return new UiNode("button", {}, {
+        return new UiNode("button", "", {
             class: "button max-height center-content animated-button next border focusable",
             "data-title": this._content.button.title_prefix
                 + profession_name
         }, [
-            new UiNode("span", {
-                textContent: this._content.button.text
-            })
+            new UiNode("span", this._content.button.text)
         ], {
             click: handler
         })
@@ -84,13 +78,9 @@ class HomeWindowUi {
     _create_footer(handler)
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
-            new UiNode("span", {}, {}, [
-                new UiNode("span", {
-                    textContent: this._content.footer.text,
-                }),
-                new UiNode("span", {
-                    textContent: this._content.footer.link_text,
-                }, {
+            new UiNode("span", "", {}, [
+                new UiNode("span", this._content.footer.text),
+                new UiNode("span", this._content.footer.link_text, {
                     class: "link focusable",
                     tabindex: "0",
                 }, [], {
