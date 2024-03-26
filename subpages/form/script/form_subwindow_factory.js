@@ -1,14 +1,14 @@
-import NameWindow from "./form_windows/name_window.js"
-import NameWindowUi from "./form_windows/name_window_ui.js"
+import NameSubWindow from "./form_subwindows/name_subwindow.js"
+import NameSubWindowUi from "./form_subwindows/name_subwindow_ui.js"
 
-class FormWindowFactory
+class FormSubWindowFactory
 {
     constructor(kwargs)
     {
         this.window_code_to_creator = {
             "1": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -16,8 +16,8 @@ class FormWindowFactory
                 )
             },
             "2": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -25,8 +25,8 @@ class FormWindowFactory
                 )
             },
             "3": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -34,8 +34,8 @@ class FormWindowFactory
                 )
             },
             "4": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -43,8 +43,8 @@ class FormWindowFactory
                 )
             },
             "5": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -52,8 +52,8 @@ class FormWindowFactory
                 )
             },
             "6": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -61,8 +61,8 @@ class FormWindowFactory
                 )
             },
             "7": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -70,8 +70,8 @@ class FormWindowFactory
                 )
             },
             "8": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -79,8 +79,8 @@ class FormWindowFactory
                 )
             },
             "9": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -88,8 +88,8 @@ class FormWindowFactory
                 )
             },
             "10": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -97,8 +97,8 @@ class FormWindowFactory
                 )
             },
             "11": () => {
-                return new NameWindow(
-                    new NameWindowUi(
+                return new NameSubWindow(
+                    new NameSubWindowUi(
                         kwargs.section_class_names
                     ), {
                         content: kwargs.windows_content.name
@@ -114,4 +114,4 @@ class FormWindowFactory
     }
 }
 
-export default FormWindowFactory
+export default FormSubWindowFactory
