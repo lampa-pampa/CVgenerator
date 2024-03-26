@@ -20,7 +20,6 @@ class HomeWindow
                 )
             }
         })
-        this._clear_form_data(kwargs.profession_code_storage_key)
         this._main_ui.enable_all_focusable_nodes()
     }
 
@@ -28,11 +27,6 @@ class HomeWindow
     {
         SessionStorageManager.save(storage_key, profession_code)
         route(form_path)
-    }
-
-    _clear_form_data(profession_code_storage_key)
-    {
-        SessionStorageManager.remove(profession_code_storage_key)
     }
 }
 
