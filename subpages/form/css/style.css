@@ -49,9 +49,16 @@
 
 .window-footer {
     --border-color: var(--secondary-theme-color);
+    position: relative;
 }
 
 .form-progress-bar {
     background-color: var(--gradient-color);
     transition: width 400ms;
+}
+
+.form-progress-bar-state-display {
+    position: absolute;
+    inset: 0;
+    font-size: medium;
 }

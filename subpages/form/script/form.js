@@ -56,14 +56,9 @@ class Form
     _update_progress_bar()
     {
         this._ui.set_progress_bar_value(
-            this._compute_progress_bar_percentage_progress()
+            this._cur_window_code_index,
+            this._compute_last_subwindow_index(),
         )
-    }
-
-    _compute_progress_bar_percentage_progress()
-    {
-        return this._cur_window_code_index 
-            / this._compute_last_subwindow_index() * 100
     }
 
     _handle_reset_button_click()

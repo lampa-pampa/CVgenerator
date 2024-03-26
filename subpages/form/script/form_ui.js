@@ -10,6 +10,7 @@ class FormUi
         this._previous_button = null
         this._next_button = null
         this._subwindow_title_display = null
+        this._progress_bar_state_display = null
         this._progress_bar = null
     }
 
@@ -120,9 +121,18 @@ class FormUi
     _create_footer()
     {
         this._progress_bar = this._create_progress_bar()
-        UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
-            this._progress_bar
-        )
+        this._progress_bar_state_display = this._create_progress_bar_state_display()
+        UiNode.get_by_class(this._section_class_names.footer).draw_nodes([
+            this._progress_bar,
+            this._progress_bar_state_display,            
+        ])
+    }
+
+    _create_progress_bar_state_display()
+    {
+        return new UiNode("span", "", {
+            class: "form-progress-bar-state-display center-content",
+        })
     }
 
     _create_progress_bar()
@@ -175,11 +185,23 @@ class FormUi
         })
     }
 
-    set_progress_bar_value(percentage_progress)
+    set_progress_bar_value(cur_step_index, steps_quantity)
     {
         this._progress_bar.set_attributes({
-            style: `width: ${percentage_progress}%;`
+            style: `width: ${cur_step_index / steps_quantity * 100}%;`
         })
+        this._progress_bar_state_display.set_text_content(
+            this._create_progress_bar_state(cur_step_index, steps_quantity)
+        )
+    }
+
+    _create_progress_bar_state(cur_step_index, steps_quantity)
+    {
+        if(cur_step_index == steps_quantity)
+            return this._content.progress_bar_state.completed
+        return cur_step_index.toString()
+            + this._content.progress_bar_state.separator
+            + steps_quantity + this._content.progress_bar_state.suffix
     }
 }
 

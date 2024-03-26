@@ -120,6 +120,11 @@ const config = {
                             title: "Generate and download CV",
                         }
                     },
+                    progress_bar_state: {
+                        separator: " / ",
+                        suffix: " Done",
+                        completed: "Completed!",
+                    },
                 },
             },
             subwindow: {
