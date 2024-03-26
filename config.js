@@ -56,16 +56,17 @@ const config = {
         },
 
         home: {
+            custom_profession_code: "0",
+            profession_codes: [
+                "1",
+                "2",
+                "3",
+            ],
             content: {
                 header: {
                     text: "Choose your profession",
                 },
                 content: {
-                    profession_codes: [
-                        "1",
-                        "2",
-                        "3",
-                    ],
                     button: {
                         text: "CREATE",
                         title_prefix: "Create CV for ",
@@ -88,6 +89,24 @@ const config = {
         },
 
         form: {
+            ui: {
+                section_class_names: {
+                    header: "window-header",
+                    footer: "window-footer",
+                },
+            },
+            subwindow: {
+                name: {
+                    content: {
+                        text: "example text",
+                    },
+                    ui: {
+                        section_class_names: {
+                            content: "window-content",
+                        },
+                    },
+                },
+            },
             subwindow_codes: [
                 "1",
                 "2",
@@ -101,24 +120,6 @@ const config = {
                 "10",
                 "11",
             ],
-            subwindows: {
-                name: {
-                    content: {
-                        text: "example text",
-                    },
-                    ui: {
-                        section_class_names: {
-                            content: "window-content",
-                        },
-                    },
-                },
-            },
-            ui: {
-                section_class_names: {
-                    header: "window-header",
-                    footer: "window-footer",
-                },
-            },
         },
     },
 
@@ -154,8 +155,6 @@ const config = {
         "2": "Profession 2",
         "3": "Profession 3",
     },
-
-    custom_profession_code: "0",
     
     profession_code_to_skill_codes: {
         "0": [1, 2, 3],

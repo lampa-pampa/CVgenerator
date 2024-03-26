@@ -14,6 +14,7 @@ class HomeWindow
     {
         this._ui.create_header(kwargs.content.header)
         this._ui.create_content({
+            profession_codes: kwargs.profession_codes,
             profession_code_to_name: kwargs.profession_code_to_name,
             content: kwargs.content.content,
             handler: (profession_code) => this._handle_profession_button_click(

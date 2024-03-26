@@ -13,7 +13,8 @@ function _main()
             config.window.home.ui.section_class_names,
         ), {
             content: config.window.home.content,
-            custom_profession_code: config.custom_profession_code,
+            custom_profession_code: config.window.home.custom_profession_code,
+            profession_codes: config.window.home.profession_codes,
             profession_code_to_name: config.profession_code_to_name,
             profession_code_storage_key: config.storage_keys.profession_code,
             form_page_path: config.form_page_path,

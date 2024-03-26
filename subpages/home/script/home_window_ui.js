@@ -31,7 +31,7 @@ class HomeWindowUi {
     _create_list_elements(kwargs)
     {
         const elements = new Array()
-        for(const profession_code of kwargs.content.profession_codes)
+        for(const profession_code of kwargs.profession_codes)
             elements.push(
                 this._create_list_element({
                     profession_code: profession_code,

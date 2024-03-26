@@ -30,7 +30,7 @@ function _main()
             config.window.form.ui.section_class_names,
         ),
         new FormSubwindowFactory({
-            subwindows: config.window.form.subwindows,
+            subwindows: config.window.form.subwindow,
             skill_codes: config.profession_code_to_skill_codes[
                 profession_code
             ],
