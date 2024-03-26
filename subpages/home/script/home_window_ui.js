@@ -1,22 +1,36 @@
 import UiNode from "../../../script/ui_node.js"
 
 class HomeWindowUi {
-    constructor(section_class_names)
+    constructor(section_class_names, content)
     {
         this._section_class_names = section_class_names
+        this._content = content
     }
 
-    create_header(content)
+    create_window(kwargs)
+    {
+        this._create_header()
+        this._create_list({
+            profession_codes: kwargs.profession_codes,
+            profession_code_to_name: kwargs.profession_code_to_name,
+            handler: kwargs.handler,
+        })
+        this._create_footer(
+            () => kwargs.handler(kwargs.custom_profession_code)
+        )
+    }
+
+    _create_header()
     {
         UiNode.get_by_class(this._section_class_names.header).draw_nodes(
             new UiNode("h2", {
-                textContent: content.text,
+                textContent: this._content.header.text,
                 className: "window-title",
             })
         )
     }
 
-    create_list(kwargs)
+    _create_list(kwargs)
     {
         UiNode.get_by_class(this._section_class_names.list).draw_nodes(
             new UiNode("ul", {
@@ -38,7 +52,6 @@ class HomeWindowUi {
                     profession_name: kwargs.profession_code_to_name[
                         profession_code
                     ],
-                    content: kwargs.content,
                     handler: kwargs.handler,
                 })
             )
@@ -53,10 +66,11 @@ class HomeWindowUi {
             }, []),
             new UiNode("button", {
                 className: "button max-height center-content animated-button next border focusable",
-                title: kwargs.content.button.title_prefix + kwargs.profession_name
+                title: this._content.list.button.title_prefix
+                    + kwargs.profession_name
             }, [
                 new UiNode("span", {
-                    textContent: kwargs.content.button.text
+                    textContent: this._content.list.button.text
                 }, [])
             ], {
                 click: () => kwargs.handler(kwargs.profession_code)
@@ -64,19 +78,19 @@ class HomeWindowUi {
         ])
     }
 
-    create_footer(kwargs)
+    _create_footer(handler)
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
             new UiNode("span", {}, [
                 new UiNode("span", {
-                    textContent: kwargs.content.text,
+                    textContent: this._content.footer.text,
                 }),
                 new UiNode("span", {
                     className: "link focusable",
                     tabIndex: "0",
-                    textContent: kwargs.content.link.text,
+                    textContent: this._content.footer.link.text,
                 }, [], {
-                    click: kwargs.handler
+                    click: handler
                 }),
             ]),
         )

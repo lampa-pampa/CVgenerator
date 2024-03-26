@@ -8,22 +8,20 @@ _main()
 function _main()
 {
     new HomeWindow(
+        new MainUi(
+            config.main_ui.section_class_names,
+            config.main_ui.focusable_class_name,
+            config.main_ui.content,
+        ),
         new HomeWindowUi(
             config.window.home.ui.section_class_names,
+            config.window.home.ui.content,
         ), {
-            content: config.window.home.content,
-            custom_profession_code: config.window.home.custom_profession_code,
             profession_codes: config.window.home.profession_codes,
             profession_code_to_name: config.profession_code_to_name,
+            custom_profession_code: config.window.home.custom_profession_code,
             profession_code_storage_key: config.storage_keys.profession_code,
-            form_page_path: config.form_page_path,
+            form_path: config.form_page_path,
         }
     )
-    let main_ui = new MainUi(
-        config.main_ui.section_class_names,
-        config.main_ui.focusable_class_name,
-        config.main_ui.content,
-    )
-    main_ui.create_window()
-    main_ui.enable_all_focusable_nodes()
 }

@@ -3,45 +3,36 @@ import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 class HomeWindow
 {
-    constructor(ui, kwargs)
+    constructor(main_ui, ui, kwargs)
     {
+        this._main_ui = main_ui
         this._ui = ui
-        this._create_window(kwargs)
-        this._clear_form_data(kwargs.profession_code_storage_key)
-    }
-
-    _create_window(kwargs)
-    {
-        this._ui.create_header(kwargs.content.header)
-        this._ui.create_list({
+        this._main_ui.create_window()
+        this._ui.create_window({
             profession_codes: kwargs.profession_codes,
+            custom_profession_code: kwargs.custom_profession_code,
             profession_code_to_name: kwargs.profession_code_to_name,
-            content: kwargs.content.list,
-            handler: (profession_code) => this._handle_profession_button_click(
-                kwargs.profession_code_storage_key,
-                profession_code,
-                kwargs.form_page_path,
-            )
+            handler: (profession_code) => {
+                this._handle_profession_button_click(
+                    kwargs.profession_code_storage_key,
+                    profession_code,
+                    kwargs.form_path
+                )
+            }
         })
-        this._ui.create_footer({
-            content: kwargs.content.footer,
-            handler: () => this._handle_profession_button_click(
-                kwargs.profession_code_storage_key,
-                kwargs.custom_profession_code,
-                kwargs.form_page_path,
-            )
-        })
+        this._clear_form_data(kwargs.profession_code_storage_key)
+        this._main_ui.enable_all_focusable_nodes()
     }
 
-    _handle_profession_button_click(storage_key, profession_code, path)
+    _handle_profession_button_click(storage_key, profession_code, form_path)
     {
         SessionStorageManager.save(storage_key, profession_code)
-        route(path)
+        route(form_path)
     }
 
-    _clear_form_data(storage_key)
+    _clear_form_data(profession_code_storage_key)
     {
-        SessionStorageManager.remove(storage_key)
+        SessionStorageManager.remove(profession_code_storage_key)
     }
 }
 
