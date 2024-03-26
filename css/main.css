@@ -16,6 +16,10 @@
     background: var(--gradient-color);
 }
 
+[data-disabled=true] {
+    pointer-events: none;
+}
+
 body {
     min-height: 100svh;
     font-weight: 800;

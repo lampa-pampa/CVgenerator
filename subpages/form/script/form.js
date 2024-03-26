@@ -14,10 +14,11 @@ class Form
         this._subwindow_code_to_name = subwindow_code_to_name
         this._main_ui.create_window()
         this._ui.create_window({
-            reset: this._handle_reset_button_click,
-            previous_button: this._handle_previous_button_click,
-            next_button: this._handle_next_button_click,
+            reset: () => this._handle_reset_button_click(),
+            previous_button: () => this._handle_previous_button_click(),
+            next_button: () => this._handle_next_button_click(),
         })
+        this.data = new Object()
 
         this._subwindow = null
         this._cur_window_code_index = 0
@@ -31,6 +32,7 @@ class Form
         )
         this._cur_window_code_index = code_index
         this._update_subwindow_title()
+        this._update_buttons()
         this._update_progress_bar()
         this._main_ui.enable_all_focusable_nodes()
     }
@@ -39,9 +41,16 @@ class Form
     {
         this._ui.set_subwindow_title(
             this._cur_window_code_index + 1,
-            this._subwindow_code_to_name[
-                this._subwindow_codes[this._cur_window_code_index]
-            ])
+            this._subwindow_code_to_name[this._get_cur_subwindow_code()]
+        )
+    }
+
+    _update_buttons()
+    {
+        this._ui.set_previous_button_state(this._cur_window_code_index == 0)
+        this._ui.set_next_button_text_content_and_title(
+            this._cur_window_code_index == this._compute_last_subwindow_index()
+        )
     }
 
     _update_progress_bar()
@@ -53,22 +62,51 @@ class Form
 
     _compute_progress_bar_percentage_progress()
     {
-        return (this._cur_window_code_index + 1)
-            / this._subwindow_codes.length
-            * 100
+        return this._cur_window_code_index 
+            / this._compute_last_subwindow_index() * 100
     }
 
     _handle_reset_button_click()
     {
-
+        this._subwindow.reset()
     }
 
     _handle_previous_button_click()
     {
-
+        this._save_subwindow_data()
+        if(this._cur_window_code_index > 0)
+            this._open_subwindow(--this._cur_window_code_index)
     }
 
     _handle_next_button_click()
+    {
+        if(this._cur_window_code_index < this._compute_last_subwindow_index())
+        {
+            this._save_subwindow_data()
+            this._open_subwindow(++this._cur_window_code_index)
+        }
+        else
+        {
+            this._generate_cv()
+        }
+    }
+
+    _get_cur_subwindow_code()
+    {
+        return this._subwindow_codes[this._cur_window_code_index]
+    }
+
+    _compute_last_subwindow_index()
+    {
+        return this._subwindow_codes.length - 1
+    }
+
+    _save_subwindow_data()
+    {
+        this.data[this._get_cur_subwindow_code()] = this._subwindow.get_data()
+    }
+
+    _generate_cv()
     {
 
     }

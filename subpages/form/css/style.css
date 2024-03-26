@@ -39,6 +39,12 @@
 .form-buttons-container .button {
     width: 12em;
     height: 3.5em;
+    transition: background-color 200ms;
+}
+
+.form-buttons-container .button[data-disabled=true] {
+    background-color: var(--secondary-theme-color);
+    outline: none;
 }
 
 .window-footer {

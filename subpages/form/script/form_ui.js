@@ -145,6 +145,36 @@ class FormUi
             + this._content.step_number.suffix + title
     }
 
+    set_previous_button_state(disable)
+    {
+        this._previous_button.set_attributes({
+            "data-disabled": disable,
+            tabindex: disable ? -1 : 0,
+        })
+    }
+
+    set_next_button_text_content_and_title(change_to_submit)
+    {
+        if(change_to_submit)
+            this._set_next_button_text_content_and_title(
+                this._content.buttons.submit.text,
+                this._content.buttons.submit.title,
+            )
+        else
+            this._set_next_button_text_content_and_title(
+                this._content.buttons.next.text,
+                this._content.buttons.next.title,
+            )
+    }
+
+    _set_next_button_text_content_and_title(text_content, title)
+    {
+        this._next_button.draw_nodes(new UiNode("span", text_content))
+        this._next_button.set_attributes({
+            "data-title": title
+        })
+    }
+
     set_progress_bar_value(percentage_progress)
     {
         this._progress_bar.set_attributes({

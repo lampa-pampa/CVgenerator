@@ -101,12 +101,12 @@ const config = {
                     },
                     buttons: {
                         previous: {
-                            title: "Go to the previous step",
                             text: "PREVIOUS STEP",
+                            title: "Go to the previous step",
                         },
                         next: {
-                            title: "Go to the next step",
                             text: "NEXT STEP",
+                            title: "Go to the next step",
                         },
                         reset: {
                             title: "Reset",
@@ -115,6 +115,10 @@ const config = {
                                 view_box: "0 0 24 24",
                             },
                         },
+                        submit: {
+                            text: "GENERATE",
+                            title: "Generate and download CV",
+                        }
                     },
                 },
             },
