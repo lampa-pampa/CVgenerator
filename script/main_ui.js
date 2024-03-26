@@ -102,12 +102,16 @@ class MainUi
         for(const node of document.getElementsByClassName(
             this._focusable_class_name
         )){
-            node.addEventListener("keydown", (e) => {
-                if(e.key === "Enter") {
-                    e.target.click()
-                    e.preventDefault()
-                }
-            })
+            node.removeEventListener("keydown", this.handle_keydown)
+            node.addEventListener("keydown", this.handle_keydown)
+        }
+    }
+
+    handle_keydown(e)
+    {
+        if(e.key === "Enter") {
+            e.target.click()
+            e.preventDefault()
         }
     }
 }
