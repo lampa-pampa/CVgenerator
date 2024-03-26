@@ -40,7 +40,9 @@ const config = {
                     "Home": paths.get("subpages", "home"),
                 },
             },
-            footer: "Author: Marek Kandulski",
+            footer: {
+                text: "Author: Marek Kandulski",
+            },
         },
     },
 
@@ -58,28 +60,28 @@ const config = {
                 "2",
                 "3",
             ],
-            content: {
-                header: {
-                    text: "Choose your profession",
-                },
-                list: {
-                    button: {
-                        text: "CREATE",
-                        title_prefix: "Create CV for ",
-                    },
-                },
-                footer: {
-                    text: "Can't find your profession?",
-                    link: {
-                        text: "create CV without template",
-                    },
-                },
-            },
             ui: {
                 section_class_names: {
                     header: "window-header",
                     list: "window-content",
                     footer: "window-footer",
+                },
+                content: {
+                    header: {
+                        text: "Choose your profession",
+                    },
+                    list: {
+                        button: {
+                            text: "CREATE",
+                            title_prefix: "Create CV for ",
+                        },
+                    },
+                    footer: {
+                        text: "Can't find your profession?",
+                        link: {
+                            text: "create CV without template",
+                        },
+                    },
                 },
             },
         },
