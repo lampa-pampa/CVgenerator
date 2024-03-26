@@ -10,88 +10,99 @@ class FormWindowFactory
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "2": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "3": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "4": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "5": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "6": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "7": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "8": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "9": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "10": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
             "11": () => {
                 return new NameWindow(
                     new NameWindowUi(
                         kwargs.section_class_names
-                    ),
-                    kwargs.windows_content.name
+                    ), {
+                        content: kwargs.windows_content.name
+                    }
                 )
             },
         }
