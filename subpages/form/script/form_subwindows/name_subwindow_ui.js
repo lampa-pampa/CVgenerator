@@ -1,6 +1,6 @@
 import UiNode from "../../../../script/ui_node.js"
 
-class NameSubWindowUi
+class NameSubwindowUi
 {
     constructor(section_class_names)
     {
@@ -17,4 +17,4 @@ class NameSubWindowUi
     }
 }
 
-export default NameSubWindowUi
+export default NameSubwindowUi

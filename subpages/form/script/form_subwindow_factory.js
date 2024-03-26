@@ -1,107 +1,107 @@
-import NameSubWindow from "./form_subwindows/name_subwindow.js"
-import NameSubWindowUi from "./form_subwindows/name_subwindow_ui.js"
+import NameSubwindow from "./form_subwindows/name_subwindow.js"
+import NameSubwindowUi from "./form_subwindows/name_subwindow_ui.js"
 
-class FormSubWindowFactory
+class FormSubwindowFactory
 {
-    constructor(kwargs)
+    constructor(form_subwindows)
     {
         this.window_code_to_creator = {
             "1": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "2": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "3": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "4": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "5": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "6": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "7": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "8": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "9": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "10": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
             "11": () => {
-                return new NameSubWindow(
-                    new NameSubWindowUi(
-                        kwargs.section_class_names
+                return new NameSubwindow(
+                    new NameSubwindowUi(
+                        form_subwindows.name.ui.section_class_names
                     ), {
-                        content: kwargs.windows_content.name
+                        content: form_subwindows.name.content
                     }
                 )
             },
@@ -114,4 +114,4 @@ class FormSubWindowFactory
     }
 }
 
-export default FormSubWindowFactory
+export default FormSubwindowFactory

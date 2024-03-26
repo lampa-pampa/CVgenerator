@@ -1,7 +1,7 @@
 import config from "../../../config.js"
 import Form from "./form.js"
 import FormUi from "./form_ui.js"
-import FormWindowFactory from "./form_window_factory.js"
+import FormSubwindowFactory from "./form_subwindow_factory.js"
 import MainWindow from "../../../script/main_window.js"
 import MainWindowUi from "../../../script/main_window_ui.js"
 import route from "../../../script/router.js"
@@ -21,21 +21,18 @@ function _main()
 
     main_window = new MainWindow(
         new MainWindowUi(
-            config.main_window_ui.section_class_names,
-            config.main_window_ui.focusable_class_name,
+            config.window.main.ui.section_class_names,
+            config.window.main.ui.focusable_class_name,
         ),
-        config.main_window_content,
+        config.window.main.content,
     )
     form_controller = new Form(
         new FormUi(
-            config.form_ui.section_class_names,
+            config.window.form.ui.section_class_names,
         ),
-        new FormWindowFactory({
-            windows_content: config.form_windows_content,
-            section_class_names: config.window_ui.section_class_names,
-        }),
-        config.form_window_codes,
-        config.code_to_form_window_name,
+        new FormSubwindowFactory(config.window.form.subwindows),
+        config.window.form.subwindow_codes,
+        config.code_to_form_subwindow_name,
         {
             skills: config.profession_code_to_skill_codes[profession_code],
             interests: config.profession_code_to_interest_codes[profession_code],

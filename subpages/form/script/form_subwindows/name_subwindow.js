@@ -1,4 +1,4 @@
-class NameSubWindow
+class NameSubwindow
 {
     constructor(ui, kwargs)
     {
@@ -8,8 +8,8 @@ class NameSubWindow
 
     _create_window(kwargs)
     {
-        this._ui.create_content(kwargs.content.content)
+        this._ui.create_content(kwargs.content)
     }
 }
 
-export default NameSubWindow
+export default NameSubwindow

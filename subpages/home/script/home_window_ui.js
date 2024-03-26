@@ -53,10 +53,10 @@ class HomeWindowUi {
             }, []),
             new UiNode("button", {
                 className: "button max-height center-content animated-button next border focusable",
-                title: kwargs.content.list_element.button.title_prefix + kwargs.profession_name
+                title: kwargs.content.button.title_prefix + kwargs.profession_name
             }, [
                 new UiNode("span", {
-                    textContent: kwargs.content.list_element.button.text
+                    textContent: kwargs.content.button.text
                 }, [])
             ], {
                 click: () => kwargs.handler(kwargs.profession_code)

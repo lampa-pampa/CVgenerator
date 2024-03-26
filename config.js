@@ -9,7 +9,7 @@ const paths = {
     images: {
         dir: "../../img/",
         paths: {
-            icon: "icon.png",
+            icon: "icon.ico",
             baner: "baner.png",
         },
     },
@@ -23,100 +23,106 @@ const config = {
     home_page_path: paths.get("subpages", "home"),
     form_page_path: paths.get("subpages", "form"),
 
-    router_window_content: {
-        loading_text: "Loading…",
-    },
+    window: {
+        router: {
+            content: {
+                loading_text: "Loading…",
+            },
+        },
 
-    main_window_content: {
-        head: {
-            title: "Generator",
-            icon_path: paths.get("images", "icon"),
+        main: {
+            content: {
+                head: {
+                    title: "Generator",
+                    icon_path: paths.get("images", "icon"),
+                },
+                header: {
+                    baner_path: paths.get("images", "baner"),
+                    nav_links: {
+                        "Home": paths.get("subpages", "home"),
+                    },
+                },
+                footer: {
+                    text: "Author: Marek Kandulski",
+                },
+            },
+            ui: {
+                section_class_names: {
+                    header: "main-header",
+                    footer: "main-footer",
+                },
+                focusable_class_name: "focusable",
+            },
         },
-        header: {
-            baner_path: paths.get("images", "baner"),
-            nav_links: {
-                "Home": paths.get("subpages", "home")
-            }
-        },
-        footer: {
-            text: "Author: Marek Kandulski"
-        },
-    },
 
-    main_window_ui: {
-        section_class_names: {
-            header: "main-header",
-            footer: "main-footer",
+        home: {
+            content: {
+                header: {
+                    text: "Choose your profession",
+                },
+                content: {
+                    profession_codes: [
+                        "1",
+                        "2",
+                        "3",
+                    ],
+                    button: {
+                        text: "CREATE",
+                        title_prefix: "Create CV for ",
+                    },
+                },
+                footer: {
+                    text: "Can't find your profession?",
+                    link: {
+                        text: "create CV without template",
+                    },
+                },
+            },
+            ui: {
+                section_class_names: {
+                    header: "window-header",
+                    content: "window-content",
+                    footer: "window-footer",
+                },
+            },
         },
-        focusable_class_name: "focusable"
-    },
 
-    home_window_content: {
-        header: {
-            text: "Choose your profession",
-        },
-        content: {
-            profession_codes: [
+        form: {
+            subwindow_codes: [
                 "1",
                 "2",
                 "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
             ],
-            list_element: {
-                button: {
-                    text: "CREATE",
-                    title_prefix: "Create CV for ",
+            subwindows: {
+                name: {
+                    content: {
+                        text: "example text",
+                    },
+                    ui: {
+                        section_class_names: {
+                            content: "window-content",
+                        },
+                    },
                 },
-            }
-        },
-        footer: {
-            text: "Can't find your profession?",
-            link: {
-                text: "create CV without template",
+            },
+            ui: {
+                section_class_names: {
+                    header: "window-header",
+                    footer: "window-footer",
+                },
             },
         },
     },
 
-    window_ui: {
-        section_class_names: {
-            header: "window-header",
-            content: "window-content",
-            footer: "window-footer",
-        },
-    },
-
-    form_windows_content: {
-        name: {
-            header: {
-                title: "Name and Surname"
-            },
-            content: {
-
-            },
-        },
-    },
-
-    form_ui: {
-        section_class_names: {
-            header: "window-header",
-            footer: "window-footer",
-        }
-    },
-
-    form_window_codes: [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-    ],
-
-    code_to_form_window_name: {
+    code_to_form_subwindow_name: {
         "1": "Name & Surname",
         "2": "Contact",
         "3": "Experience",
