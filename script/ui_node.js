@@ -24,7 +24,7 @@ class UiNode
         if(tag_name)
         {
             this._dom = this._create_element(tag_name)
-            this._dom.textContent = text_content
+            this.set_text_content(text_content)
             this.set_attributes(attributes)
             this.append_nodes(child_nodes)
             this.add_listeners(listeners)
