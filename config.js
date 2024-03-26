@@ -30,19 +30,13 @@ const config = {
         },
         focusable_class_name: "focusable",
         content: {
-            head: {
-                title: "Generator",
-                icon_path: paths.get("images", "icon"),
+            title: "Generator",
+            icon_path: paths.get("images", "icon"),
+            baner_path: paths.get("images", "baner"),
+            nav_links: {
+                "Home": paths.get("subpages", "home"),
             },
-            header: {
-                baner_path: paths.get("images", "baner"),
-                nav_links: {
-                    "Home": paths.get("subpages", "home"),
-                },
-            },
-            footer: {
-                text: "Author: Marek Kandulski",
-            },
+            footer: "Author: Marek Kandulski",
         },
     },
 

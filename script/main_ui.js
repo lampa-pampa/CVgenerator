@@ -19,14 +19,14 @@ class MainUi
 
     _create_head()
     {
-        this._preload_image(this._content.head.icon_path)
+        this._preload_image(this._content.icon_path)
         UiNode.get_head().append_nodes([
             new UiNode("title", {
-                textContent: this._content.head.title    
+                textContent: this._content.title    
             }),
             new UiNode("link", {
                 rel: "shortcut icon",
-                href: this._content.head.icon_path,
+                href: this._content.icon_path,
                 type: "icon",
             }),
         ])
@@ -35,8 +35,8 @@ class MainUi
     _create_header()
     {
         UiNode.get_by_class(this._section_class_names.header).draw_nodes([
-            this._create_baner(this._content.header.baner_path),
-            this._create_nav(this._content.header.nav_links),
+            this._create_baner(this._content.baner_path),
+            this._create_nav(this._content.nav_links),
         ])
     }
 
@@ -97,7 +97,7 @@ class MainUi
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
             new UiNode("span", {
-                textContent: this._content.footer.text
+                textContent: this._content.footer
             })
         )
     }
