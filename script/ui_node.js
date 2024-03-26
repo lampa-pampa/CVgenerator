@@ -14,15 +14,26 @@ class UiNode
         return ui_node
     }
 
-    constructor(tag_name, attributes = {}, child_nodes = [], listeners = {})
-    {
+    constructor(
+        tag_name,
+        properties = {},
+        attributes = {},
+        child_nodes = [],
+        listeners = {}
+    ){
         if(tag_name)
         {
-            this._dom = document.createElement(tag_name)
+            this._dom = this._create_element(tag_name)
+            this.set_properties(properties)
             this.set_attributes(attributes)
             this.append_nodes(child_nodes)
             this.add_listeners(listeners)
         }
+    }
+
+    _create_element(tag_name)
+    {
+        return document.createElement(tag_name)
     }
 
     draw_nodes(nodes)
@@ -45,15 +56,16 @@ class UiNode
             this._dom.firstChild.remove()
     }
 
+    set_properties(properties)
+    {
+        for(const property in properties)
+            this._dom[property] = properties[property]
+    }
+
     set_attributes(attributes)
     {
         for(const attribute in attributes)
-        {
-            if(attribute === "title")
-                this._dom.setAttribute("data-title", attributes[attribute])
-            else
-                this._dom[attribute] = attributes[attribute]
-        }
+            this._dom.setAttribute(attribute, attributes[attribute])
     }
 
     add_listeners(listeners)

@@ -14,8 +14,9 @@ class Form
         this._subwindow_code_to_name = subwindow_code_to_name
         this._main_ui.create_window()
         this._ui.create_window({
-            previous_button_click_handler: this._handle_previous_button_click,
-            next_button_click_handler: this._handle_next_button_click,
+            reset: this._handle_reset_button_click,
+            previous_button: this._handle_previous_button_click,
+            next_button: this._handle_next_button_click,
         })
 
         this._subwindow = null
@@ -57,6 +58,11 @@ class Form
             * 100
     }
 
+    _handle_reset_button_click()
+    {
+
+    }
+
     _handle_previous_button_click()
     {
 
@@ -64,7 +70,7 @@ class Form
 
     _handle_next_button_click()
     {
-        
+
     }
 }
 

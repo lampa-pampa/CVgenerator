@@ -24,7 +24,7 @@ class MainUi
             new UiNode("title", {
                 textContent: this._content.title    
             }),
-            new UiNode("link", {
+            new UiNode("link", {}, {
                 rel: "shortcut icon",
                 href: this._content.icon_path,
                 type: "icon",
@@ -43,9 +43,9 @@ class MainUi
     _create_baner(path)
     {
         this._preload_image(path)
-        return new UiNode("img", {
+        return new UiNode("img", {}, {
             src: path,
-            className: "baner",
+            class: "baner",
         })
     }
 
@@ -57,11 +57,11 @@ class MainUi
 
     _create_nav(nav_links)
     {
-        return new UiNode("nav", {}, [
-            new UiNode("ul", {
-                tabIndex: "-1",
-                className: "max-height"
-            }, 
+        return new UiNode("nav", {}, {}, [
+            new UiNode("ul", {}, {
+                tabindex: "-1",
+                class: "max-height"
+            },
                 this._create_nav_links(nav_links)
             )
         ])
@@ -80,13 +80,14 @@ class MainUi
 
     _create_nav_link(content)
     {
-        return new UiNode("li", {
-            className: "max-height center-content",
+        return new UiNode("li", {}, {
+            class: "max-height center-content",
         }, [
             new UiNode("span", {
-                className: "link focusable",
-                tabIndex: "0",
                 textContent: content.text,
+            }, {
+                class: "link focusable",
+                tabindex: "0",
             }, [], {
                 click: () => route(content.href)
             })

@@ -25,7 +25,8 @@ class HomeWindowUi {
         UiNode.get_by_class(this._section_class_names.header).draw_nodes(
             new UiNode("h2", {
                 textContent: this._content.title,
-                className: "window-title",
+            }, {
+                class: "window-title",
             })
         )
     }
@@ -33,9 +34,9 @@ class HomeWindowUi {
     _create_list(kwargs)
     {
         UiNode.get_by_class(this._section_class_names.list).draw_nodes(
-            new UiNode("ul", {
-                tabIndex: "-1",
-                className: "window-list max-height",
+            new UiNode("ul", {}, {
+                class: "window-list max-height",
+                tabindex: "-1",
             }, 
                 this._create_list_elements(kwargs)
             )
@@ -47,48 +48,51 @@ class HomeWindowUi {
         const elements = new Array()
         for(const profession_code of kwargs.profession_codes)
             elements.push(
-                this._create_list_element({
-                    profession_code: profession_code,
-                    profession_name: kwargs.profession_code_to_name[
-                        profession_code
-                    ],
-                    handler: kwargs.handler,
-                })
+                this._create_list_element(
+                    kwargs.profession_code_to_name[profession_code],
+                    () => kwargs.handler(profession_code),
+                )
             )
         return elements                   
     }
 
-    _create_list_element(kwargs)
+    _create_list_element(profession_name, handler)
     {
-        return new UiNode("li", {}, [
+        return new UiNode("li", {}, {}, [
             new UiNode("span", {
-                textContent: kwargs.profession_name
-            }, []),
-            new UiNode("button", {
-                className: "button max-height center-content animated-button next border focusable",
-                title: this._content.button.title_prefix
-                    + kwargs.profession_name
-            }, [
-                new UiNode("span", {
-                    textContent: this._content.button.text
-                }, [])
-            ], {
-                click: () => kwargs.handler(kwargs.profession_code)
-            })
+                textContent: profession_name
+            }),
+            this._create_list_element_button(profession_name, handler)
         ])
+    }
+
+    _create_list_element_button(profession_name, handler)
+    {
+        return new UiNode("button", {}, {
+            class: "button max-height center-content animated-button next border focusable",
+            "data-title": this._content.button.title_prefix
+                + profession_name
+        }, [
+            new UiNode("span", {
+                textContent: this._content.button.text
+            })
+        ], {
+            click: handler
+        })
     }
 
     _create_footer(handler)
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
-            new UiNode("span", {}, [
+            new UiNode("span", {}, {}, [
                 new UiNode("span", {
                     textContent: this._content.footer.text,
                 }),
                 new UiNode("span", {
-                    className: "link focusable",
-                    tabIndex: "0",
                     textContent: this._content.footer.link_text,
+                }, {
+                    class: "link focusable",
+                    tabindex: "0",
                 }, [], {
                     click: handler
                 }),

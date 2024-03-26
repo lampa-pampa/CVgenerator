@@ -1,4 +1,5 @@
 import UiNode from "../../../script/ui_node.js"
+import UiNodeNs from "../../../script/ui_node_ns.js"
 
 class FormUi
 {
@@ -12,81 +13,111 @@ class FormUi
         this._progress_bar = null
     }
 
-    create_window(kwargs)
+    create_window(click_handlers)
     {
-        this._create_header()
-        this._create_subwindow_display(kwargs)
+        this._create_header(click_handlers.reset)
+        this._create_subwindow_display(click_handlers)
         this._create_footer()
     }
 
-    _create_header()
+    _create_header(reset_button_click_handler)
     {
         this._subwindow_title_display = this._create_subwindow_title_display()
         UiNode.get_by_class(this._section_class_names.header).draw_nodes([
-            this._subwindow_title_display
+            this._subwindow_title_display,
+            this._create_reset_button_container(reset_button_click_handler),
+        ])
+    }
+    
+    _create_subwindow_title_display()
+    {
+        return new UiNode("h2", {}, {
+            class: "window-title",
+        })
+    }
+    
+    _create_reset_button_container(click_handler)
+    {
+        return new UiNode("div", {}, {
+            class: "reset-button-container square center-content max-height",
+        }, [
+            this._create_reset_button(click_handler)
         ])
     }
 
-    _create_subwindow_title_display()
+    _create_reset_button(click_handler)
     {
-        return new UiNode("h2", {
-            className: "window-title",
+        return new UiNode("button", {}, {
+            class: "button spin-icon focusable square",
+            "data-title": this._content.buttons.reset.title,
+        }, [
+            new UiNodeNs("svg", {}, {
+                class: "icon",
+                viewBox: this._content.buttons.reset.icon.view_box,
+                toolBox: this._content.buttons.reset.icon.view_box,
+            }, [
+                new UiNodeNs("path", {}, {
+                    d: this._content.buttons.reset.icon.path,
+                })
+            ])
+        ], {
+            "click": click_handler
         })
     }
 
-    _create_subwindow_display(kwargs)
+    _create_subwindow_display(click_handlers)
     {
         UiNode.get_by_class(
             this._section_class_names.subwindow_display).draw_nodes([
-                new UiNode("ul", {
-                    className: "window-list",
-                    tabIndex: -1,
+                new UiNode("ul", {}, {
+                    class: "window-list",
+                    tabindex: -1,
                 }),
-                this._create_buttons_container(kwargs),
+                this._create_buttons_container(click_handlers),
         ])
     }
 
-    _create_buttons_container(kwargs)
+    _create_buttons_container(click_handlers)
     {
         this._previous_button = this._create_previous_button(
-            kwargs.previous_button_click_handler
+            click_handlers.previous_button
         )
         this._next_button = this._create_next_button(
-            kwargs.next_button_click_handler
+            click_handlers.next_button
         )
-        return new UiNode("div", {
-            className: "form-buttons-container shadow",
+        return new UiNode("div", {}, {
+            class: "form-buttons-container shadow",
         }, [
             this._previous_button,
             this._next_button,
         ])
     }
 
-    _create_previous_button(handler)
+    _create_previous_button(click_handler)
     {
-        return new UiNode("button", {
-            className: "button center-content animated-button previous border focusable",
-            title: this._content.buttons.previous.title
+        return new UiNode("button", {}, {
+            class: "button center-content animated-button previous border focusable",
+            "data-title": this._content.buttons.previous.title,
         }, [
             new UiNode("span", {
                 textContent: this._content.buttons.previous.text
             })
         ], {
-            "click": handler
+            click: click_handler
         })
     }
 
-    _create_next_button(handler)
+    _create_next_button(click_handler)
     {
-        return new UiNode("button", {
-            className: "button center-content animated-button next border focusable",
-            title: this._content.buttons.next.title
+        return new UiNode("button", {}, {
+            class: "button center-content animated-button next border focusable",
+            "data-title": this._content.buttons.next.title
         }, [
             new UiNode("span", {
                 textContent: this._content.buttons.next.text
             })
         ], {
-            "click": handler
+            click: click_handler
         })
     }
 
@@ -100,14 +131,14 @@ class FormUi
 
     _create_progress_bar()
     {
-        return new UiNode("div", {
-            className: "form-progress-bar max-height",
+        return new UiNode("div", {}, {
+            class: "form-progress-bar max-height",
         })
     }
 
     set_subwindow_title(step_number, title)
     {
-        this._subwindow_title_display.set_attributes({
+        this._subwindow_title_display.set_properties({
             textContent: this._create_full_subwindow_title(step_number, title),
         })
     }
@@ -120,7 +151,7 @@ class FormUi
 
     set_progress_bar_value(percentage_progress)
     {
-        this._progress_bar.set_attributes({
+        this._progress_bar.set_properties({
             style: `width: ${percentage_progress}%;`
         })
     }
