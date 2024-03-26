@@ -13,10 +13,10 @@ class HomeWindow
     _create_window(kwargs)
     {
         this._ui.create_header(kwargs.content.header)
-        this._ui.create_content({
+        this._ui.create_list({
             profession_codes: kwargs.profession_codes,
             profession_code_to_name: kwargs.profession_code_to_name,
-            content: kwargs.content.content,
+            content: kwargs.content.list,
             handler: (profession_code) => this._handle_profession_button_click(
                 kwargs.profession_code_storage_key,
                 profession_code,

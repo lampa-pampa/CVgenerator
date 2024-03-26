@@ -16,7 +16,7 @@ class HomeWindowUi {
         )
     }
 
-    create_content(kwargs)
+    create_list(kwargs)
     {
         UiNode.get_by_class(this._section_class_names.content).draw_nodes(
             new UiNode("ul", {

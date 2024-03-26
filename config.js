@@ -66,7 +66,7 @@ const config = {
                 header: {
                     text: "Choose your profession",
                 },
-                content: {
+                list: {
                     button: {
                         text: "CREATE",
                         title_prefix: "Create CV for ",
