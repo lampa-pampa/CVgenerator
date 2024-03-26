@@ -61,20 +61,14 @@ const config = {
                     footer: "window-footer",
                 },
                 content: {
-                    header: {
-                        text: "Choose your profession",
-                    },
-                    list: {
-                        button: {
-                            text: "CREATE",
-                            title_prefix: "Create CV for ",
-                        },
+                    title: "Choose your profession",
+                    button: {
+                        text: "CREATE",
+                        title_prefix: "Create CV for ",
                     },
                     footer: {
                         text: "Can't find your profession?",
-                        link: {
-                            text: "create CV without template",
-                        },
+                        link_text: "create CV without template",
                     },
                 },
             },

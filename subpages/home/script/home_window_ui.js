@@ -24,7 +24,7 @@ class HomeWindowUi {
     {
         UiNode.get_by_class(this._section_class_names.header).draw_nodes(
             new UiNode("h2", {
-                textContent: this._content.header.text,
+                textContent: this._content.title,
                 className: "window-title",
             })
         )
@@ -66,11 +66,11 @@ class HomeWindowUi {
             }, []),
             new UiNode("button", {
                 className: "button max-height center-content animated-button next border focusable",
-                title: this._content.list.button.title_prefix
+                title: this._content.button.title_prefix
                     + kwargs.profession_name
             }, [
                 new UiNode("span", {
-                    textContent: this._content.list.button.text
+                    textContent: this._content.button.text
                 }, [])
             ], {
                 click: () => kwargs.handler(kwargs.profession_code)
@@ -88,7 +88,7 @@ class HomeWindowUi {
                 new UiNode("span", {
                     className: "link focusable",
                     tabIndex: "0",
-                    textContent: this._content.footer.link.text,
+                    textContent: this._content.footer.link_text,
                 }, [], {
                     click: handler
                 }),
