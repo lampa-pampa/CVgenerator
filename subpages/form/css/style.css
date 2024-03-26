@@ -48,5 +48,4 @@
 .form-progress-bar {
     background-color: var(--gradient-color);
     transition: width 400ms;
-    width: 25%;
 }
