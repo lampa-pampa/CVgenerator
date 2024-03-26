@@ -11,6 +11,7 @@ class MainWindowUi
 
     create_head(content)
     {
+        this._preload_image(content.icon_path)
         Ui.draw_nodes_in_head([
             Ui.new_node("title", {
                 textContent: content.title    
@@ -34,10 +35,17 @@ class MainWindowUi
 
     _create_baner(path)
     {
+        this._preload_image(path)
         return Ui.new_node("img", {
             src: path,
             className: "baner",
         })
+    }
+
+    _preload_image(path)
+    {
+        const img = new Image()
+        img.src = path
     }
 
     _create_nav(nav_links)
