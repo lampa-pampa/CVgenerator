@@ -29,15 +29,19 @@ function _main()
         new FormUi(
             config.window.form.ui.section_class_names,
         ),
-        new FormSubwindowFactory(config.window.form.subwindows),
+        new FormSubwindowFactory({
+            subwindows: config.window.form.subwindows,
+            skill_codes: config.profession_code_to_skill_codes[
+                profession_code
+            ],
+            interest_codes: config.profession_code_to_interest_codes[
+                profession_code
+            ],
+            code_to_skill_name: config.code_to_skill_name,
+            code_to_interest_name: config.code_to_interest_name,
+        }),
         config.window.form.subwindow_codes,
         config.code_to_form_subwindow_name,
-        {
-            skills: config.profession_code_to_skill_codes[profession_code],
-            interests: config.profession_code_to_interest_codes[profession_code],
-        },
-        config.code_to_skill_name,
-        config.code_to_interest_name,
     )
 }
 
