@@ -18,7 +18,7 @@ class HomeWindowUi {
 
     create_list(kwargs)
     {
-        UiNode.get_by_class(this._section_class_names.content).draw_nodes(
+        UiNode.get_by_class(this._section_class_names.list).draw_nodes(
             new UiNode("ul", {
                 tabIndex: "-1",
                 className: "window-list max-height",
