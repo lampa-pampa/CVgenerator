@@ -46,13 +46,13 @@ const config = {
         },
     },
 
-    window: {
-        router_ui: {
-            content: {
-                text: "Loading…",
-            },
+    router_ui: {
+        content: {
+            text: "Loading…",
         },
+    },
 
+    window: {
         home: {
             custom_profession_code: "0",
             profession_codes: [
@@ -87,19 +87,6 @@ const config = {
         },
 
         form: {
-            ui: {
-                section_class_names: {
-                    header: "window-header",
-                    subwindow_display: "window-content",
-                    footer: "window-footer",
-                },
-                content: {
-                    step_number: {
-                        prefix: "Step ",
-                        suffix: " | ",
-                    },
-                },
-            },
             subwindow_codes: [
                 "1",
                 "2",
@@ -113,13 +100,26 @@ const config = {
                 "10",
                 "11",
             ],
+            ui: {
+                section_class_names: {
+                    header: "window-header",
+                    subwindow_display: "window-content",
+                    footer: "window-footer",
+                },
+                content: {
+                    step_number: {
+                        prefix: "Step ",
+                        suffix: " | ",
+                    },
+                },
+            },
             subwindow: {
                 name: {
-                    content: {
-                        text: "example text",
-                    },
                     ui: {
                         content_class_name: "window-list",
+                        content: {
+                            text: "example text",
+                        },
                     },
                 },
             },
