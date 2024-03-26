@@ -97,7 +97,7 @@ class MainUi
     {
         UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
             new UiNode("span", {
-                textContent: this._content.footer
+                textContent: this._content.footer.text
             })
         )
     }
