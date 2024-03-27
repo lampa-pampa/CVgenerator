@@ -87,7 +87,7 @@ class FormUi
             click_handlers.next_button
         )
         return new UiNode("div", "", {
-            class: "form-buttons-container shadow",
+            class: "buttons-container shadow",
         }, [
             this._previous_button,
             this._next_button,
@@ -131,14 +131,14 @@ class FormUi
     _create_progress_bar_state_display()
     {
         return new UiNode("span", "", {
-            class: "form-progress-bar-state-display center-content",
+            class: "progress-bar-state center-content",
         })
     }
 
     _create_progress_bar()
     {
         return new UiNode("div", "", {
-            class: "form-progress-bar max-height",
+            class: "progress-bar max-height",
         })
     }
 

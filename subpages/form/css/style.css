@@ -26,7 +26,7 @@
     margin-block: 1em;
 }
 
-.form-buttons-container
+.buttons-container
 {
     --border-radius: calc(2 * var(--border-width));
     font-size: large;
@@ -36,13 +36,13 @@
     padding: 1.5em 2em;
 }
 
-.form-buttons-container .button {
+.buttons-container .button {
     width: 12em;
     height: 3.5em;
     transition: background-color 200ms;
 }
 
-.form-buttons-container .button[data-disabled=true] {
+.buttons-container .button[data-disabled=true] {
     background-color: var(--secondary-theme-color);
     outline: none;
 }
@@ -52,12 +52,12 @@
     position: relative;
 }
 
-.form-progress-bar {
+.progress-bar {
     background-color: var(--gradient-color);
     transition: width 400ms;
 }
 
-.form-progress-bar-state-display {
+.progress-bar-state {
     position: absolute;
     inset: 0;
     font-size: medium;
