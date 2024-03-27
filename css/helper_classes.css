@@ -46,6 +46,10 @@
     cursor: pointer;
 }
 
+.text-field.focusable {
+    cursor: text;
+}
+
 .border.focusable:hover:not(.text-field) {
     border-color: var(--gradient-color);
 }

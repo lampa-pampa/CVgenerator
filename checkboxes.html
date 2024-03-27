@@ -4,56 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="subpages/form/css/style.css">
 </head>
 <body>
-    <li>
-        <label class="custom-checkbox-label">
-            <input class="checkbox" type="checkbox">
-            <span tabindex="0" class="custom-checkbox max-height border focusable square" data-title="check">
-                <span>
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                    </svg>
-                </span>
-            </span>
-            <span>option 1</span>
-        </label>
-    </li>                  
-    <li>
-        <label class="custom-checkbox-label">
-            <input class="checkbox" type="checkbox" checked disabled>
-            <span class="custom-checkbox border max-height square" data-title="check">
-                <span>
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                    </svg>
-                </span>
-            </span>
-            <span>custom option 1</span>
-            <button type="button" class="button max-height border focusable square" data-title="Remove">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-                </svg>
-            </button>
-        </label>
-    </li>
-    <li>
-        <label class="custom-checkbox-label">
-            <input class="checkbox" type="checkbox" disabled>
-            <span class="custom-checkbox border max-height square" data-title="check">
-                <span>
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                    </svg>
-                </span>
-            </span>
-            <input maxlength="64" class="text-field border max-height focusable" type="text">
-            <button type="button" class="button max-height border focusable square" data-title="Add">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                </svg>
-            </button>
-        </label>
-    </li>
+    <header class="main-header"></header>
+    <main class="center-content">
+        <div class="window border">
+            <div class="window-header shadow"></div>
+            <div class="window-content">
+                <ul class="window-list">
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox">
+                            <span tabindex="0" class="custom-checkbox max-height border focusable square" data-title="check">
+                                <span>
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
+                                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span>option 1</span>
+                        </label>
+                    </li>                  
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox" checked disabled>
+                            <span class="custom-checkbox border max-height focusable square" data-title="check">
+                                <span>
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
+                                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span>custom option 1</span>
+                            <button type="button" class="button max-height border focusable square" data-title="Remove">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
+                                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                </svg>
+                            </button>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox-label">
+                            <input class="checkbox" type="checkbox" disabled>
+                            <span class="custom-checkbox border max-height square focusable data-title="check">
+                                <span>
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
+                                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <input maxlength="64" class="text-field border max-height focusable" type="text">
+                            <button type="button" class="button max-height border focusable square" data-title="Add">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
+                                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                </svg>
+                            </button>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="window-footer border"></div>
+        </div>
+    </main>
+    <footer class="center-content main-footer"></footer>
 </body>
 </html>
