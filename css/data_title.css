@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.focusable[data-title]:after {
+.focusable[data-title]::after {
     content: attr(data-title);
     background-color: var(--secondary-theme-color);
     color: var(--main-theme-color);
@@ -20,7 +20,7 @@
     pointer-events: none;
 }
 
-.focusable[data-title]:hover:after {
+.focusable[data-title]:hover::after {
     transition-delay: 500ms;
     opacity: .9;
 }
