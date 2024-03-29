@@ -64,3 +64,8 @@
     transform: rotate(1turn);
     opacity: .8;
 }
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
