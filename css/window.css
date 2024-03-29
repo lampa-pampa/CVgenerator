@@ -40,3 +40,7 @@
     padding: 1em 1.6em;
     scrollbar-color: var(--secondary-theme-color) transparent;
 }
+
+.window-list li {
+    margin-block: 0.8em;
+}
