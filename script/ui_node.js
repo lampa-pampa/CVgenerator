@@ -42,6 +42,16 @@ class UiNode
             this._dom.setAttribute(attribute, attributes[attribute])
     }
 
+    get(property_name)
+    {
+        return this._dom[property_name]
+    }
+
+    set(property_name, value)
+    {
+        this._dom[property_name] = value
+    }
+
     set_text_content(text)
     {
         this._dom.textContent = text
