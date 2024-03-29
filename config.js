@@ -56,9 +56,10 @@ const config = {
             ],
             ui: {
                 section_class_names: {
-                    header: "window-header",
-                    list: "window-content",
-                    footer: "window-footer",
+                    title: "window-title",
+                    list: "window-list",
+                    footer_label: "window-footer-label",
+                    footer_link: "window-footer-link",
                 },
                 content: {
                     title: "Choose your profession",
@@ -67,8 +68,8 @@ const config = {
                         title_prefix: "Create CV for ",
                     },
                     footer: {
-                        text: "Can't find your profession?",
-                        link_text: "create CV without template",
+                        label: "Can't find your profession?",
+                        link: "create CV without template",
                     },
                 },
             },
@@ -132,7 +133,10 @@ const config = {
                     ui: {
                         content_class_name: "window-list",
                         content: {
-                            text: "example text",
+                            labels: {
+                                name: "Insert your name:",
+                                surname: "Insert your surname:",
+                            }
                         },
                     },
                 },

@@ -9,8 +9,8 @@ class HomeWindowUi {
 
     create_window(kwargs)
     {
-        this._create_header()
-        this._create_list({
+        this._create_title()
+        this._create_list_elements({
             profession_codes: kwargs.profession_codes,
             profession_code_to_name: kwargs.profession_code_to_name,
             handler: kwargs.handler,
@@ -20,24 +20,10 @@ class HomeWindowUi {
         )
     }
 
-    _create_header()
+    _create_title()
     {
-        UiNode.get_by_class(this._section_class_names.header).draw_nodes(
-            new UiNode("h2", this._content.title, {
-                class: "window-title",
-            })
-        )
-    }
-
-    _create_list(kwargs)
-    {
-        UiNode.get_by_class(this._section_class_names.list).draw_nodes(
-            new UiNode("ul", "", {
-                class: "window-list max-height",
-                tabindex: "-1",
-            }, 
-                this._create_list_elements(kwargs)
-            )
+        UiNode.get_by_class(this._section_class_names.title).set_text_content(
+            this._content.title
         )
     }
 
@@ -51,7 +37,7 @@ class HomeWindowUi {
                     () => kwargs.handler(profession_code),
                 )
             )
-        return elements                   
+        UiNode.get_by_class(this._section_class_names.list).append_nodes(elements)                
     }
 
     _create_list_element(profession_name, handler)
@@ -77,17 +63,14 @@ class HomeWindowUi {
 
     _create_footer(handler)
     {
-        UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
-            new UiNode("span", "", {}, [
-                new UiNode("span", this._content.footer.text),
-                new UiNode("span", this._content.footer.link_text, {
-                    class: "link focusable",
-                    tabindex: "0",
-                }, [], {
-                    click: handler
-                }),
-            ]),
+        UiNode.get_by_class(this._section_class_names.footer_label).set_text_content(
+            this._content.footer.label
         )
+        const link = UiNode.get_by_class(this._section_class_names.footer_link)
+        link.set_text_content(this._content.footer.link)
+        link.add_listeners({
+            click: handler
+        })
     }
 }
 
