@@ -19,7 +19,6 @@ class MainUi
 
     _create_head()
     {
-        this._preload_image(this._content.icon_path)
         UiNode.get_head().append_nodes([
             new UiNode("title", this._content.title),
             new UiNode("link", "", {
@@ -32,37 +31,15 @@ class MainUi
 
     _create_header()
     {
-        UiNode.get_by_class(this._section_class_names.header).draw_nodes([
-            this._create_baner(this._content.baner_path),
-            this._create_nav(this._content.nav_links),
-        ])
+        this._setup_baner(this._content.baner_path)
+        this._create_nav_links(this._content.nav_links)
     }
 
-    _create_baner(path)
+    _setup_baner(path)
     {
-        this._preload_image(path)
-        return new UiNode("img", "", {
+        UiNode.get_by_class(this._section_class_names.baner).set_attributes({
             src: path,
-            class: "baner",
         })
-    }
-
-    _preload_image(path)
-    {
-        const img = new Image()
-        img.src = path
-    }
-
-    _create_nav(nav_links)
-    {
-        return new UiNode("nav", "", {}, [
-            new UiNode("ul", "", {
-                tabindex: "-1",
-                class: "max-height"
-            },
-                this._create_nav_links(nav_links)
-            )
-        ])
     }
 
     _create_nav_links(nav_links)
@@ -73,7 +50,9 @@ class MainUi
                 text: link_text,
                 href: nav_links[link_text],
             }))
-        return links
+        UiNode.get_by_class(this._section_class_names.nav_list).draw_nodes(
+            links
+        )
     }
 
     _create_nav_link(content)
@@ -92,8 +71,8 @@ class MainUi
 
     _create_footer()
     {
-        UiNode.get_by_class(this._section_class_names.footer).draw_nodes(
-            new UiNode("span", this._content.footer)
+        UiNode.get_by_class(this._section_class_names.footer).set_text_content(
+            this._content.footer
         )
     }
 

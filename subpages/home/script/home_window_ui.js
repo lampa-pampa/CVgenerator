@@ -9,18 +9,18 @@ class HomeWindowUi {
 
     create_window(kwargs)
     {
-        this._create_title()
+        this._setup_title()
         this._create_list_elements({
             profession_codes: kwargs.profession_codes,
             profession_code_to_name: kwargs.profession_code_to_name,
             handler: kwargs.handler,
         })
-        this._create_footer(
+        this._setup_footer(
             () => kwargs.handler(kwargs.custom_profession_code)
         )
     }
 
-    _create_title()
+    _setup_title()
     {
         UiNode.get_by_class(this._section_class_names.title).set_text_content(
             this._content.title
@@ -37,7 +37,7 @@ class HomeWindowUi {
                     () => kwargs.handler(profession_code),
                 )
             )
-        UiNode.get_by_class(this._section_class_names.list).append_nodes(elements)                
+        UiNode.get_by_class(this._section_class_names.list).draw_nodes(elements)                
     }
 
     _create_list_element(profession_name, handler)
@@ -61,12 +61,12 @@ class HomeWindowUi {
         })
     }
 
-    _create_footer(handler)
+    _setup_footer(handler)
     {
-        UiNode.get_by_class(this._section_class_names.footer_label).set_text_content(
+        UiNode.get_by_class(this._section_class_names.footer.label).set_text_content(
             this._content.footer.label
         )
-        const link = UiNode.get_by_class(this._section_class_names.footer_link)
+        const link = UiNode.get_by_class(this._section_class_names.footer.link)
         link.set_text_content(this._content.footer.link)
         link.add_listeners({
             click: handler

@@ -5,123 +5,113 @@ class FormSubwindowFactory
 {
     constructor(kwargs)
     {
+        this._kwargs = kwargs
         this.window_code_to_creator = {
-            "1": () => {
+            "1": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "2": () => {
+            "2": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "3": () => {
+            "3": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "4": () => {
+            "4": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "5": () => {
+            "5": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "6": () => {
+            "6": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "7": () => {
+            "7": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "8": () => {
+            "8": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "9": () => {
+            "9": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "10": () => {
+            "10": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
-            "11": () => {
+            "11": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        kwargs.subwindows.name.ui.content_class_name,
-                        kwargs.subwindows.name.ui.content,
-                    ), {
-                        content: kwargs.subwindows.name.content
-                    }
+                        this._kwargs.subwindows.name.ui.content_class_name,
+                        this._kwargs.subwindows.name.ui.content,
+                    ),
+                    kwargs,
                 )
             },
         }
     }
 
-    create(window_code)
+    create(window_code, kwargs)
     {
-        return this.window_code_to_creator[window_code]()
+        return this.window_code_to_creator[window_code](kwargs)
     }
 }
 

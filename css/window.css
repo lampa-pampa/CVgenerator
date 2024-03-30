@@ -43,4 +43,6 @@
 
 .window-list li {
     margin-block: 0.8em;
+    display: flex;
+    align-items: center;
 }

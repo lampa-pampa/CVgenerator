@@ -1,26 +1,39 @@
 class NameSubwindow
 {
-    constructor(ui)
+    constructor(ui, kwargs)
     {
         this._ui = ui
-        this._ui.create_window()
+        this._values = kwargs.values
+        this._next_button_refresher = kwargs.next_button_refresher
+        this._ui.create_window(this._values, this._update_value.bind(this))
+        this._next_button_refresher(this._values_are_valid())
     }
 
     reset()
     {
-        
+        this._ui.reset()
+        this._next_button_refresher(this._values_are_valid())
     }
 
-    data_is_valid()
+    get_values()
     {
-        return true
+        return this._values
     }
 
-    get_data()
+    _update_value(value_name, value)
     {
-        return {
-            example_value: "hello",
+        this._values[value_name] = value
+        this._next_button_refresher(this._values_are_valid())
+    }
+
+    _values_are_valid()
+    {
+        for(const value of Object.values(this._values))
+        {
+            if(!value.trim())
+                return false
         }
+        return true
     }
 }
 

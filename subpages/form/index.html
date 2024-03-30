@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <script src="script/main.js" type="module"></script>
+    <script src="script/main.js" type="module" defer></script>
 </head>
 <body>
-    <header class="main-header"></header>
+    <header class="main-header">
+        <img class="main-baner">
+        <nav>
+            <ul class="main-nav-list max-height" tabindex="-1"></ul>
+        </nav>
+    </header>
     <main class="center-content">
         <div class="window border">
-            <div class="window-header shadow"></div>
-            <div class="window-content"></div>
-            <div class="window-footer border"></div>
+            <div class="window-header shadow space-between">
+                <h2 class="window-title"></h2>
+                <div class="reset-button-container square center-content max-height">
+                    <button class="reset-button button spin-icon focusable square"></button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="window-content">
+                    <ul class="window-list" tabindex="-1"></ul>
+                    <div class="buttons-container shadow">
+                        <button class="previous-button button center-content animated-button previous border focusable"></button>
+                        <button class="next-button button center-content animated-button next border focusable"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="window-footer border">
+                <div class="progress-bar-state center-content"></div>
+                <div class="progress-bar max-height"></div>
+            </div>
         </div>
     </main>
     <footer class="center-content main-footer"></footer>
