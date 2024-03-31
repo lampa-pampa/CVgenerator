@@ -15,7 +15,7 @@ function _main()
         config.storage_keys.profession_code
     )
     if(!_profession_code_exist(profession_code))
-        route(config.home_page_path)
+        route(config.subpage_paths.home)
 
     form = new Form(
         new MainUi(
@@ -40,7 +40,11 @@ function _main()
         }),
         config.window.form.subwindow_codes,
         config.subwindow_code_to_name,
+        config.storage_keys.form_values,
+        config.window.form.default_values,
+        config.subpage_paths.ganerator,
     )
+    SessionStorageManager.remove(config.storage_keys.profession_code)
 }
 
 function _profession_code_exist(profession_code)

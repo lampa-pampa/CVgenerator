@@ -1,3 +1,6 @@
+import route from "../../../script/router.js"
+import SessionStorageManager from "../../../script/session_storage_manager.js"
+
 class Form
 {
     constructor(
@@ -6,82 +9,43 @@ class Form
         subwindow_factory,
         subwindow_codes,
         subwindow_code_to_name,
+        values_storage_key,
+        default_values,
+        generator_subpage_path,
     ){
         this._main_ui = main_ui
         this._ui = ui
         this._subwindow_factory = subwindow_factory
         this._subwindow_codes = subwindow_codes
         this._subwindow_code_to_name = subwindow_code_to_name
+        this._values_storage_key = values_storage_key
+        this._default_values = default_values
+        this._generator_subpage_path = generator_subpage_path
+        
         this._main_ui.create_window()
         this._ui.create_window({
             reset: () => this._handle_reset_button_click(),
             previous: () => this._handle_previous_button_click(),
             next: () => this._handle_next_button_click(),
         })
-        this._values = {
-            "1": {
-                name: "",
-                surname: "",
-            },
-            "2": {
-                name: "",
-                surname: "",
-            },
-            "3": {
-                name: "",
-                surname: "",
-            },
-            "4": {
-                name: "",
-                surname: "",
-            },
-            "5": {
-                name: "",
-                surname: "",
-            },
-            "6": {
-                name: "",
-                surname: "",
-            },
-            "7": {
-                name: "",
-                surname: "",
-            },
-            "8": {
-                name: "",
-                surname: "",
-            },
-            "9": {
-                name: "",
-                surname: "",
-            },
-
-            "10": {
-                name: "",
-                surname: "",
-            },
-            "11": {
-                name: "",
-                surname: "",
-            },
-        }
-
-        this._subwindow = null
+        this._values = this._default_values
         this._cur_subwindow_code_index = 0
+        this._cur_subwindow_code = 0
+        this._subwindow = null
         this._open_subwindow(0)
     }
 
     _open_subwindow(code_index)
     {
         this._cur_subwindow_code_index = code_index
-        const cur_subwindow_code = this._subwindow_codes[code_index]
+        this._cur_subwindow_code = this._subwindow_codes[code_index]
         this._update_subwindow_title()
         this._update_buttons()
         this._update_progress_bar()
         this._subwindow = this._subwindow_factory.create(
-            cur_subwindow_code,
+            this._cur_subwindow_code,
             {
-                values: this._values[cur_subwindow_code],
+                values: this._values[this._cur_subwindow_code],
                 next_button_refresher: (state) => {
                     this._ui.set_next_button_state(state)
                 },
@@ -94,7 +58,7 @@ class Form
     {
         this._ui.set_subwindow_title(
             this._cur_subwindow_code_index + 1,
-            this._subwindow_code_to_name[this._get_cur_subwindow_code()]
+            this._subwindow_code_to_name[this._cur_subwindow_code]
         )
     }
 
@@ -116,7 +80,8 @@ class Form
 
     _handle_reset_button_click()
     {
-        this._subwindow.reset()
+        this._values = this._default_values
+        this._open_subwindow(0)
     }
 
     _handle_previous_button_click()
@@ -140,9 +105,10 @@ class Form
         this._open_subwindow(++this._cur_subwindow_code_index)
     }
 
-    _get_cur_subwindow_code()
+    _validate_values(values)
     {
-        return this._subwindow_codes[this._cur_subwindow_code_index]
+        if(values)
+            return values
     }
 
     _compute_last_subwindow_index()
@@ -152,13 +118,13 @@ class Form
 
     _save_subwindow_values()
     {
-        this._values[this._get_cur_subwindow_code()] = this._subwindow.get_values()
+        this._values[this._cur_subwindow_code] = this._subwindow.get_values()
     }
 
     _generate_cv()
     {
-        console.log("GENERATE CV")
-        console.log(this._values)
+        SessionStorageManager.save(this._values_storage_key, this._values)
+        route(this._generator_subpage_path)
     }
 }
 
