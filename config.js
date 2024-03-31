@@ -4,8 +4,10 @@ const paths = {
         paths: {
             home: "home",
             form: "form",
+            generator: "generator",
         },
     },
+
     images: {
         dir: "../../img/",
         paths: {
@@ -13,15 +15,19 @@ const paths = {
             baner: "baner.png",
         },
     },
+
     get(dir_name, path_name)
     {
         return this[dir_name].dir + this[dir_name].paths[path_name]
     }
 }
 
-const config = { 
-    home_page_path: paths.get("subpages", "home"),
-    form_page_path: paths.get("subpages", "form"),
+const config = {
+    subpage_paths: {
+        home: paths.get("subpages", "home"),
+        form: paths.get("subpages", "form"),
+        ganerator: paths.get("subpages", "generator"),
+    },
 
     main_ui: {
         section_class_names: {
@@ -93,6 +99,53 @@ const config = {
                 "10",
                 "11",
             ],
+            default_values: {
+                "1": {
+                    name: "",
+                    surname: "",
+                },
+                "2": {
+                    name: "",
+                    surname: "",
+                },
+                "3": {
+                    name: "",
+                    surname: "",
+                },
+                "4": {
+                    name: "",
+                    surname: "",
+                },
+                "5": {
+                    name: "",
+                    surname: "",
+                },
+                "6": {
+                    name: "",
+                    surname: "",
+                },
+                "7": {
+                    name: "",
+                    surname: "",
+                },
+                "8": {
+                    name: "",
+                    surname: "",
+                },
+                "9": {
+                    name: "",
+                    surname: "",
+                },
+    
+                "10": {
+                    name: "",
+                    surname: "",
+                },
+                "11": {
+                    name: "",
+                    surname: "",
+                },
+            },
             ui: {
                 section_class_names: {
                     title: "window-title",
@@ -151,6 +204,16 @@ const config = {
                 },
             },
         },
+        generator: {
+            ui: {
+                section_class_names: {
+
+                },
+                content: {
+
+                },
+            }
+        },
     },
 
     subwindow_code_to_name: {
@@ -202,6 +265,7 @@ const config = {
 
     storage_keys: {
         profession_code: "profession_code",
+        form_values: "form_values"
     },
 }
 
