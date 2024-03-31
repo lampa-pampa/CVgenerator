@@ -9,11 +9,6 @@ class NameSubwindow
         this._next_button_refresher(this._values_are_valid())
     }
 
-    get_values()
-    {
-        return this._values
-    }
-
     _update_value(value_name, value)
     {
         this._values[value_name] = value
