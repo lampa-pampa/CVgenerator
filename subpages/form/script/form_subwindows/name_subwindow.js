@@ -9,12 +9,6 @@ class NameSubwindow
         this._next_button_refresher(this._values_are_valid())
     }
 
-    reset()
-    {
-        this._ui.reset()
-        this._next_button_refresher(this._values_are_valid())
-    }
-
     get_values()
     {
         return this._values
