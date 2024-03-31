@@ -10,6 +10,7 @@ class Form
         subwindow_codes,
         subwindow_code_to_name,
         values_storage_key,
+        values,
         default_values,
         generator_subpage_path,
     ){
@@ -19,6 +20,7 @@ class Form
         this._subwindow_codes = subwindow_codes
         this._subwindow_code_to_name = subwindow_code_to_name
         this._values_storage_key = values_storage_key
+        this._values = values
         this._default_values = default_values
         this._generator_subpage_path = generator_subpage_path
         
@@ -28,7 +30,6 @@ class Form
             previous: () => this._handle_previous_button_click(),
             next: () => this._handle_next_button_click(),
         })
-        this._values = this._default_values
         this._cur_subwindow_code_index = 0
         this._cur_subwindow_code = 0
         this._subwindow = null
@@ -103,12 +104,6 @@ class Form
     {
         this._save_subwindow_values()
         this._open_subwindow(++this._cur_subwindow_code_index)
-    }
-
-    _validate_values(values)
-    {
-        if(values)
-            return values
     }
 
     _compute_last_subwindow_index()

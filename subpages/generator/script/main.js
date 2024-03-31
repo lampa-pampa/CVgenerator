@@ -2,6 +2,7 @@ import config from "../../../config.js"
 import GeneratorWindow from "./generator_window.js"
 import GeneratorWindowUi from "./generator_window_ui.js"
 import MainUi from "../../../script/main_ui.js"
+import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 _main()
 
@@ -20,4 +21,5 @@ function _main()
         config.subpage_paths.form,
         config.subpage_paths.home,
     )
+    SessionStorageManager.remove(config.storage_keys.form_values)
 }
