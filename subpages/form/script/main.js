@@ -3,7 +3,7 @@ import Form from "./form.js"
 import FormUi from "./form_ui.js"
 import FormSubwindowFactory from "./form_subwindow_factory.js"
 import MainUi from "../../../script/main_ui.js"
-import route from "../../../script/router.js"
+import {route} from "../../../script/helpers.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 let form = null
@@ -38,9 +38,9 @@ function _main()
         }),
         config.window.form.subwindow_codes,
         config.subwindow_code_to_name,
-        config.storage_keys.form_values,
         form_values,
         config.window.form.default_values,
+        config.storage_keys.form_valuesform_values,
         config.subpage_paths.ganerator,
     )
     SessionStorageManager.remove(config.storage_keys.profession_code)

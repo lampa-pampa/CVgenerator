@@ -1,4 +1,4 @@
-import route from "../../../script/router.js"
+import {route} from "../../../script/helpers.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 class HomeWindow

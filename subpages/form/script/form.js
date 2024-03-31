@@ -1,4 +1,4 @@
-import route from "../../../script/router.js"
+import {route, make_copy} from "../../../script/helpers.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 class Form
@@ -9,9 +9,9 @@ class Form
         subwindow_factory,
         subwindow_codes,
         subwindow_code_to_name,
-        values_storage_key,
         values,
         default_values,
+        values_storage_key,
         generator_subpage_path,
     ){
         this._main_ui = main_ui
@@ -20,7 +20,7 @@ class Form
         this._subwindow_codes = subwindow_codes
         this._subwindow_code_to_name = subwindow_code_to_name
         this._values_storage_key = values_storage_key
-        this._values = values
+        this._values = make_copy(values)
         this._default_values = default_values
         this._generator_subpage_path = generator_subpage_path
         
@@ -81,13 +81,12 @@ class Form
 
     _handle_reset_button_click()
     {
-        this._values = this._default_values
+        this._values = make_copy(this._default_values)
         this._open_subwindow(0)
     }
 
     _handle_previous_button_click()
     {
-        this._save_subwindow_values()
         if(this._cur_subwindow_code_index > 0)
             this._open_subwindow(--this._cur_subwindow_code_index)
     }
@@ -95,25 +94,14 @@ class Form
     _handle_next_button_click()
     {
         if(this._cur_subwindow_code_index < this._compute_last_subwindow_index())
-            this._open_next_window()
+            this._open_subwindow(++this._cur_subwindow_code_index)
         else
             this._generate_cv()
-    }
-
-    _open_next_window()
-    {
-        this._save_subwindow_values()
-        this._open_subwindow(++this._cur_subwindow_code_index)
     }
 
     _compute_last_subwindow_index()
     {
         return this._subwindow_codes.length - 1
-    }
-
-    _save_subwindow_values()
-    {
-        this._values[this._cur_subwindow_code] = this._subwindow.get_values()
     }
 
     _generate_cv()
