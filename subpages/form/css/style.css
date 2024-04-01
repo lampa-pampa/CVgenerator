@@ -23,7 +23,6 @@
     height: 36px;
     grid-template-columns: 30px 1fr 30px;
     column-gap: 1em;
-    margin-block: 1em;
 }
 
 .buttons-container
