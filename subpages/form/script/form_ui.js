@@ -1,5 +1,4 @@
-import UiNode from "../../../script/ui_node.js"
-import UiNodeNs from "../../../script/ui_node_ns.js"
+import {UiNode, UiNodeNs} from "../../../script/ui_node.js"
 
 class FormUi
 {

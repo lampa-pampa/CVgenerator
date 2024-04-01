@@ -1,9 +1,9 @@
+import {route, match} from "../../../script/helpers.js"
 import config from "../../../config.js"
 import Form from "./form.js"
-import FormUi from "./form_ui.js"
 import FormSubwindowFactory from "./form_subwindow_factory.js"
+import FormUi from "./form_ui.js"
 import MainUi from "../../../script/main_ui.js"
-import {route} from "../../../script/helpers.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 let form = null
@@ -18,7 +18,6 @@ function _main()
         route(config.subpage_paths.home)
 
     const form_values = _get_form_values()
-
     form = new Form(
         new MainUi(
             config.main_ui.section_class_names,
@@ -40,7 +39,7 @@ function _main()
         config.subwindow_code_to_name,
         form_values,
         config.window.form.default_values,
-        config.storage_keys.form_valuesform_values,
+        config.storage_keys.form_values,
         config.subpage_paths.ganerator,
     )
     SessionStorageManager.remove(config.storage_keys.profession_code)
@@ -55,17 +54,8 @@ function _profession_code_exist(profession_code)
 
 function _get_form_values()
 {
-    const storage_values = SessionStorageManager.read(
-        config.storage_keys.form_values
-    )
-    if(_validate_form_values(storage_values))
+    const storage_values = SessionStorageManager.read(config.storage_keys.form_values)
+    if(match(storage_values, config.window.form.default_values))
         return storage_values
     return config.window.form.default_values
-}
-
-function _validate_form_values(values)
-{
-    if(values)
-        return true
-    return false
 }

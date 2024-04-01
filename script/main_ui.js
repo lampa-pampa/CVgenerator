@@ -1,5 +1,5 @@
 import {route} from "./helpers.js"
-import UiNode from "./ui_node.js"
+import {UiNode} from "./ui_node.js"
 
 class MainUi
 {
