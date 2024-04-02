@@ -1,0 +1,41 @@
+.window-content {
+    --border-color: var(--secondary-theme-color);
+    --border-radius: calc(2 * var(--border-width));
+    color: var(--main-theme-color);
+    font-size: large;
+    display: grid;
+    grid-template-rows:
+        1fr
+        auto;
+}
+
+.window-content .button {
+    width: 12em;
+    height: 3.5em;
+    transition: background-color 200ms;
+}
+
+.window-content .button[data-disabled=true] {
+    background-color: var(--secondary-theme-color);
+    outline: none;
+}
+
+.buttons-container, .description {
+    padding: 1.5em 2em;
+}
+
+.window-footer {
+    --border-color: var(--secondary-theme-color);
+    position: relative;
+}
+
+.progress-bar {
+    background-color: var(--gradient-color);
+    transition: width 400ms;
+}
+
+.progress-bar-state {
+    position: absolute;
+    inset: 0;
+    font-size: medium;
+}
