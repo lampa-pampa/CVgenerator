@@ -22,4 +22,9 @@ function match(object, pattern)
     return true
 }
 
-export {route, make_copy, match}
+function has_key(object, key)
+{
+    return Object.keys(object).includes(key)
+}
+
+export {route, make_copy, match, has_key}
