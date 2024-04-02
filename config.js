@@ -55,6 +55,14 @@ const config = {
     },
 
     window: {
+        router: {
+            ui: {
+                content_class_name: "loading-text",
+                content: {
+                    loading_text: "Loading…"
+                },
+            },
+        },
         home: {
             custom_profession_code: "0",
             profession_codes: [
@@ -181,7 +189,7 @@ const config = {
                         },
                         submit: {
                             text: "GENERATE",
-                            title: "Generate and download CV",
+                            title: "Generate your CV",
                         }
                     },
                     progress_bar_state: {
@@ -207,10 +215,36 @@ const config = {
         generator: {
             ui: {
                 section_class_names: {
-
+                    title: "window-title",
+                    buttons: {
+                        download: "download-button",
+                        edit: "edit-button",
+                        create: "create-button",
+                    },
+                    progress_bar: "progress-bar",
+                    progress_bar_state: "progress-bar-state",
                 },
                 content: {
-
+                    title: "Download your CV",
+                    buttons: {
+                        download: {
+                            text: "DOWNLOAD",
+                            title: "Download your CV",
+                        },
+                        edit: {
+                            text: "EDIT",
+                            title: "Back to edit",
+                        },
+                        create: {
+                            text: "CREATE NEW",
+                            title: "Create another CV",
+                        },
+                    },
+                    progress_bar_state: {
+                        prefix: "Generating your CV - ",
+                        suffix: "% done…",
+                        completed: "Completed!",
+                    },
                 },
             }
         },
