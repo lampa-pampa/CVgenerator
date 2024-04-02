@@ -1,4 +1,4 @@
-import {route, match} from "../../../script/helpers.js"
+import {route, match, has_key} from "../../../script/helpers.js"
 import config from "../../../config.js"
 import Form from "./form.js"
 import FormSubwindowFactory from "./form_subwindow_factory.js"
@@ -14,7 +14,7 @@ function _main()
     const profession_code = SessionStorageManager.read(
         config.storage_keys.profession_code
     )
-    if(!_profession_code_exist(profession_code))
+    if(!has_key(config.profession_code_to_name, profession_code))
         route(config.subpage_paths.home)
 
     const form_values = _get_form_values()
@@ -37,19 +37,15 @@ function _main()
         }),
         config.window.form.subwindow_codes,
         config.subwindow_code_to_name,
+        profession_code,
         form_values,
         config.window.form.default_values,
         config.storage_keys.form_values,
+        config.storage_keys.profession_code,
         config.subpage_paths.ganerator,
     )
     SessionStorageManager.remove(config.storage_keys.profession_code)
     SessionStorageManager.remove(config.storage_keys.form_values)
-}
-
-function _profession_code_exist(profession_code)
-{
-    return Object.keys(config.profession_code_to_name)
-        .includes(profession_code)
 }
 
 function _get_form_values()

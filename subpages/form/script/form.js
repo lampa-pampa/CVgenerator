@@ -9,9 +9,11 @@ class Form
         subwindow_factory,
         subwindow_codes,
         subwindow_code_to_name,
+        profession_code,
         values,
         default_values,
         values_storage_key,
+        profession_code_storage_key,
         generator_subpage_path,
     ){
         this._main_ui = main_ui
@@ -19,9 +21,11 @@ class Form
         this._subwindow_factory = subwindow_factory
         this._subwindow_codes = subwindow_codes
         this._subwindow_code_to_name = subwindow_code_to_name
-        this._values_storage_key = values_storage_key
+        this._profession_code = profession_code
         this._values = make_copy(values)
         this._default_values = default_values
+        this._values_storage_key = values_storage_key
+        this._profession_code_storage_key = profession_code_storage_key
         this._generator_subpage_path = generator_subpage_path
         
         this._main_ui.create_window()
@@ -107,6 +111,9 @@ class Form
     _generate_cv()
     {
         SessionStorageManager.save(this._values_storage_key, this._values)
+        SessionStorageManager.save(
+            this._profession_code_storage_key, this._profession_code
+        )
         route(this._generator_subpage_path)
     }
 }
