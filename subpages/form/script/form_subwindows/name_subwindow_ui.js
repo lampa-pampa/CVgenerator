@@ -18,9 +18,7 @@ class NameSubwindowUi
                     value: values.name,
                     maxlength: this._content.text_fields.name.max_length,
                 },
-                {
-                    input: (e) => value_updater("name", e.target.value),    
-                }
+                (value) => value_updater("name", value)
             ),
             this._input_node_creator(
                 this._content.text_fields.surname.label,
@@ -28,9 +26,7 @@ class NameSubwindowUi
                     value: values.surname,
                     maxlength: this._content.text_fields.surname.max_length,
                 },
-                {
-                    input: (e) => value_updater("surname", e.target.value),    
-                }
+                (value) => value_updater("surname", value)
             ),
         ])
     }

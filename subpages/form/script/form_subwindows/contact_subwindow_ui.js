@@ -19,9 +19,7 @@ class ContactSubwindowUi
                     maxlength: this._content.text_fields.email.max_length,
                     type: "email",
                 },
-                {
-                    input: (e) => value_updater("email", e.target.value),    
-                }
+                (value) => value_updater("email", value)
             ),
             this._input_node_creator(
                 this._content.text_fields.phone.label,
@@ -30,9 +28,7 @@ class ContactSubwindowUi
                     maxlength: this._content.text_fields.phone.max_length,
                     type: "tel",
                 },
-                {
-                    input: (e) => value_updater("phone", e.target.value),    
-                }
+                (value) => value_updater("phone", value)
             ),
         ])
     }
