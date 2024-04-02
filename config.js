@@ -222,6 +222,22 @@ const config = {
                             }
                         },
                     },
+                    about_you: {
+                        content: {
+                            text_area: {
+                                placeholder: "Write something about you…",
+                                max_length: 1024,
+                            }
+                        },
+                    },
+                    additional_info: {
+                        content: {
+                            text_area: {
+                                placeholder: "You can write some extra info here…",
+                                max_length: 1024,
+                            }
+                        },
+                    },
                     generate: {
                         content: {
                             text: "Yay!\nIt's almost over…\nClick the 'GENERATE' button to finish.",
