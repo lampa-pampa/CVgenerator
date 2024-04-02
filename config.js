@@ -97,14 +97,14 @@ const config = {
             subwindow_codes: [
                 "1",
                 "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
+                // "3",
+                // "4",
+                // "5",
+                // "6",
+                // "7",
+                // "8",
+                // "9",
+                // "10",
                 "11",
             ],
             default_values: {
@@ -113,8 +113,8 @@ const config = {
                     surname: "",
                 },
                 "2": {
-                    name: "",
-                    surname: "",
+                    email: "",
+                    phone: "",
                 },
                 "3": {
                     name: "",
@@ -144,12 +144,7 @@ const config = {
                     name: "",
                     surname: "",
                 },
-    
                 "10": {
-                    name: "",
-                    surname: "",
-                },
-                "11": {
                     name: "",
                     surname: "",
                 },
@@ -203,10 +198,41 @@ const config = {
                     ui: {
                         content_class_name: "window-list",
                         content: {
-                            labels: {
-                                name: "Insert your name:",
-                                surname: "Insert your surname:",
+                            text_fields: {
+                                name: {
+                                    label: "Name:",
+                                    max_length: 32,
+                                },
+                                surname: {
+                                    label: "Surname:",
+                                    max_length: 32,
+                                },
                             }
+                        },
+                    },
+                },
+                contact: {
+                    ui: {
+                        content_class_name: "window-list",
+                        content: {
+                            text_fields: {
+                                email: {
+                                    label: "Email:",
+                                    max_length: 32,
+                                },
+                                phone: {
+                                    label: "Phone number:",
+                                    max_length: 32,
+                                },
+                            }
+                        },
+                    },
+                },
+                generate: {
+                    ui: {
+                        content_class_name: "window-list",
+                        content: {
+                            text: "Yay! It's almost over…\nclick the button below to generate your CV",
                         },
                     },
                 },
