@@ -240,7 +240,7 @@ const config = {
                     },
                     generate: {
                         content: {
-                            text: "Yay!\nIt's almost over…\nClick the 'GENERATE' button to finish.",
+                            text: "Yay!\nClick the 'GENERATE' button to finish.",
                         },
                     },
                 },
