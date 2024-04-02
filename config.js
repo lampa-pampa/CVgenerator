@@ -99,10 +99,10 @@ const config = {
                 "2",
                 // "3",
                 // "4",
-                // "5",
+                "5",
                 // "6",
                 // "7",
-                // "8",
+                "8",
                 // "9",
                 // "10",
                 "11",
@@ -125,8 +125,7 @@ const config = {
                     surname: "",
                 },
                 "5": {
-                    name: "",
-                    surname: "",
+                    about: "",
                 },
                 "6": {
                     name: "",
@@ -137,8 +136,7 @@ const config = {
                     surname: "",
                 },
                 "8": {
-                    name: "",
-                    surname: "",
+                    info: "",
                 },
                 "9": {
                     name: "",
@@ -194,9 +192,9 @@ const config = {
                 },
             },
             subwindow: {
-                name: {
-                    ui: {
-                        content_class_name: "window-list",
+                content_class_name: "window-list",
+                uis: {
+                    name: {
                         content: {
                             text_fields: {
                                 name: {
@@ -210,10 +208,7 @@ const config = {
                             }
                         },
                     },
-                },
-                contact: {
-                    ui: {
-                        content_class_name: "window-list",
+                    contact: {
                         content: {
                             text_fields: {
                                 email: {
@@ -227,12 +222,9 @@ const config = {
                             }
                         },
                     },
-                },
-                generate: {
-                    ui: {
-                        content_class_name: "window-list",
+                    generate: {
                         content: {
-                            text: "Yay! It's almost over…\nclick the button below to generate your CV",
+                            text: "Yay!\nIt's almost over…\nClick the 'GENERATE' button to finish.",
                         },
                     },
                 },

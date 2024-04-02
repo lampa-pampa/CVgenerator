@@ -15,8 +15,8 @@ class FormSubwindowFactory
             "1": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -25,8 +25,8 @@ class FormSubwindowFactory
             "2": (kwargs) => {
                 return new ContactSubwindow(
                     new ContactSubwindowUi(
-                        this._kwargs.subwindows.contact.ui.content_class_name,
-                        this._kwargs.subwindows.contact.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.contact.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -35,8 +35,8 @@ class FormSubwindowFactory
             "3": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -45,8 +45,8 @@ class FormSubwindowFactory
             "4": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -55,8 +55,8 @@ class FormSubwindowFactory
             "5": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -65,8 +65,8 @@ class FormSubwindowFactory
             "6": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -75,8 +75,8 @@ class FormSubwindowFactory
             "7": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -85,8 +85,8 @@ class FormSubwindowFactory
             "8": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -95,8 +95,8 @@ class FormSubwindowFactory
             "9": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -105,8 +105,8 @@ class FormSubwindowFactory
             "10": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
-                        this._kwargs.subwindows.name.ui.content_class_name,
-                        this._kwargs.subwindows.name.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.name.content,
                         create_labeled_input,
                     ),
                     kwargs,
@@ -115,8 +115,8 @@ class FormSubwindowFactory
             "11": (kwargs) => {
                 return new GenerateSubwindow(
                     new GenerateSubwindowUi(
-                        this._kwargs.subwindows.generate.ui.content_class_name,
-                        this._kwargs.subwindows.generate.ui.content,
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.generate.content,
                         create_multiline_message,
                     ),
                     kwargs,

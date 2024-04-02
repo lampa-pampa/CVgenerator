@@ -29,7 +29,7 @@ function _main()
             config.window.form.ui.content,
         ),
         new FormSubwindowFactory({
-            subwindows: config.window.form.subwindow,
+            subwindow: config.window.form.subwindow,
             skill_codes: config.profession_code_to_skill_codes[profession_code],
             interest_codes: config.profession_code_to_interest_codes[profession_code],
             skill_code_to_name: config.skill_code_to_name,
