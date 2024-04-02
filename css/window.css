@@ -2,6 +2,7 @@
     --header-height: 70px;
     --content-height: 500px;
     --footer-height: 40px;
+    --animation-duration: 400ms;
     
     width: 800px;
     font-size: x-large;
