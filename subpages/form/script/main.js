@@ -18,6 +18,7 @@ function _main()
         route(config.subpage_paths.home)
 
     const form_values = _get_form_values()
+    
     form = new Form(
         new MainUi(
             config.main_ui.section_class_names,
