@@ -19,7 +19,7 @@ class NameSubwindow
     {
         for(const value of Object.values(this._values))
         {
-            if(!value.trim())
+            if(!value)
                 return false
         }
         return true

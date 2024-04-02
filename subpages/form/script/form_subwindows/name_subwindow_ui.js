@@ -36,7 +36,7 @@ class NameSubwindowUi
             type: "text",
             value: value,
         }, [], {
-            "input": (e) => value_updater(e.target.value),
+            "input": (e) => value_updater(e.target.value?.trim()),
         })
     }
 
