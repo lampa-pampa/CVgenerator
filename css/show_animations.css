@@ -1,24 +1,9 @@
-.window {
-    --animation-duration: 600ms;
-    animation: show-window var(--animation-duration);
-}
-
 .window-title {
     animation: show-title var(--animation-duration);
 }
 
 .window-list > li {
     animation: show-list var(--animation-duration);
-}
-
-@keyframes show-window {
-    0% {
-        transform: translateX(
-            calc((50vw + 100%) * var(--show-animation-slide-direction)));
-    }
-    50% {
-        transform: none;
-    }
 }
 
 @keyframes show-title {

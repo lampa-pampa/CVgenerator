@@ -1,7 +1,3 @@
-.window {
-    --show-animation-slide-direction: -1;
-}
-
 .window-list li {
     height: 2.4em;
     display: flex;
