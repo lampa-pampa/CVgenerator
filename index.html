@@ -32,11 +32,13 @@
     </main>
     <footer class="main-footer center-content"></footer>
     <script type="module">
-        import config from "../../config.js"    
         import {route} from "./script/helpers.js"
+        import {UiNode} from "./script/ui_node.js"
+        import config from "../../config.js"    
 
-        document.getElementsByClassName("loading-text")[0].textContent
-            = config.router_ui.content.text
+        UiNode.get_by_class(config.window.router.ui.content_class_name).set_text_content(
+            config.window.router.ui.content.loading_text
+        )
         route(config.subpage_paths.home)
     </script>
 </body>
