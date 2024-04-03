@@ -35,6 +35,8 @@ function _main()
             interest_codes: config.profession_code_to_interest_codes[profession_code],
             skill_code_to_name: config.skill_code_to_name,
             interest_code_to_name: config.interest_code_to_name,
+            theme_code_to_name: config.theme_code_to_name,
+            layout_code_to_name: config.layout_code_to_name,
         }),
         config.window.form.subwindow_codes,
         config.subwindow_code_to_name,

@@ -81,6 +81,9 @@ class FormSubwindowFactory
                 
             },
             "13": (kwargs) => {
+                
+            },
+            "14": (kwargs) => {
                 return new GenerateSubwindow(
                     new GenerateSubwindowUi(
                         this._kwargs.subwindow.content_class_name,

@@ -107,7 +107,8 @@ const config = {
                 "10",
                 // "11",
                 // "12",
-                "13",
+                // "13",
+                "14",
             ],
             default_values: {
                 "1": {
@@ -148,7 +149,10 @@ const config = {
                     company_name: "",
                 },
                 "12": {
-                    theme_code: "0",  
+                    theme_code: "1",  
+                },
+                "13": {
+                    layout_code: "1",  
                 },
             },
             ui: {
@@ -289,18 +293,32 @@ const config = {
     },
 
     subwindow_code_to_name: {
-        "1": "Name & Surname",
-        "2": "Contact",
-        "3": "Experience",
-        "4": "Education",
-        "5": "Languages",
-        "6": "About you",
-        "7": "Skills",
-        "8": "Interests",
-        "9": "Additional Info",
-        "10": "Clause",
-        "11": "Theme",
-        "12": "Generate & Download",
+        "1": "Image",
+        "2": "Name & Surname",
+        "3": "Contact",
+        "4": "Experience",
+        "5": "Education",
+        "6": "Languages",
+        "7": "About you",
+        "8": "Skills",
+        "9": "Interests",
+        "10": "Additional Info",
+        "11": "Company Name",
+        "12": "Theme",
+        "13": "Layout",
+        "14": "Generate",
+    },
+
+    theme_code_to_name: {
+        "1": "theme_1",
+        "2": "theme_2",
+        "3": "theme_3",
+    },
+
+    layout_code_to_name: {
+        "1": "layout 1",
+        "2": "layout 2",
+        "3": "layout 3",
     },
 
     skill_code_to_name: {
