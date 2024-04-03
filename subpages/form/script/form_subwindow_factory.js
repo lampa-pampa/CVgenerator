@@ -17,6 +17,9 @@ class FormSubwindowFactory
         this._kwargs = kwargs
         this.window_code_to_creator = {
             "1": (kwargs) => {
+                
+            },
+            "2": (kwargs) => {
                 return new NameSubwindow(
                     new NameSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
@@ -26,7 +29,7 @@ class FormSubwindowFactory
                     kwargs,
                 )
             },
-            "2": (kwargs) => {
+            "3": (kwargs) => {
                 return new ContactSubwindow(
                     new ContactSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
@@ -36,27 +39,16 @@ class FormSubwindowFactory
                     kwargs,
                 )
             },
-            "3": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
-                        this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
-                    ),
-                    kwargs,
-                )
-            },
             "4": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
-                        this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
-                    ),
-                    kwargs,
-                )
+                
             },
             "5": (kwargs) => {
+                
+            },
+            "6": (kwargs) => {
+                
+            },
+            "7": (kwargs) => {
                 return new AboutYouSubwindow(
                     new AboutYouSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
@@ -66,27 +58,13 @@ class FormSubwindowFactory
                     kwargs,
                 )
             },
-            "6": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
-                        this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
-                    ),
-                    kwargs,
-                )
-            },
-            "7": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
-                        this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
-                    ),
-                    kwargs,
-                )
-            },
             "8": (kwargs) => {
+                
+            },
+            "9": (kwargs) => {
+                
+            },
+            "10": (kwargs) => {
                 return new AdditionalInfoSubwindow(
                     new AdditionalInfoSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
@@ -96,27 +74,13 @@ class FormSubwindowFactory
                     kwargs,
                 )
             },
-            "9": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
-                        this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
-                    ),
-                    kwargs,
-                )
-            },
-            "10": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
-                        this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
-                    ),
-                    kwargs,
-                )
-            },
             "11": (kwargs) => {
+                
+            },
+            "12": (kwargs) => {
+                
+            },
+            "13": (kwargs) => {
                 return new GenerateSubwindow(
                     new GenerateSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
