@@ -81,7 +81,7 @@ class MainUi
         for(const node of document.getElementsByClassName(
             this._focusable_class_name
         )){
-            if(node.tagName !== "textarea")
+            if(node.tagName !== "TEXTAREA")
             {
                 node.removeEventListener("keydown", this.handle_keydown)
                 node.addEventListener("keydown", this.handle_keydown)
