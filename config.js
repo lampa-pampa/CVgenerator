@@ -95,56 +95,60 @@ const config = {
 
         form: {
             subwindow_codes: [
-                "1",
+                // "1",
                 "2",
-                // "3",
+                "3",
                 // "4",
-                "5",
+                // "5",
                 // "6",
-                // "7",
-                "8",
+                "7",
+                // "8",
                 // "9",
-                // "10",
-                "11",
+                "10",
+                // "11",
+                // "12",
+                "13",
             ],
             default_values: {
                 "1": {
+                    image: ""
+                },
+                "2": {
                     name: "",
                     surname: "",
                 },
-                "2": {
+                "3": {
                     email: "",
                     phone: "",
                 },
-                "3": {
-                    name: "",
-                    surname: "",
-                },
                 "4": {
-                    name: "",
-                    surname: "",
+                    experience: [],
                 },
                 "5": {
-                    about: "",
+                    education: [],
                 },
                 "6": {
-                    name: "",
-                    surname: "",
+                    languages: [],
                 },
                 "7": {
-                    name: "",
-                    surname: "",
+                    about: "",
                 },
                 "8": {
-                    info: "",
+                    skill_codes: [],
+                    custom_skills: [],
                 },
                 "9": {
-                    name: "",
-                    surname: "",
+                    interest_codes: [],
+                    custom_interests: [],
                 },
                 "10": {
-                    name: "",
-                    surname: "",
+                    info: "",
+                },
+                "11": {
+                    company_name: "",
+                },
+                "12": {
+                    theme_code: "0",  
                 },
             },
             ui: {
@@ -225,7 +229,7 @@ const config = {
                     about_you: {
                         content: {
                             text_area: {
-                                placeholder: "Write something about you…",
+                                placeholder: "Write something about you… (optional)",
                                 max_length: 1024,
                             }
                         },
@@ -233,7 +237,7 @@ const config = {
                     additional_info: {
                         content: {
                             text_area: {
-                                placeholder: "You can write some extra info here…",
+                                placeholder: "Write some extra info here… (optional)",
                                 max_length: 1024,
                             }
                         },
@@ -289,13 +293,14 @@ const config = {
         "2": "Contact",
         "3": "Experience",
         "4": "Education",
-        "5": "About you",
-        "6": "Skills",
-        "7": "Interests",
-        "8": "Additional Info",
-        "9": "Clause",
-        "10": "Theme",
-        "11": "Generate & Download",
+        "5": "Languages",
+        "6": "About you",
+        "7": "Skills",
+        "8": "Interests",
+        "9": "Additional Info",
+        "10": "Clause",
+        "11": "Theme",
+        "12": "Generate & Download",
     },
 
     skill_code_to_name: {
