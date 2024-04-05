@@ -10,6 +10,8 @@ import GenerateSubwindow from "./form_subwindows/generate_subwindow.js"
 import GenerateSubwindowUi from "./form_subwindows/generate_subwindow_ui.js"
 import NameSubwindow from "./form_subwindows/name_subwindow.js"
 import NameSubwindowUi from "./form_subwindows/name_subwindow_ui.js"
+import ThemeSubwindow from "./form_subwindows/theme_subwindow.js"
+import ThemeSubwindowUi from "./form_subwindows/theme_subwindow_ui.js"
 import SubwindowNodeCreator from "./subwindow_node_creator.js"
 
 class FormSubwindowFactory
@@ -87,7 +89,15 @@ class FormSubwindowFactory
                 )
             },
             "12": (kwargs) => {
-                
+                return new ThemeSubwindow(
+                    new ThemeSubwindowUi(
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.theme.content,
+                        this._kwargs.theme_code_to_name,
+                        SubwindowNodeCreator.create_radio_buttons,
+                    ),
+                    kwargs,
+                )
             },
             "13": (kwargs) => {
                 

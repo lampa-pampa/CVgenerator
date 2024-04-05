@@ -106,7 +106,7 @@ const config = {
                 // "9",
                 "10",
                 "11",
-                // "12",
+                "12",
                 // "13",
                 "14",
             ],
@@ -254,9 +254,20 @@ const config = {
                             }
                         },
                     },
+                    theme: {
+                        content: {
+                            checkbox: {
+                                title: "check",
+                                svg: {
+                                    view_box: "0 0 24 24",
+                                    path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                                },
+                            }, 
+                        },
+                    },
                     generate: {
                         content: {
-                            text: "Yay!\nClick the 'GENERATE' button to finish.",
+                            text: "Yay!\nClick the GENERATE button to finish.",
                         },
                     },
                 },
