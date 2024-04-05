@@ -2,6 +2,8 @@ import AboutYouSubwindow from "./form_subwindows/about_you_subwindow.js"
 import AboutYouSubwindowUi from "./form_subwindows/about_you_subwindow_ui.js"
 import AdditionalInfoSubwindow from "./form_subwindows/additional_info_subwindow.js"
 import AdditionalInfoSubwindowUi from "./form_subwindows/additional_info_subwindow_ui.js"
+import CompanyNameSubwindow from "./form_subwindows/company_name_subwindow.js"
+import CompanyNameSubwindowUi from "./form_subwindows/company_name_subwindow_ui.js"
 import ContactSubwindow from "./form_subwindows/contact_subwindow.js"
 import ContactSubwindowUi from "./form_subwindows/contact_subwindow_ui.js"
 import GenerateSubwindow from "./form_subwindows/generate_subwindow.js"
@@ -75,7 +77,14 @@ class FormSubwindowFactory
                 )
             },
             "11": (kwargs) => {
-                
+                return new CompanyNameSubwindow(
+                    new CompanyNameSubwindowUi(
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.company_name.content,
+                        SubwindowNodeCreator.create_labeled_input,
+                    ),
+                    kwargs,
+                )
             },
             "12": (kwargs) => {
                 

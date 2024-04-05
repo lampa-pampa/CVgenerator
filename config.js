@@ -105,7 +105,7 @@ const config = {
                 // "8",
                 // "9",
                 "10",
-                // "11",
+                "11",
                 // "12",
                 // "13",
                 "14",
@@ -243,6 +243,14 @@ const config = {
                             text_area: {
                                 placeholder: "Write some extra info here… (optional)",
                                 max_length: 1024,
+                            }
+                        },
+                    },
+                    company_name: {
+                        content: {
+                            text_field: {
+                                label: "Company Name:",
+                                max_length: 32,
                             }
                         },
                     },
