@@ -37,25 +37,6 @@ class SubwindowNodeCreator
         ])
     }
 
-    // <label class="custom-checkbox-label">
-    //     <input class="checkbox" type="checkbox">
-    //     <span tabindex="0" class="custom-checkbox max-height border focusable square" data-title="check">
-    //         <span>
-    //             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" toolBox="0 0 24 24">
-    //                 <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-    //             </svg>
-    //         </span>
-    //     </span>
-    //     <span>option 1</span>
-    // </label>
-                    
-    static get_checked(checked)
-    {
-        if(checked)
-            return {checked: ""}
-        return ""
-    }
-
     static create_radio_buttons(kwargs)
     {
         const radio_buttons = new Array()
@@ -66,10 +47,13 @@ class SubwindowNodeCreator
                     attributes: {
                         type: "radio",
                         name: "radio-button",
-                        ...SubwindowNodeCreator.get_checked(key === kwargs.cur_value),
+                        ...(key === kwargs.cur_value) ? {checked: ""} : null,
                     },
                     ...kwargs.checkbox,
-                    input_listener: (e) => {if(e.target.checked) kwargs.value_updater(key)},
+                    input_listener: (e) => {
+                        if(e.target.checked)
+                            kwargs.value_updater(key)
+                    },
                 })
             )
         return radio_buttons
