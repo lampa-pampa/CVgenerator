@@ -12,6 +12,7 @@ class ThemeSubwindow
     _update_value(value)
     {
         this._values.theme_code = value
+        this._next_button_refresher(this._value_is_valid())
     }
 
     _value_is_valid()
