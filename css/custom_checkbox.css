@@ -15,10 +15,11 @@
     inset: 0;
     background-color: var(--gradient-color);
     transform: scale(0);
-    transition-property: transform, opacity;
+    transition-property: transform, opacity, border-radius;
     transition-duration: 200ms;
     transition-delay: 100ms;
     opacity: 0;
+    border-radius: 50%;
 }
 
 .custom-checkbox .icon {
@@ -30,6 +31,7 @@
     transition-delay: 0ms;
     transform: scale(1);
     opacity: 1;
+    border-radius: 0;
 }
 
 .custom-checkbox-label .checkbox:checked + .custom-checkbox .icon {
