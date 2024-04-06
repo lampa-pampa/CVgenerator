@@ -8,6 +8,8 @@ import ContactSubwindow from "./form_subwindows/contact_subwindow.js"
 import ContactSubwindowUi from "./form_subwindows/contact_subwindow_ui.js"
 import GenerateSubwindow from "./form_subwindows/generate_subwindow.js"
 import GenerateSubwindowUi from "./form_subwindows/generate_subwindow_ui.js"
+import LayoutSubwindow from "./form_subwindows/layout_subwindow.js"
+import LayoutSubwindowUi from "./form_subwindows/layout_subwindow_ui.js"
 import NameSubwindow from "./form_subwindows/name_subwindow.js"
 import NameSubwindowUi from "./form_subwindows/name_subwindow_ui.js"
 import ThemeSubwindow from "./form_subwindows/theme_subwindow.js"
@@ -100,7 +102,15 @@ class FormSubwindowFactory
                 )
             },
             "13": (kwargs) => {
-                
+                return new LayoutSubwindow(
+                    new LayoutSubwindowUi(
+                        this._kwargs.subwindow.content_class_name,
+                        this._kwargs.subwindow.uis.layout.content,
+                        this._kwargs.layout_code_to_name,
+                        SubwindowNodeCreator.create_radio_buttons,
+                    ),
+                    kwargs,
+                )
             },
             "14": (kwargs) => {
                 return new GenerateSubwindow(
