@@ -107,7 +107,7 @@ const config = {
                 "10",
                 "11",
                 "12",
-                // "13",
+                "13",
                 "14",
             ],
             default_values: {
@@ -149,10 +149,10 @@ const config = {
                     company_name: "",
                 },
                 "12": {
-                    theme_code: "1",  
+                    theme_code: "",
                 },
                 "13": {
-                    layout_code: "1",  
+                    layout_code: "",
                 },
             },
             ui: {
@@ -257,7 +257,18 @@ const config = {
                     theme: {
                         content: {
                             checkbox: {
-                                title: "check",
+                                title: "select",
+                                svg: {
+                                    view_box: "0 0 24 24",
+                                    path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                                },
+                            }, 
+                        },
+                    },
+                    layout: {
+                        content: {
+                            checkbox: {
+                                title: "select",
                                 svg: {
                                     view_box: "0 0 24 24",
                                     path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
@@ -329,9 +340,9 @@ const config = {
     },
 
     theme_code_to_name: {
-        "1": "theme_1",
-        "2": "theme_2",
-        "3": "theme_3",
+        "1": "theme 1",
+        "2": "theme 2",
+        "3": "theme 3",
     },
 
     layout_code_to_name: {
