@@ -3,9 +3,9 @@ import HomeWindow from "./home_window.js"
 import HomeWindowUi from "./home_window_ui.js"
 import MainUi from "../../../script/main_ui.js"
 
-_main()
+main()
 
-function _main()
+function main()
 {
     new HomeWindow(
         new MainUi(

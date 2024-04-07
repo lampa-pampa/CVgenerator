@@ -5,9 +5,9 @@ import MainUi from "../../../script/main_ui.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 import {route, match, has_key} from "../../../script/helpers.js"
 
-_main()
+main()
 
-function _main()
+function main()
 {
     const form_values = SessionStorageManager.read(config.storage_keys.form_values)
     const profession_code = SessionStorageManager.read(config.storage_keys.profession_code)

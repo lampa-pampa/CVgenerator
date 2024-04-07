@@ -7,9 +7,9 @@ import MainUi from "../../../script/main_ui.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
 let form = null
-_main()
+main()
 
-function _main()
+function main()
 {
     const profession_code = SessionStorageManager.read(
         config.storage_keys.profession_code
@@ -17,7 +17,7 @@ function _main()
     if(!has_key(config.profession_code_to_name, profession_code))
         route(config.subpage_paths.home)
 
-    const form_values = _get_form_values()
+    const form_values = get_form_values()
     
     form = new Form(
         new MainUi(
@@ -51,7 +51,7 @@ function _main()
     SessionStorageManager.remove(config.storage_keys.form_values)
 }
 
-function _get_form_values()
+function get_form_values()
 {
     const storage_values = SessionStorageManager.read(config.storage_keys.form_values)
     if(match(storage_values, config.window.form.default_values))

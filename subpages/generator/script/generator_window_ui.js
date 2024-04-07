@@ -1,63 +1,69 @@
 import {UiNode} from "../../../script/ui_node.js"
 
 class GeneratorWindowUi {
+    #section_class_names
+    #content
+    #download_button
+    #edit_button
+    #create_button
+    
     constructor(section_class_names, content)
     {
-        this._section_class_names = section_class_names
-        this._content = content
-        this._download_button = UiNode.get_by_class(
-            this._section_class_names.buttons.download
+        this.#section_class_names = section_class_names
+        this.#content = content
+        this.#download_button = UiNode.get_by_class(
+            this.#section_class_names.buttons.download
         )
-        this._edit_button = UiNode.get_by_class(
-            this._section_class_names.buttons.edit
+        this.#edit_button = UiNode.get_by_class(
+            this.#section_class_names.buttons.edit
         )
-        this._create_button = UiNode.get_by_class(
-            this._section_class_names.buttons.create
+        this.#create_button = UiNode.get_by_class(
+            this.#section_class_names.buttons.create
         )
     }
 
     create_window(click_handlers)
     {
-        this._setup_title()
-        this._setup_buttons(click_handlers)
+        this.#setup_title()
+        this.#setup_buttons(click_handlers)
     }
 
-    _setup_title()
+    #setup_title()
     {
-        UiNode.get_by_class(this._section_class_names.title).set_text_content(
-            this._content.title
+        UiNode.get_by_class(this.#section_class_names.title).set_text_content(
+            this.#content.title
         )
     }
 
-    _setup_buttons(click_handlers)
+    #setup_buttons(click_handlers)
     {
-        this._download_button.add_listeners({
+        this.#download_button.add_listeners({
             click: click_handlers.download
         })
-        this._edit_button.add_listeners({
+        this.#edit_button.add_listeners({
             click: click_handlers.edit
         })
-        this._create_button.add_listeners({
+        this.#create_button.add_listeners({
             click: click_handlers.create
         })
-        this._set_button_value(
-            this._download_button,
-            this._content.buttons.download.text,
-            this._content.buttons.download.title,
+        this.#set_button_value(
+            this.#download_button,
+            this.#content.buttons.download.text,
+            this.#content.buttons.download.title,
         )
-        this._set_button_value(
-            this._edit_button,
-            this._content.buttons.edit.text,
-            this._content.buttons.edit.title,
+        this.#set_button_value(
+            this.#edit_button,
+            this.#content.buttons.edit.text,
+            this.#content.buttons.edit.title,
         )
-        this._set_button_value(
-            this._create_button,
-            this._content.buttons.create.text,
-            this._content.buttons.create.title,
+        this.#set_button_value(
+            this.#create_button,
+            this.#content.buttons.create.text,
+            this.#content.buttons.create.title,
         )
     }
 
-    _set_button_value(button, text_content, title)
+    #set_button_value(button, text_content, title)
     {
         button.draw_nodes(new UiNode("span", text_content))
         button.set_attributes({
