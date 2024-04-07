@@ -1,20 +1,7 @@
-import AboutYouSubwindow from "./form_subwindows/about_you_subwindow.js"
-import AboutYouSubwindowUi from "./form_subwindows/about_you_subwindow_ui.js"
-import AdditionalInfoSubwindow from "./form_subwindows/additional_info_subwindow.js"
-import AdditionalInfoSubwindowUi from "./form_subwindows/additional_info_subwindow_ui.js"
-import CompanyNameSubwindow from "./form_subwindows/company_name_subwindow.js"
-import CompanyNameSubwindowUi from "./form_subwindows/company_name_subwindow_ui.js"
-import ContactSubwindow from "./form_subwindows/contact_subwindow.js"
-import ContactSubwindowUi from "./form_subwindows/contact_subwindow_ui.js"
-import GenerateSubwindow from "./form_subwindows/generate_subwindow.js"
-import GenerateSubwindowUi from "./form_subwindows/generate_subwindow_ui.js"
-import LayoutSubwindow from "./form_subwindows/layout_subwindow.js"
-import LayoutSubwindowUi from "./form_subwindows/layout_subwindow_ui.js"
-import NameSubwindow from "./form_subwindows/name_subwindow.js"
-import NameSubwindowUi from "./form_subwindows/name_subwindow_ui.js"
-import ThemeSubwindow from "./form_subwindows/theme_subwindow.js"
-import ThemeSubwindowUi from "./form_subwindows/theme_subwindow_ui.js"
+import Subwindow from "./subwindow.js"
+import SubwindowUi from "./subwindow_ui.js"
 import SubwindowNodeCreators from "./subwindow_node_creators.js"
+import SubwindowValuesValidators from "./subwindow_values_validators.js"
 
 class SubwindowFactory
 {
@@ -25,24 +12,26 @@ class SubwindowFactory
             "1": (kwargs) => {
                 
             },
-            "2": (kwargs) => {
-                return new NameSubwindow(
-                    new NameSubwindowUi(
+            "2": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreators.create_labeled_input,
+                        this._kwargs.subwindow.content.name,
+                        SubwindowNodeCreators.text_field
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.all,
+                    ...args,
                 )
             },
-            "3": (kwargs) => {
-                return new ContactSubwindow(
-                    new ContactSubwindowUi(
+            "3": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.contact.content,
-                        SubwindowNodeCreators.create_labeled_input,
+                        this._kwargs.subwindow.content.contact,
+                        SubwindowNodeCreators.text_field
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.at_least_one,
+                    ...args,
                 )
             },
             "4": (kwargs) => {
@@ -54,14 +43,15 @@ class SubwindowFactory
             "6": (kwargs) => {
                 
             },
-            "7": (kwargs) => {
-                return new AboutYouSubwindow(
-                    new AboutYouSubwindowUi(
+            "7": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.about_you.content,
-                        SubwindowNodeCreators.create_multiline_input,
+                        this._kwargs.subwindow.content.about_you,
+                        SubwindowNodeCreators.text_area
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.optional,
+                    ...args,
                 )
             },
             "8": (kwargs) => {
@@ -70,64 +60,71 @@ class SubwindowFactory
             "9": (kwargs) => {
                 
             },
-            "10": (kwargs) => {
-                return new AdditionalInfoSubwindow(
-                    new AdditionalInfoSubwindowUi(
+            "10": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.additional_info.content,
-                        SubwindowNodeCreators.create_multiline_input,
+                        this._kwargs.subwindow.content.additional_info,
+                        SubwindowNodeCreators.text_area
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.optional,
+                    ...args,
                 )
             },
-            "11": (kwargs) => {
-                return new CompanyNameSubwindow(
-                    new CompanyNameSubwindowUi(
+            "11": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.company_name.content,
-                        SubwindowNodeCreators.create_labeled_input,
+                        this._kwargs.subwindow.content.company_name,
+                        SubwindowNodeCreators.text_field
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.all,
+                    ...args,
                 )
             },
-            "12": (kwargs) => {
-                return new ThemeSubwindow(
-                    new ThemeSubwindowUi(
+            "12": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.theme.content,
-                        this._kwargs.theme_code_to_name,
-                        SubwindowNodeCreators.create_radio_buttons,
+                        this._kwargs.subwindow.content.theme,
+                        SubwindowNodeCreators.radio_buttons.bind({
+                            buttons: this._kwargs.theme_code_to_name
+                        }),
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.at_least_one,
+                    ...args,
                 )
             },
-            "13": (kwargs) => {
-                return new LayoutSubwindow(
-                    new LayoutSubwindowUi(
+            "13": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.layout.content,
-                        this._kwargs.layout_code_to_name,
-                        SubwindowNodeCreators.create_radio_buttons,
+                        this._kwargs.subwindow.content.layout,
+                        SubwindowNodeCreators.radio_buttons.bind({
+                            buttons: this._kwargs.layout_code_to_name
+                        })
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.at_least_one,
+                    ...args,
                 )
             },
-            "14": (kwargs) => {
-                return new GenerateSubwindow(
-                    new GenerateSubwindowUi(
+            "14": (...args) => {
+                return new Subwindow(
+                    new SubwindowUi(
                         this._kwargs.subwindow.content_class_name,
-                        this._kwargs.subwindow.uis.generate.content,
-                        SubwindowNodeCreators.create_multiline_message,
+                        this._kwargs.subwindow.content.generate,
+                        SubwindowNodeCreators.message
                     ),
-                    kwargs,
+                    SubwindowValuesValidators.optional,
+                    ...args,
                 )
             },
         }
     }
 
-    create(window_code, kwargs)
+    create(window_code, ...args)
     {
-        return this.window_code_to_creator[window_code](kwargs)
+        return this.window_code_to_creator[window_code](...args)
     }
 }
 

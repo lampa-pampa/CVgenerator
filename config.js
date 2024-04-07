@@ -154,6 +154,9 @@ const config = {
                 "13": {
                     layout_code: "",
                 },
+                "14": {
+                    message: "",
+                }
             },
             ui: {
                 section_class_names: {
@@ -201,85 +204,65 @@ const config = {
             },
             subwindow: {
                 content_class_name: "window-list",
-                uis: {
+                content: {
                     name: {
-                        content: {
-                            text_fields: {
-                                name: {
-                                    label: "Name:",
-                                    max_length: 32,
-                                },
-                                surname: {
-                                    label: "Surname:",
-                                    max_length: 32,
-                                },
-                            }
+                        name: {
+                            label: "Name:",
+                            max_length: 32,
+                        },
+                        surname: {
+                            label: "Surname:",
+                            max_length: 32,
                         },
                     },
                     contact: {
-                        content: {
-                            text_fields: {
-                                email: {
-                                    label: "Email:",
-                                    max_length: 32,
-                                },
-                                phone: {
-                                    label: "Phone number:",
-                                    max_length: 32,
-                                },
-                            }
+                        email: {
+                            label: "Email:",
+                            max_length: 32,
+                        },
+                        phone: {
+                            label: "Phone number:",
+                            max_length: 32,
                         },
                     },
                     about_you: {
-                        content: {
-                            text_area: {
-                                placeholder: "Write something about you… (optional)",
-                                max_length: 1024,
-                            }
+                        about: {
+                            placeholder: "Write something about you… (optional)",
+                            max_length: 256,
                         },
                     },
                     additional_info: {
-                        content: {
-                            text_area: {
-                                placeholder: "Write some extra info here… (optional)",
-                                max_length: 1024,
-                            }
+                        info: {
+                            placeholder: "Write some extra info here… (optional)",
+                            max_length: 256,
                         },
                     },
                     company_name: {
-                        content: {
-                            text_field: {
-                                label: "Company Name:",
-                                max_length: 32,
-                            }
+                        company_name: {
+                            label: "Company Name:",
+                            max_length: 32,
                         },
                     },
                     theme: {
-                        content: {
-                            checkbox: {
-                                title: "select",
-                                svg: {
-                                    view_box: "0 0 24 24",
-                                    path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
-                                },
-                            }, 
+                        theme_code: {
+                            title: "select",
+                            svg: {
+                                view_box: "0 0 24 24",
+                                path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                            },
                         },
                     },
                     layout: {
-                        content: {
-                            checkbox: {
-                                title: "select",
-                                svg: {
-                                    view_box: "0 0 24 24",
-                                    path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
-                                },
-                            }, 
+                        layout_code: {
+                            title: "select",
+                            svg: {
+                                view_box: "0 0 24 24",
+                                path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                            },
                         },
                     },
                     generate: {
-                        content: {
-                            text: "Yay!\nClick the GENERATE button to finish.",
-                        },
+                        message: "Yay!\nClick the GENERATE button to finish.",
                     },
                 },
             },

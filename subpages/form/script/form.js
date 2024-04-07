@@ -49,12 +49,8 @@ class Form
         this._update_progress_bar()
         this._subwindow = this._subwindow_factory.create(
             this._cur_subwindow_code,
-            {
-                values: this._values[this._cur_subwindow_code],
-                next_button_refresher: (state) => {
-                    this._ui.set_next_button_state(state)
-                },
-            }
+            this._values[this._cur_subwindow_code],
+            (state) => this._ui.set_next_button_state(state),
         )
         this._main_ui.enable_all_focusable_nodes()
     }
