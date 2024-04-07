@@ -1,7 +1,37 @@
 import {UiNode, UiNodeNs} from "../../../script/ui_node.js"
 
-class SubwindowNodeCreator
+class SubwindowNodeCreators
 {
+    one_to_one(input_node_creator, values, content, value_updater)
+    {
+        const input_nodes = new Array()
+        for(const [key, value] of values)
+            input_nodes.push(
+                input_node_creator(
+                    content[key],
+                    value,
+                    (value) => value_updater(key, value)
+                )
+            )
+        return input_nodes
+    }
+
+    static text_field(content, value, value_updater)
+    {
+        return new UiNode("li", "", {
+            class: "space-between"
+        }, [
+            new UiNode("label", content.label),
+            new UiNode("input", "", {
+                class: "text-field border focusable",    
+                value: value,
+                maxlength: content.max_length,
+            }, [], {
+                input: (e) => value_updater(e.target.value?.trim())
+            })
+        ])
+    }
+
     static create_labeled_input(label, attributes, input_listener)
     {
         return new UiNode("li", "", {
@@ -42,7 +72,7 @@ class SubwindowNodeCreator
         const radio_buttons = new Array()
         for(const [key, value] of Object.entries(kwargs.buttons))
             radio_buttons.push(
-                SubwindowNodeCreator.create_labeled_checkbox({
+                SubwindowNodeCreators.create_labeled_checkbox({
                     label: value,
                     attributes: {
                         type: "radio",
@@ -77,7 +107,7 @@ class SubwindowNodeCreator
                     "data-title": kwargs.title,
                 }, [
                     new UiNode("span", "", {}, [
-                        SubwindowNodeCreator.create_icon(kwargs.svg)
+                        SubwindowNodeCreators.create_icon(kwargs.svg)
                     ]),
                 ]),
                 new UiNode("span", kwargs.label)
@@ -100,4 +130,4 @@ class SubwindowNodeCreator
 }
 
 
-export default SubwindowNodeCreator
+export default SubwindowNodeCreators

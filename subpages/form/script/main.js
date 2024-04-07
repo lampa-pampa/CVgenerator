@@ -1,7 +1,7 @@
 import {route, match, has_key} from "../../../script/helpers.js"
 import config from "../../../config.js"
 import Form from "./form.js"
-import FormSubwindowFactory from "./form_subwindow_factory.js"
+import SubwindowFactory from "./subwindow_factory.js"
 import FormUi from "./form_ui.js"
 import MainUi from "../../../script/main_ui.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
@@ -29,7 +29,7 @@ function _main()
             config.window.form.ui.section_class_names,
             config.window.form.ui.content,
         ),
-        new FormSubwindowFactory({
+        new SubwindowFactory({
             subwindow: config.window.form.subwindow,
             skill_codes: config.profession_code_to_skill_codes[profession_code],
             interest_codes: config.profession_code_to_interest_codes[profession_code],

@@ -14,9 +14,9 @@ import NameSubwindow from "./form_subwindows/name_subwindow.js"
 import NameSubwindowUi from "./form_subwindows/name_subwindow_ui.js"
 import ThemeSubwindow from "./form_subwindows/theme_subwindow.js"
 import ThemeSubwindowUi from "./form_subwindows/theme_subwindow_ui.js"
-import SubwindowNodeCreator from "./subwindow_node_creator.js"
+import SubwindowNodeCreators from "./subwindow_node_creators.js"
 
-class FormSubwindowFactory
+class SubwindowFactory
 {
     constructor(kwargs)
     {
@@ -30,7 +30,7 @@ class FormSubwindowFactory
                     new NameSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.name.content,
-                        SubwindowNodeCreator.create_labeled_input,
+                        SubwindowNodeCreators.create_labeled_input,
                     ),
                     kwargs,
                 )
@@ -40,7 +40,7 @@ class FormSubwindowFactory
                     new ContactSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.contact.content,
-                        SubwindowNodeCreator.create_labeled_input,
+                        SubwindowNodeCreators.create_labeled_input,
                     ),
                     kwargs,
                 )
@@ -59,7 +59,7 @@ class FormSubwindowFactory
                     new AboutYouSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.about_you.content,
-                        SubwindowNodeCreator.create_multiline_input,
+                        SubwindowNodeCreators.create_multiline_input,
                     ),
                     kwargs,
                 )
@@ -75,7 +75,7 @@ class FormSubwindowFactory
                     new AdditionalInfoSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.additional_info.content,
-                        SubwindowNodeCreator.create_multiline_input,
+                        SubwindowNodeCreators.create_multiline_input,
                     ),
                     kwargs,
                 )
@@ -85,7 +85,7 @@ class FormSubwindowFactory
                     new CompanyNameSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.company_name.content,
-                        SubwindowNodeCreator.create_labeled_input,
+                        SubwindowNodeCreators.create_labeled_input,
                     ),
                     kwargs,
                 )
@@ -96,7 +96,7 @@ class FormSubwindowFactory
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.theme.content,
                         this._kwargs.theme_code_to_name,
-                        SubwindowNodeCreator.create_radio_buttons,
+                        SubwindowNodeCreators.create_radio_buttons,
                     ),
                     kwargs,
                 )
@@ -107,7 +107,7 @@ class FormSubwindowFactory
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.layout.content,
                         this._kwargs.layout_code_to_name,
-                        SubwindowNodeCreator.create_radio_buttons,
+                        SubwindowNodeCreators.create_radio_buttons,
                     ),
                     kwargs,
                 )
@@ -117,7 +117,7 @@ class FormSubwindowFactory
                     new GenerateSubwindowUi(
                         this._kwargs.subwindow.content_class_name,
                         this._kwargs.subwindow.uis.generate.content,
-                        SubwindowNodeCreator.create_multiline_message,
+                        SubwindowNodeCreators.create_multiline_message,
                     ),
                     kwargs,
                 )
@@ -131,4 +131,4 @@ class FormSubwindowFactory
     }
 }
 
-export default FormSubwindowFactory
+export default SubwindowFactory
