@@ -2,7 +2,7 @@
     animation: show-title var(--animation-duration);
 }
 
-.window-list > li {
+.window-list {
     animation: show-list var(--animation-duration);
 }
 
@@ -11,7 +11,7 @@
         transform: translateX(-100%);
         opacity: 0;
     }
-    to {
+    100% {
         transform: none;
         opacity: 1;
     }
@@ -20,9 +20,10 @@
 @keyframes show-list {
     0%, 50% {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(2em);
+        overflow-y: hidden;
     }
-    to {
+    100% {
         opacity: 1;
         transform: none;
     }
