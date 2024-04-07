@@ -204,8 +204,8 @@ const config = {
             },
             subwindow: {
                 content_class_name: "window-list",
-                content: {
-                    name: {
+                code_to_content: {
+                    "2": {
                         name: {
                             label: "Name:",
                             max_length: 32,
@@ -215,7 +215,7 @@ const config = {
                             max_length: 32,
                         },
                     },
-                    contact: {
+                    "3": {
                         email: {
                             label: "Email:",
                             max_length: 32,
@@ -225,25 +225,25 @@ const config = {
                             max_length: 32,
                         },
                     },
-                    about_you: {
+                    "7": {
                         about: {
                             placeholder: "Write something about you… (optional)",
                             max_length: 256,
                         },
                     },
-                    additional_info: {
+                    "10": {
                         info: {
                             placeholder: "Write some extra info here… (optional)",
                             max_length: 256,
                         },
                     },
-                    company_name: {
+                    "11": {
                         company_name: {
                             label: "Company Name:",
                             max_length: 32,
                         },
                     },
-                    theme: {
+                    "12": {
                         theme_code: {
                             title: "select",
                             svg: {
@@ -252,7 +252,7 @@ const config = {
                             },
                         },
                     },
-                    layout: {
+                    "13": {
                         layout_code: {
                             title: "select",
                             svg: {
@@ -261,7 +261,7 @@ const config = {
                             },
                         },
                     },
-                    generate: {
+                    "14": {
                         message: "Yay!\nClick the GENERATE button to finish.",
                     },
                 },
