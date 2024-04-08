@@ -11,10 +11,8 @@ class SubwindowFactory
 
     constructor(
         subwindow,
-        skill_codes,
-        interest_codes,
-        skill_code_to_name,
-        interest_code_to_name,
+        skills,
+        interests,
         theme_code_to_name,
         layout_code_to_name,
     ){
@@ -27,11 +25,11 @@ class SubwindowFactory
                 values_validator: null,
             },
             "2": {
-                node_creator: SubwindowNodeCreators.text_field,
+                node_creator: SubwindowNodeCreators.labeled_text_field,
                 values_validator: SubwindowValuesValidators.all,
             },
             "3": {
-                node_creator: SubwindowNodeCreators.text_field,
+                node_creator: SubwindowNodeCreators.labeled_text_field,
                 values_validator: SubwindowValuesValidators.at_least_one,
             },
             "4": {
@@ -52,15 +50,13 @@ class SubwindowFactory
             },
             "8": {
                 node_creator: SubwindowNodeCreators.checkbox_buttons.bind({
-                    codes: skill_codes,
-                    code_to_name: skill_code_to_name,
+                    values: skills,
                 }),
                 values_validator: SubwindowValuesValidators.optional,
             },
             "9": {
                 node_creator: SubwindowNodeCreators.checkbox_buttons.bind({
-                    codes: interest_codes,
-                    code_to_name: interest_code_to_name,
+                    values: interests,
                 }),
                 values_validator: SubwindowValuesValidators.optional,
             },
@@ -69,7 +65,7 @@ class SubwindowFactory
                 values_validator: SubwindowValuesValidators.optional,
             },
             "11": {
-                node_creator: SubwindowNodeCreators.text_field,
+                node_creator: SubwindowNodeCreators.labeled_text_field,
                 values_validator: SubwindowValuesValidators.all,
             },
             "12": {

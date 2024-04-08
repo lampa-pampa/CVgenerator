@@ -30,10 +30,8 @@ function main()
         ),
         new SubwindowFactory(
             config.window.form.subwindow,
-            config.profession_code_to_skill_codes[profession_code],
-            config.profession_code_to_interest_codes[profession_code],
-            config.skill_code_to_name,
-            config.interest_code_to_name,
+            Object.values(config.skill_code_to_name),
+            Object.values(config.interest_code_to_name),
             config.theme_code_to_name,
             config.layout_code_to_name,
         ),
