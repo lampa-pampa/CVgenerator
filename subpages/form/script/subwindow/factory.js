@@ -41,46 +41,42 @@ class SubwindowFactory
                 values_validator: null,
             },
             "6": {
-                node_creator: null,
-                values_validator: null,
-            },
-            "7": {
                 node_creator: SubwindowNodeCreators.text_area,
                 values_validator: SubwindowValuesValidators.optional,
             },
-            "8": {
+            "7": {
                 node_creator: SubwindowNodeCreators.checkbox_buttons.bind({
                     values: skills,
                 }),
                 values_validator: SubwindowValuesValidators.optional,
             },
-            "9": {
+            "8": {
                 node_creator: SubwindowNodeCreators.checkbox_buttons.bind({
                     values: interests,
                 }),
                 values_validator: SubwindowValuesValidators.optional,
             },
-            "10": {
+            "9": {
                 node_creator: SubwindowNodeCreators.text_area,
                 values_validator: SubwindowValuesValidators.optional,
             },
-            "11": {
+            "10": {
                 node_creator: SubwindowNodeCreators.labeled_text_field,
                 values_validator: SubwindowValuesValidators.all,
             },
-            "12": {
+            "11": {
                 node_creator: SubwindowNodeCreators.radio_buttons.bind({
                     buttons: theme_code_to_name
                 }),
                 values_validator: SubwindowValuesValidators.all,
             },
-            "13": {
+            "12": {
                 node_creator: SubwindowNodeCreators.radio_buttons.bind({
                     buttons: layout_code_to_name
                 }),
                 values_validator: SubwindowValuesValidators.all,
             },
-            "14": {
+            "13": {
                 node_creator: SubwindowNodeCreators.message,
                 values_validator: SubwindowValuesValidators.optional,
             },

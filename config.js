@@ -108,7 +108,6 @@ const config = {
                 "11",
                 "12",
                 "13",
-                "14",
             ],
             default_values: {
                 "1": {
@@ -129,30 +128,27 @@ const config = {
                     education: [],
                 },
                 "6": {
-                    languages: [],
-                },
-                "7": {
                     about: "",
                 },
-                "8": {
+                "7": {
                     skills: [],
                 },
-                "9": {
+                "8": {
                     interests: [],
                 },
-                "10": {
+                "9": {
                     info: "",
                 },
-                "11": {
+                "10": {
                     company_name: "",
                 },
-                "12": {
+                "11": {
                     theme_code: "",
                 },
-                "13": {
+                "12": {
                     layout_code: "",
                 },
-                "14": {
+                "13": {
                     message: "",
                 }
             },
@@ -231,13 +227,13 @@ const config = {
                             },
                         },
                     },
-                    "7": {
+                    "6": {
                         about: {
                             placeholder: "Write something about you… (optional)",
                             max_length: 256,
                         },
                     },
-                    "8": {
+                    "7": {
                         skills: {
                             checkbox: {
                                 svg: {
@@ -257,7 +253,7 @@ const config = {
                             }
                         },
                     },
-                    "9": {
+                    "8": {
                         interests: {
                             checkbox: {
                                 svg: {
@@ -277,13 +273,13 @@ const config = {
                             }
                         },
                     },
-                    "10": {
+                    "9": {
                         info: {
                             placeholder: "Write some extra info here… (optional)",
                             max_length: 256,
                         },
                     },
-                    "11": {
+                    "10": {
                         company_name: {
                             label: "Company Name:",
                             text_field: {
@@ -291,7 +287,7 @@ const config = {
                             },
                         },
                     },
-                    "12": {
+                    "11": {
                         theme_code: {
                             svg: {
                                 view_box: "0 0 24 24",
@@ -299,7 +295,7 @@ const config = {
                             },
                         },
                     },
-                    "13": {
+                    "12": {
                         layout_code: {
                             svg: {
                                 view_box: "0 0 24 24",
@@ -307,7 +303,7 @@ const config = {
                             },
                         },
                     },
-                    "14": {
+                    "13": {
                         message: "Yay!\nClick the GENERATE button to finish.",
                     },
                 },
@@ -357,15 +353,14 @@ const config = {
         "3": "Contact",
         "4": "Experience",
         "5": "Education",
-        "6": "Languages",
-        "7": "About you",
-        "8": "Skills",
-        "9": "Interests",
-        "10": "Additional Info",
-        "11": "Company Name",
-        "12": "Theme",
-        "13": "Layout",
-        "14": "Generate",
+        "6": "About you",
+        "7": "Skills",
+        "8": "Interests",
+        "9": "Additional Info",
+        "10": "Company Name",
+        "11": "Theme",
+        "12": "Layout",
+        "13": "Generate",
     },
 
     theme_code_to_name: {
