@@ -33,4 +33,9 @@ function remove_element(array, element)
         array.splice(array.indexOf(element), 1)
 }
 
-export {route, make_copy, match, has_key, remove_element}
+function is_enabled(node)
+{
+    return node.getAttribute("data-disabled") !== "true"
+}
+
+export {route, make_copy, match, has_key, remove_element, is_enabled}
