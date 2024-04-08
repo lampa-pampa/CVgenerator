@@ -23,7 +23,8 @@ class UiNode
             this.#dom = this._create_element(kwargs.tag ?? "span")
             this.set_text_content(kwargs.text_content ?? "")
             this.set_attributes(kwargs.attributes ?? {})
-            this.append_nodes(kwargs.child_nodes ?? [])
+            if(kwargs.child_nodes)
+                this.append_nodes(...kwargs.child_nodes)
             this.add_listeners(kwargs.listeners ?? {})
         }
     }
@@ -54,18 +55,16 @@ class UiNode
         this.#dom.textContent = text
     }
 
-    draw_nodes(nodes)
+    draw_nodes(...nodes)
     {
         this.clear()
-        this.append_nodes(nodes)
+        this.append_nodes(...nodes)
     }
 
-    append_nodes(nodes)
+    append_nodes(...nodes)
     {
-        if(nodes?.[Symbol.iterator])
-            nodes.forEach(node => this.#dom.appendChild(node.#dom));
-        else
-            this.#dom.appendChild(nodes.#dom)
+        for(const child of nodes)
+            this.#dom.appendChild(child.#dom)
     }
     
     add_listeners(listeners)

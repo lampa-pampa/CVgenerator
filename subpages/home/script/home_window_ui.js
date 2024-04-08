@@ -47,7 +47,9 @@ class HomeWindowUi {
                     () => handler(profession_code),
                 )
             )
-        UiNode.get_by_class(this.#section_class_names.list).draw_nodes(elements)                
+        UiNode.get_by_class(this.#section_class_names.list).draw_nodes(
+            ...elements
+        )
     }
 
     #create_list_element(profession_name, handler)

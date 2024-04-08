@@ -135,10 +135,10 @@ const config = {
                     about: "",
                 },
                 "8": {
-                    skill_codes: [],
+                    skills: [],
                 },
                 "9": {
-                    interest_codes: [],
+                    interests: [],
                 },
                 "10": {
                     info: "",
@@ -230,18 +230,22 @@ const config = {
                         },
                     },
                     "8": {
-                        skill_codes: {
-                            svg: {
-                                view_box: "0 0 24 24",
-                                path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                        skills: {
+                            checkbox: {
+                                svg: {
+                                    view_box: "0 0 24 24",
+                                    path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                                },
                             },
                         },
                     },
                     "9": {
-                        interest_codes: {
-                            svg: {
-                                view_box: "0 0 24 24",
-                                path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                        interests: {
+                            checkbox: {
+                                svg: {
+                                    view_box: "0 0 24 24",
+                                    path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                                },
                             },
                         },
                     },

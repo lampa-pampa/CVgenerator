@@ -16,7 +16,7 @@ class SubwindowUi
     create_window(values, value_updater)
     {
         UiNode.get_by_class(this.#content_class_name).draw_nodes(
-            this.#create_input_nodes(values, this.#content, value_updater)
+            ...this.#create_input_nodes(values, this.#content, value_updater)
         )
     }
 

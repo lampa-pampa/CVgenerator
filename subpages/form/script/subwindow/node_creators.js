@@ -104,22 +104,25 @@ class SubwindowNodeCreators
     {
         const checkbox_buttons = new Array()
         for(const code of this.codes)
+        {
+            const cur_value = this.code_to_name[code]
             checkbox_buttons.push(
                 SubwindowNodeCreators.#create_checkbox(
-                    this.code_to_name[code],
+                    cur_value,
                     {
                         type: "checkbox",
-                        ...(value.includes(code)) ? {checked: ""} : null,
+                        ...(value.includes(cur_value)) ? {checked: ""} : null,
                     },
-                    content,
+                    content.checkbox,
                     (e) => {
                         if(e.target.checked)
-                            value_updater(code, "add")
+                            value_updater(cur_value, "add")
                         else
-                            value_updater(code, "remove")
+                            value_updater(cur_value, "remove")
                     },
                 )
             )
+        }
         return new UiNode({
             tag: "li",
             child_nodes: [

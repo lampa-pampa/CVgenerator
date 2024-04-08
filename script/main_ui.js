@@ -23,7 +23,7 @@ class MainUi
 
     #create_head()
     {
-        UiNode.get_head().append_nodes([
+        UiNode.get_head().append_nodes(
             new UiNode({
                 tag: "title",
                 text_content: this.#content.title,
@@ -36,7 +36,7 @@ class MainUi
                     type: "icon",
                 },
             }),
-        ])
+        )
     }
 
     #create_header()
@@ -61,7 +61,7 @@ class MainUi
                 href: nav_links[link_text],
             }))
         UiNode.get_by_class(this.#section_class_names.nav_list).draw_nodes(
-            links
+            ...links
         )
     }
 
@@ -112,8 +112,9 @@ class MainUi
     {
         if(e.key === "Enter")
         {
-            e.target.click()
             e.preventDefault()
+            if(e.target.getAttribute("data-disabled") !== "true")
+                e.target.click()
         }
     }
 }
