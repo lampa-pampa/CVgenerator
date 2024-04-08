@@ -13,7 +13,8 @@
     display: grid;
     align-items: center;
     height: 36px;
-    grid-template-columns: 30px 1fr 30px;
+    width: 100%;
+    grid-template-columns: 36px 1fr 36px;
     column-gap: 1em;
 }
 
@@ -30,12 +31,6 @@
 .buttons-container .button {
     width: 12em;
     height: 3.5em;
-    transition: background-color 200ms;
-}
-
-.buttons-container .button[data-disabled=true] {
-    background-color: var(--secondary-theme-color);
-    outline: none;
 }
 
 .window-footer {

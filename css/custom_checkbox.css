@@ -1,5 +1,5 @@
-.custom-checkbox.focusable {
-    cursor: pointer;
+.custom-checkbox[data-disabled=true] > span {
+    background-color: var(--secondary-theme-color);
 }
 
 .custom-checkbox-label .checkbox {
