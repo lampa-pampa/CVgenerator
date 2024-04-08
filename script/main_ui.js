@@ -24,11 +24,17 @@ class MainUi
     #create_head()
     {
         UiNode.get_head().append_nodes([
-            new UiNode("title", this.#content.title),
-            new UiNode("link", "", {
-                rel: "shortcut icon",
-                href: this.#content.icon_path,
-                type: "icon",
+            new UiNode({
+                tag: "title",
+                text_content: this.#content.title,
+            }),
+            new UiNode({
+                tag: "link",
+                attributes: {
+                    rel: "shortcut icon",
+                    href: this.#content.icon_path,
+                    type: "icon",
+                },
             }),
         ])
     }
@@ -61,16 +67,25 @@ class MainUi
 
     #create_nav_link(content)
     {
-        return new UiNode("li", "", {
-            class: "max-height center-content",
-        }, [
-            new UiNode("span", content.text, {
-                class: "link focusable",
-                tabindex: "0",
-            }, [], {
-                click: () => route(content.href)
-            })
-        ])
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "max-height center-content",
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "span",
+                    text_content: content.text,
+                    attributes: {
+                        class: "link focusable",
+                        tabindex: "0",
+                    },
+                    listeners: {
+                        click: () => route(content.href)
+                    },
+                }),
+            ],
+        })
     }
 
     #create_footer()

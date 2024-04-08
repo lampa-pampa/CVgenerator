@@ -45,24 +45,38 @@ class HomeWindowUi {
 
     #create_list_element(profession_name, handler)
     {
-        return new UiNode("li", "", {
-            class: "window-list-element"
-        }, [
-            new UiNode("span", profession_name),
-            this.#create_list_element_button(profession_name, handler)
-        ])
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element",    
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "span",
+                    text_content: profession_name,
+                }),
+                this.#create_list_element_button(profession_name, handler),
+            ],
+        })
     }
 
     #create_list_element_button(profession_name, handler)
     {
-        return new UiNode("button", "", {
-            class: "button max-height center-content animated-button next border focusable",
-            "data-title": this.#content.button.title_prefix
-                + profession_name
-        }, [
-            new UiNode("span", this.#content.button.text)
-        ], {
-            click: handler
+        return new UiNode({
+            tag: "button",
+            attributes: {
+                class: "button max-height center-content animated-button next border focusable",
+                "data-title": this.#content.button.title_prefix + profession_name
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "span",
+                    text_content: this.#content.button.text, 
+                }),
+            ],
+            listeners: {
+                click: handler
+            },
         })
     }
 

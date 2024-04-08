@@ -4,43 +4,70 @@ class SubwindowNodeCreators
 {
     static text_field(content, value, value_updater)
     {
-        return new UiNode("li", "", {
-            class: "space-between window-list-element"
-        }, [
-            new UiNode("label", content.label),
-            new UiNode("input", "", {
-                class: "text-field border focusable",    
-                value: value,
-                maxlength: content.max_length,
-            }, [], {
-                input: (e) => value_updater(e.target.value?.trim())
-            })
-        ])
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "space-between window-list-element"
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "label",
+                    text_content: content.label,
+                }),
+                new UiNode({
+                    tag: "input",
+                    attributes: {
+                        class: "text-field border focusable",    
+                        value: value,
+                        maxlength: content.max_length,
+                    },
+                    listeners: {
+                        input: (e) => value_updater(e.target.value?.trim())
+                    },
+                }),
+            ],
+        })
     }
 
     static text_area(content, value, value_updater)
     {
-        return new UiNode("li", "", {
-            class: "window-list-element"
-        }, [
-            new UiNode("textarea", value, {
-                class: "text-field border focusable",
-                spellcheck: false,
-                placeholder: content.placeholder,
-                maxlength: content.max_length,
-            }, [], {
-                input: (e) => value_updater(e.target.value?.trim())
-            })
-        ])
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element"
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "textarea",
+                    text_content: value,
+                    attributes: {
+                        class: "text-field border focusable",
+                        spellcheck: false,
+                        placeholder: content.placeholder,
+                        maxlength: content.max_length,
+                    },
+                    listeners: {
+                        input: (e) => value_updater(e.target.value?.trim())
+                    },
+                }),
+            ],
+        })
     }
     
     static message(content)
     {
-        return new UiNode("li", "", {
-            class: "window-list-element"
-        }, [
-            new UiNode("pre", content)
-        ])
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element"
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "pre",
+                    text_content: content,
+                }),
+            ],
+        })
     }
 
     static radio_buttons(content, value, value_updater)
@@ -62,9 +89,15 @@ class SubwindowNodeCreators
                     },
                 )
             )
-        return new UiNode("li", "", {}, [
-            new UiNode("ul", "", {}, radio_buttons)
-        ])
+        return new UiNode({
+            tag: "li",
+            child_nodes: [
+                new UiNode({
+                    tag: "ul",
+                    child_nodes: radio_buttons,
+                }),
+            ],
+        })
     }
 
     static checkbox_buttons(content, value, value_updater)
@@ -87,49 +120,84 @@ class SubwindowNodeCreators
                     },
                 )
             )
-        return new UiNode("li", "", {}, [
-            new UiNode("ul", "", {}, checkbox_buttons)
-        ])
+        return new UiNode({
+            tag: "li",
+            child_nodes: [
+                new UiNode({
+                    tag: "ul",
+                    child_nodes: checkbox_buttons,
+                }),
+            ],
+        })
     }
 
     static #create_checkbox(label, attributes, content, value_updater)
     {
-        return new UiNode("li", "", {
-            class: "window-list-element"
-        }, [
-            new UiNode("label", "", {
-                class: "custom-checkbox-label",
-            }, [
-                new UiNode("input", "", {
-                    class: "checkbox",
-                    ...attributes,
-                }, [], {
-                    change: value_updater
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element"    
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "label",
+                    attributes: {
+                        class: "custom-checkbox-label",        
+                    },
+                    child_nodes: [
+                        new UiNode({
+                            tag: "input",
+                            attributes: {
+                                class: "checkbox",
+                                ...attributes,
+                            },
+                            listeners: {
+                                change: value_updater
+                            },
+                        }),
+                        new UiNode({
+                            tag: "span",
+                            attributes: {
+                                class: "custom-checkbox max-height border focusable square",
+                                tabindex: 0,
+                            },
+                            child_nodes: [
+                                new UiNode({
+                                    tag: "span",
+                                    child_nodes: [
+                                        SubwindowNodeCreators.#create_icon(content.svg)
+                                    ],
+                                })
+                            ],
+                        }),
+                        new UiNode({
+                            tag: "span",
+                            text_content: label,
+                        }),
+                    ],
                 }),
-                new UiNode("span", "", {
-                    class: "custom-checkbox max-height border focusable square",
-                    tabindex: 0,
-                }, [
-                    new UiNode("span", "", {}, [
-                        SubwindowNodeCreators.#create_icon(content.svg)
-                    ]),
-                ]),
-                new UiNode("span", label)
-            ]),
-        ])
+            ],
+        })
     }
 
     static #create_icon(content)
     {
-        return new UiNodeNs("svg", "", {
-            class: "icon",
-            viewBox: content.view_box,
-            toolBox: content.view_box,
-        }, [
-            new UiNodeNs("path", "", {
-                d: content.path
-            })
-        ])
+        return new UiNodeNs({
+            tag: "svg",
+            attributes: {
+                class: "icon",
+                viewBox: content.view_box,
+                toolBox: content.view_box,
+            },
+            child_nodes: [
+                new UiNodeNs({
+                    tag: "path",
+                    attributes: {
+                        d: content.path
+                    },
+                }),
+            ],
+        })
     }
 }
 

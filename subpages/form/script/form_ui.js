@@ -41,15 +41,22 @@ class FormUi
 
     #create_reset_button_icon()
     {
-        return new UiNodeNs("svg", "", {
-            class: "icon",
-            viewBox: this.#content.buttons.reset.svg.view_box,
-            toolBox: this.#content.buttons.reset.svg.view_box,
-        }, [
-            new UiNodeNs("path", "", {
-                d: this.#content.buttons.reset.svg.path,
-            })
-        ])
+        return new UiNodeNs({
+            tag: "svg",
+            attributes: {
+                class: "icon",
+                viewBox: this.#content.buttons.reset.svg.view_box,
+                toolBox: this.#content.buttons.reset.svg.view_box,
+            },
+            child_nodes: [
+                new UiNodeNs({
+                    tag: "path",
+                    attributes: {
+                        d: this.#content.buttons.reset.svg.path,
+                    },
+                })
+            ]
+        })
     }
 
     set_subwindow_title(step_number, title)
@@ -103,7 +110,10 @@ class FormUi
 
     #set_button_value(button, text_content, title)
     {
-        button.draw_nodes(new UiNode("span", text_content))
+        button.draw_nodes(new UiNode({
+            tag: "span",
+            text_content: text_content,
+        }))
         button.set_attributes({
             "data-title": title
         })

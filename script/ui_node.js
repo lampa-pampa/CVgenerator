@@ -2,10 +2,10 @@ class UiNode
 {
     #dom
 
-    static get_by_class(cls)
+    static get_by_class(class_name)
     {
         const ui_node = new UiNode()
-        ui_node.#dom = document.getElementsByClassName(cls)[0]
+        ui_node.#dom = document.getElementsByClassName(class_name)[0]
         return ui_node
     }
 
@@ -16,20 +16,15 @@ class UiNode
         return ui_node
     }
 
-    constructor(
-        tag_name,
-        text_content = "",
-        attributes = {},
-        child_nodes = [],
-        listeners = {}
-    ){
-        if(tag_name)
+    constructor(kwargs)
+    {
+        if(kwargs)
         {
-            this.#dom = this._create_element(tag_name)
-            this.set_text_content(text_content)
-            this.set_attributes(attributes)
-            this.append_nodes(child_nodes)
-            this.add_listeners(listeners)
+            this.#dom = this._create_element(kwargs.tag ?? "span")
+            this.set_text_content(kwargs.text_content ?? "")
+            this.set_attributes(kwargs.attributes ?? {})
+            this.append_nodes(kwargs.child_nodes ?? [])
+            this.add_listeners(kwargs.listeners ?? {})
         }
     }
 

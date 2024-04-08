@@ -65,7 +65,10 @@ class GeneratorWindowUi {
 
     #set_button_value(button, text_content, title)
     {
-        button.draw_nodes(new UiNode("span", text_content))
+        button.draw_nodes(new UiNode({
+            tag: "span",
+            text_content: text_content,
+        }))
         button.set_attributes({
             "data-title": title
         })
