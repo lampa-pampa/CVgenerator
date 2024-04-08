@@ -16,7 +16,6 @@ class Form
     #generator_subpage_path
     #cur_subwindow_code_index
     #cur_subwindow_code
-    #subwindow
 
     constructor(
         main_ui,
@@ -44,7 +43,6 @@ class Form
         this.#generator_subpage_path = generator_subpage_path
         this.#cur_subwindow_code_index = 0
         this.#cur_subwindow_code = 0
-        this.#subwindow = null
         
         this.#main_ui.create_window()
         this.#ui.create_window({
@@ -62,7 +60,7 @@ class Form
         this.#update_subwindow_title()
         this.#update_buttons()
         this.#update_progress_bar()
-        this.#subwindow = this.#subwindow_factory.create(
+        this.#subwindow_factory.create(
             this.#cur_subwindow_code,
             this.#values[this.#cur_subwindow_code],
             (state) => this.#ui.set_next_button_state(state),

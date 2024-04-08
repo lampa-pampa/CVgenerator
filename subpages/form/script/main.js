@@ -6,7 +6,6 @@ import FormUi from "./form_ui.js"
 import MainUi from "../../../script/main_ui.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
 
-let form = null
 main()
 
 function main()
@@ -19,7 +18,7 @@ function main()
 
     const form_values = get_form_values()
     
-    form = new Form(
+    new Form(
         new MainUi(
             config.main_ui.section_class_names,
             config.main_ui.focusable_class_name,
