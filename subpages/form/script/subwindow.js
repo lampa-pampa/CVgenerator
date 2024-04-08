@@ -16,9 +16,12 @@ class Subwindow
         this.#next_button_refresher()
     }
 
-    #update_value(value_name, value)
+    #update_value(value_name, value, method = null)
     {
-        this.#values[value_name] = value
+        if(method)
+            this.#values[value_name][method](value)
+        else    
+            this.#values[value_name] = value
         this.#next_button_refresher()
     }
 }
