@@ -27,4 +27,10 @@ function has_key(object, key)
     return Object.keys(object).includes(key)
 }
 
-export {route, make_copy, match, has_key}
+function remove_element(array, element)
+{
+    if(array.includes(element))
+        array.splice(array.indexOf(element), 1)
+}
+
+export {route, make_copy, match, has_key, remove_element}
