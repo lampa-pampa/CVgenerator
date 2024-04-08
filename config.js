@@ -379,12 +379,14 @@ const config = {
         "1": "skill 1",
         "2": "skill 2",
         "3": "skill 3",
+        "4": "skill 4",
     },
 
     interest_code_to_name: {
         "1": "interest 1",
         "2": "interest 2",
         "3": "interest 3",
+        "4": "interest 4",
     },
 
     profession_code_to_name: {
@@ -395,10 +397,10 @@ const config = {
     },
     
     profession_code_to_skill_codes: {
-        "0": [1, 2, 3],
-        "1": [1, 2, 3],
-        "2": [1, 2, 3],
-        "3": [1, 2, 3],
+        "0": [1],
+        "1": [1, 2, 3, 4],
+        "2": [2, 3, 4],
+        "3": [3, 4],
     },
 
     profession_code_to_interest_codes: {
