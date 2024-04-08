@@ -1,3 +1,4 @@
+import {is_enabled} from "../../../../script/helpers.js"
 import {UiNode, UiNodeNs} from "../../../../script/ui_node.js"
 
 class SubwindowNodeCreators
@@ -18,7 +19,9 @@ class SubwindowNodeCreators
                     content.text_field,
                     value,
                     {
-                        input: (e) => value_updater(e.target.value?.trim())
+                        input: function(e) {
+                            value_updater(this.value?.trim())
+                        }
                     },
                 )
             ],
@@ -56,7 +59,9 @@ class SubwindowNodeCreators
                         maxlength: content.max_length,
                     },
                     listeners: {
-                        input: (e) => value_updater(e.target.value?.trim())
+                        input: function() {
+                            value_updater(this.value?.trim())
+                        }
                     },
                 }),
             ],
@@ -90,8 +95,8 @@ class SubwindowNodeCreators
                         true,
                         key === value,
                         true,
-                        (e) => {
-                            if(e.target.checked)
+                        function () {
+                            if(this.checked)
                                 value_updater(key)
                         },
                     ),
@@ -146,11 +151,10 @@ class SubwindowNodeCreators
                         false,
                         value.includes(cur_value),
                         true,
-                        (e) => {
-                            if(e.target.checked)
-                                value_updater(cur_value, "add")
-                            else
-                                value_updater(cur_value, "remove")
+                        function() {
+                            value_updater(
+                                cur_value, (this.checked) ? "add" : "remove"
+                            )
                         },
                     ),
                     cur_value,
@@ -165,13 +169,17 @@ class SubwindowNodeCreators
         const add_button = SubwindowNodeCreators.#create_button(
             content.add_button,
             false,
-            () => console.log("add"),
         )
         const text_field = SubwindowNodeCreators.#create_add_checkbox_text_field(
             values,
             content.text_field,
             add_button,
         )
+        add_button.add_listeners({
+            click: function(e) {
+                console.log("ok")
+            }
+        })
         return new UiNode({
             tag: "li",
             attributes: {
@@ -204,22 +212,18 @@ class SubwindowNodeCreators
             content,
             "",
             {
-                input: (e) => {
-                    const enabled = e.target.value
-                        && !values.includes(e.target.value.trim())
+                input: function(e) {
+                    const enabled = this.value
+                        && !values.includes(this.value.trim())
                     add_button.set_attributes({
                         "data-disabled": !enabled,
                         tabindex: (enabled) ? 0 : -1,
                     })
                 },
-                keydown: (e) => {
+                keydown: function(e) {
                     const button = add_button.get_dom()
-                    if(e.key === "Enter"
-                        && button.getAttribute("data-disabled") !== "true")
-                    {
+                    if(e.key === "Enter" && is_enabled(button))
                         button.click()
-                        e.target.focus()
-                    }
                 }
             },
         )
