@@ -14,8 +14,10 @@ function main()
 
     if(!match(form_values, config.window.form.default_values)
         || !has_key(config.profession_code_to_name, profession_code)
-    )
+    ){
         route(config.subpage_paths.home)
+        return
+    }
     
     new GeneratorWindow(
         new MainUi(

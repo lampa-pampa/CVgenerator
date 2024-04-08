@@ -14,7 +14,10 @@ function main()
         config.storage_keys.profession_code
     )
     if(!has_key(config.profession_code_to_name, profession_code))
+    {
         route(config.subpage_paths.home)
+        return
+    }
 
     const form_values = get_form_values()
     
