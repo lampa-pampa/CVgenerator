@@ -1,3 +1,5 @@
+import {remove_element} from "../../../../script/helpers.js"
+
 class Subwindow
 {
     #ui
@@ -16,13 +18,13 @@ class Subwindow
         this.#next_button_refresher()
     }
 
-    #update_value(value_name, value, method_name = "")
+    #update_value(value_name, value, method_name = "set")
     {
         if(method_name === "add")
             this.#values[value_name].push(value)
         else if(method_name === "remove")
-            this.#values[value_name].splice(this.#values[value_name].indexOf(value))
-        else
+            remove_element(this.#values[value_name], value)
+        else if(method_name === "set")
             this.#values[value_name] = value
         this.#next_button_refresher()
     }
