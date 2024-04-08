@@ -1,4 +1,4 @@
-import {is_enabled} from "../../../../script/helpers.js"
+import {get_parent, is_enabled} from "../../../../script/helpers.js"
 import {UiNode, UiNodeNs} from "../../../../script/ui_node.js"
 
 class SubwindowNodeCreators
@@ -167,7 +167,7 @@ class SubwindowNodeCreators
     static #create_add_checkbox_section(values, content, value_updater)
     {
         const add_button = SubwindowNodeCreators.#create_button(
-            content.add_button,
+            content.buttons.add,
             false,
         )
         const text_field = SubwindowNodeCreators.#create_add_checkbox_text_field(
@@ -177,31 +177,64 @@ class SubwindowNodeCreators
         )
         add_button.add_listeners({
             click: function(e) {
-                console.log("ok")
+                const text_field_node = text_field.get_dom()
+                get_parent(this, 2).insertBefore(
+                    SubwindowNodeCreators.#create_extra_checkbox_section(
+                        text_field_node.value.trim(),
+                        content,
+                        value_updater,
+                    ).get_dom(),
+                    get_parent(this),
+                )
+                text_field_node.value = ""
+                text_field_node.dispatchEvent(new Event("input"))
             }
         })
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element"    
+                class: "custom-checkbox-label window-list-element",        
             },
             child_nodes: [
+                SubwindowNodeCreators.#create_checkbox(
+                    content.checkbox,
+                    false,
+                    true,
+                    false,
+                ),
+                text_field,
+                add_button,
+            ],
+        })
+    }
+
+    static #create_extra_checkbox_section(value, content, value_updater)
+    {
+        value_updater(value, "add")
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element custom-checkbox-label",
+            },
+            child_nodes: [
+                SubwindowNodeCreators.#create_checkbox(
+                    content.checkbox,
+                    false,
+                    true,
+                    false,
+                ),
                 new UiNode({
-                    tag: "label",
-                    attributes: {
-                        class: "custom-checkbox-label",        
-                    },
-                    child_nodes: [
-                        SubwindowNodeCreators.#create_checkbox(
-                            content.checkbox,
-                            false,
-                            true,
-                            false,
-                        ),
-                        text_field,
-                        add_button,
-                    ],
+                    tag: "span",
+                    text_content: value
                 }),
+                SubwindowNodeCreators.#create_button(
+                    content.buttons.remove,
+                    true,
+                    function(e) {
+                        value_updater(value, "remove"),
+                        this.parentNode.remove()
+                    }
+                )
             ],
         })
     }
