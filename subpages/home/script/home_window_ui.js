@@ -10,16 +10,20 @@ class HomeWindowUi {
         this.#content = content
     }
 
-    create_window(kwargs)
-    {
+    create_window(
+        profession_codes,
+        custom_profession_code,
+        profession_code_to_name,
+        handler,
+    ){
         this.#setup_title()
         this.#create_list_elements({
-            profession_codes: kwargs.profession_codes,
-            profession_code_to_name: kwargs.profession_code_to_name,
-            handler: kwargs.handler,
+            profession_codes,
+            profession_code_to_name,
+            handler,
         })
         this.#setup_footer(
-            () => kwargs.handler(kwargs.custom_profession_code)
+            () => handler(custom_profession_code)
         )
     }
 
@@ -30,14 +34,17 @@ class HomeWindowUi {
         )
     }
 
-    #create_list_elements(kwargs)
-    {
+    #create_list_elements(
+        profession_codes,
+        profession_code_to_name,
+        handler,
+    ){
         const elements = new Array()
-        for(const profession_code of kwargs.profession_codes)
+        for(const profession_code of profession_codes)
             elements.push(
                 this.#create_list_element(
-                    kwargs.profession_code_to_name[profession_code],
-                    () => kwargs.handler(profession_code),
+                    profession_code_to_name[profession_code],
+                    () => handler(profession_code),
                 )
             )
         UiNode.get_by_class(this.#section_class_names.list).draw_nodes(elements)                

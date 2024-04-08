@@ -18,18 +18,18 @@ class HomeWindow
         this.#main_ui = main_ui
         this.#ui = ui
         this.#main_ui.create_window()
-        this.#ui.create_window({
-            profession_codes: profession_codes,
-            custom_profession_code: custom_profession_code,
-            profession_code_to_name: profession_code_to_name,
-            handler: (profession_code) => {
+        this.#ui.create_window(
+            profession_codes,
+            custom_profession_code,
+            profession_code_to_name,
+            (profession_code) => {
                 this.#handle_profession_button_click(
                     profession_code_storage_key,
                     profession_code,
                     form_subpage_path
                 )
             }
-        })
+        )
         this.#main_ui.enable_all_focusable_nodes()
     }
 
