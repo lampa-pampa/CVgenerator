@@ -1,4 +1,4 @@
-import {UiNode, UiNodeNs} from "../../../script/ui_node.js"
+import {UiNode, UiNodeNs} from "../../../../script/ui_node.js"
 
 class SubwindowNodeCreators
 {

@@ -1,7 +1,7 @@
 import Subwindow from "./subwindow.js"
 import SubwindowUi from "./subwindow_ui.js"
-import SubwindowNodeCreators from "./subwindow_node_creators.js"
-import SubwindowValuesValidators from "./subwindow_values_validators.js"
+import SubwindowNodeCreators from "./node_creators.js"
+import SubwindowValuesValidators from "./values_validators.js"
 
 class SubwindowFactory
 {

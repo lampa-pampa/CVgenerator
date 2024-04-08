@@ -1,7 +1,7 @@
 import {route, match, has_key} from "../../../script/helpers.js"
 import config from "../../../config.js"
 import Form from "./form.js"
-import SubwindowFactory from "./subwindow_factory.js"
+import SubwindowFactory from "./subwindow/factory.js"
 import FormUi from "./form_ui.js"
 import MainUi from "../../../script/main_ui.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
