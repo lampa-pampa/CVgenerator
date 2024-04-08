@@ -128,6 +128,11 @@ class SubwindowNodeCreators
                             value,
                             value_updater,
                         ),
+                        ...SubwindowNodeCreators.#create_extra_checkboxes(
+                            value.filter(((value) => !this.values.includes(value))),
+                            content,
+                            value_updater,
+                        ),
                         SubwindowNodeCreators.#create_add_checkbox_section(
                             this.values,
                             content,
@@ -164,6 +169,22 @@ class SubwindowNodeCreators
         return checkbox_buttons
     }
 
+    static #create_extra_checkboxes(values, content, value_updater)
+    {
+        const extra_checkboxes = new Array()
+        for(const value of values)
+        {
+            extra_checkboxes.push(
+                SubwindowNodeCreators.#create_extra_checkbox(
+                    value,
+                    content,
+                    value_updater,
+                )
+            )
+        }
+        return extra_checkboxes
+    }
+
     static #create_add_checkbox_section(values, content, value_updater)
     {
         const add_button = SubwindowNodeCreators.#create_button(
@@ -178,8 +199,9 @@ class SubwindowNodeCreators
         add_button.add_listeners({
             click: function(e) {
                 const text_field_node = text_field.get_dom()
+                value_updater(text_field_node.value.trim(), "add")
                 get_parent(this, 2).insertBefore(
-                    SubwindowNodeCreators.#create_extra_checkbox_section(
+                    SubwindowNodeCreators.#create_extra_checkbox(
                         text_field_node.value.trim(),
                         content,
                         value_updater,
@@ -208,9 +230,8 @@ class SubwindowNodeCreators
         })
     }
 
-    static #create_extra_checkbox_section(value, content, value_updater)
+    static #create_extra_checkbox(value, content, value_updater)
     {
-        value_updater(value, "add")
         return new UiNode({
             tag: "li",
             attributes: {
