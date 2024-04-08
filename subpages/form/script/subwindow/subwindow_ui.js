@@ -28,7 +28,7 @@ class SubwindowUi
                 this.#input_nodes_creator(
                     content[key],
                     value,
-                    (value) => value_updater(key, value)
+                    (...args) => value_updater(key, ...args)
                 )
             )
         return input_nodes

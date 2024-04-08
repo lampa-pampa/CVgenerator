@@ -51,12 +51,18 @@ class SubwindowFactory
                 values_validator: SubwindowValuesValidators.optional,
             },
             "8": {
-                node_creator: null,
-                values_validator: null,
+                node_creator: SubwindowNodeCreators.checkbox_buttons.bind({
+                    codes: skill_codes,
+                    code_to_name: skill_code_to_name,
+                }),
+                values_validator: SubwindowValuesValidators.optional,
             },
             "9": {
-                node_creator: null,
-                values_validator: null,
+                node_creator: SubwindowNodeCreators.checkbox_buttons.bind({
+                    codes: interest_codes,
+                    code_to_name: interest_code_to_name,
+                }),
+                values_validator: SubwindowValuesValidators.optional,
             },
             "10": {
                 node_creator: SubwindowNodeCreators.text_area,

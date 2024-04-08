@@ -63,6 +63,31 @@ class SubwindowNodeCreators
         ])
     }
 
+    static checkbox_buttons(content, value, value_updater)
+    {
+        const checkbox_buttons = new Array()
+        for(const code of this.codes)
+            checkbox_buttons.push(
+                SubwindowNodeCreators.#create_checkbox(
+                    this.code_to_name[code],
+                    {
+                        type: "checkbox",
+                        ...(value.includes(code)) ? {checked: ""} : null,
+                    },
+                    content,
+                    (e) => {
+                        if(e.target.checked)
+                            value_updater(code, "add")
+                        else
+                            value_updater(code, "remove")
+                    },
+                )
+            )
+        return new UiNode("li", "", {}, [
+            new UiNode("ul", "", {}, checkbox_buttons)
+        ])
+    }
+
     static #create_checkbox(label, attributes, content, value_updater)
     {
         return new UiNode("li", "", {}, [
