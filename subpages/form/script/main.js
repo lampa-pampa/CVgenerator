@@ -30,8 +30,14 @@ function main()
         ),
         new SubwindowFactory(
             config.window.form.subwindow,
-            Object.values(config.skill_code_to_name),
-            Object.values(config.interest_code_to_name),
+            get_code_names(
+                config.profession_code_to_skill_codes[profession_code],
+                config.skill_code_to_name,
+            ),
+            get_code_names(
+                config.profession_code_to_interest_codes[profession_code],
+                config.interest_code_to_name,
+            ),
             config.theme_code_to_name,
             config.layout_code_to_name,
         ),
@@ -54,4 +60,9 @@ function get_form_values()
     if(match(storage_values, config.window.form.default_values))
         return storage_values
     return config.window.form.default_values
+}
+
+function get_code_names(codes, code_to_names)
+{
+    return codes.map((code) => code_to_names[code])
 }
