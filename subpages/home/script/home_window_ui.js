@@ -17,11 +17,11 @@ class HomeWindowUi {
         handler,
     ){
         this.#setup_title()
-        this.#create_list_elements({
+        this.#create_list_elements(
             profession_codes,
             profession_code_to_name,
             handler,
-        })
+        )
         this.#setup_footer(
             () => handler(custom_profession_code)
         )
