@@ -5,7 +5,7 @@ class SubwindowNodeCreators
     static text_field(content, value, value_updater)
     {
         return new UiNode("li", "", {
-            class: "space-between"
+            class: "space-between window-list-element"
         }, [
             new UiNode("label", content.label),
             new UiNode("input", "", {
@@ -20,7 +20,9 @@ class SubwindowNodeCreators
 
     static text_area(content, value, value_updater)
     {
-        return new UiNode("li", "", {}, [
+        return new UiNode("li", "", {
+            class: "window-list-element"
+        }, [
             new UiNode("textarea", value, {
                 class: "text-field border focusable",
                 spellcheck: false,
@@ -34,7 +36,9 @@ class SubwindowNodeCreators
     
     static message(content)
     {
-        return new UiNode("li", "", {}, [
+        return new UiNode("li", "", {
+            class: "window-list-element"
+        }, [
             new UiNode("pre", content)
         ])
     }
@@ -90,7 +94,9 @@ class SubwindowNodeCreators
 
     static #create_checkbox(label, attributes, content, value_updater)
     {
-        return new UiNode("li", "", {}, [
+        return new UiNode("li", "", {
+            class: "window-list-element"
+        }, [
             new UiNode("label", "", {
                 class: "custom-checkbox-label",
             }, [
@@ -103,7 +109,6 @@ class SubwindowNodeCreators
                 new UiNode("span", "", {
                     class: "custom-checkbox max-height border focusable square",
                     tabindex: 0,
-                    "data-title": content.title,
                 }, [
                     new UiNode("span", "", {}, [
                         SubwindowNodeCreators.#create_icon(content.svg)

@@ -45,7 +45,9 @@ class HomeWindowUi {
 
     #create_list_element(profession_name, handler)
     {
-        return new UiNode("li", "", {}, [
+        return new UiNode("li", "", {
+            class: "window-list-element"
+        }, [
             new UiNode("span", profession_name),
             this.#create_list_element_button(profession_name, handler)
         ])

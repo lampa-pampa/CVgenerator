@@ -42,7 +42,7 @@
     scrollbar-color: var(--secondary-theme-color) transparent;
 }
 
-.window-list li {
+.window-list-element {
     margin-block: 0.8em;
     display: flex;
     align-items: center;
