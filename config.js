@@ -206,21 +206,29 @@ const config = {
                     "2": {
                         name: {
                             label: "Name:",
-                            max_length: 32,
+                            text_field: {
+                                max_length: 32,
+                            },
                         },
                         surname: {
                             label: "Surname:",
-                            max_length: 32,
+                            text_field: {
+                                max_length: 32,
+                            },
                         },
                     },
                     "3": {
                         email: {
                             label: "Email:",
-                            max_length: 32,
+                            text_field: {
+                                max_length: 32,
+                            },
                         },
                         phone: {
                             label: "Phone number:",
-                            max_length: 32,
+                            text_field: {
+                                max_length: 32,
+                            },
                         },
                     },
                     "7": {
@@ -237,6 +245,16 @@ const config = {
                                     path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
                                 },
                             },
+                            text_field: {
+                                max_length: 32,
+                            },
+                            add_button: {
+                                title: "add",
+                                svg: {
+                                    view_box: "0 0 24 24",
+                                    path: "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                                },
+                            }
                         },
                     },
                     "9": {
@@ -247,6 +265,16 @@ const config = {
                                     path: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
                                 },
                             },
+                            text_field: {
+                                max_length: 32,
+                            },
+                            add_button: {
+                                title: "add",
+                                svg: {
+                                    view_box: "0 0 24 24",
+                                    path: "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                                },
+                            }
                         },
                     },
                     "10": {
@@ -258,7 +286,9 @@ const config = {
                     "11": {
                         company_name: {
                             label: "Company Name:",
-                            max_length: 32,
+                            text_field: {
+                                max_length: 32,
+                            },
                         },
                     },
                     "12": {
