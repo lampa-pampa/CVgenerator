@@ -29,8 +29,7 @@ function has_key(object, key)
 
 function remove_element(array, element)
 {
-    if(array.includes(element))
-        array.splice(array.indexOf(element), 1)
+    array.splice(array.indexOf(element), 1)
 }
 
 function is_enabled(node)
@@ -38,4 +37,11 @@ function is_enabled(node)
     return node.getAttribute("data-disabled") !== "true"
 }
 
-export {route, make_copy, match, has_key, remove_element, is_enabled}
+function get_parent(node, layer = 1)
+{
+    for(let i = 0; i < layer; ++i)
+        node = node.parentNode
+    return node
+}
+
+export {route, make_copy, match, has_key, remove_element, is_enabled, get_parent}
