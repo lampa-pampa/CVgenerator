@@ -1,4 +1,4 @@
-import {route} from "./helpers.js"
+import {is_enabled, route} from "./helpers.js"
 import {UiNode} from "./ui_node.js"
 
 class MainUi
@@ -113,8 +113,8 @@ class MainUi
         if(e.key === "Enter")
         {
             e.preventDefault()
-            if(e.target.getAttribute("data-disabled") !== "true")
-                e.target.click()
+            if(is_enabled(this))
+                this.click()
         }
     }
 }
