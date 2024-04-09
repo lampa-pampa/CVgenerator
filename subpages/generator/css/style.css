@@ -8,7 +8,7 @@
 }
 
 .window-content .preview {
-    flex: 1;
+    flex: 1 1 auto;
 }
 
 .window-content .button {

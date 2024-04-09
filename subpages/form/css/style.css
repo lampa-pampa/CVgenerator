@@ -11,7 +11,7 @@
 }
 
 .window-list {
-    flex: 1;
+    flex: 0 1 calc(var(--content-height) - 6.5em);
 }
 
 .custom-checkbox-label {
@@ -23,7 +23,7 @@
 }
 
 .custom-checkbox-label :nth-child(2) {
-    flex: 1;
+    flex: 1 1 auto;
 }
 
 .buttons-container

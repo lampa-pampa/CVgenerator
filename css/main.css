@@ -50,11 +50,11 @@ main {
         var(--gradient-color) 50%,
         var(--secondary-theme-color));
     padding-block: 5em;
-    flex: 1;
+    flex: 1 1 auto;
 }
 
 footer {
     background-color: var(--secondary-theme-color);
     font-size: medium;
-    flex-basis: var(--footer-height);
+    flex: 0 1 var(--footer-height);
 }
