@@ -68,7 +68,7 @@ class SubwindowNodeCreators
         })
     }
     
-    static message(value_getter)
+    static message(text_content)
     {
         return new UiNode({
             tag: "li",
@@ -78,7 +78,7 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "pre",
-                    text_content: value_getter(),
+                    text_content: text_content,
                 }),
             ],
         })
