@@ -12,7 +12,7 @@
 }
 
 .window-header {
-    height: var(--header-height);
+    flex-basis: var(--header-height);
     background-color: var(--secondary-theme-color);
     display: flex;
     align-items: center;
@@ -24,13 +24,13 @@
 }
 
 .window-content {
-    height: var(--content-height);
+    flex-basis: var(--content-height);
     color: var(--secondary-theme-color);
     background-color: var(--main-theme-color);
 }
 
 .window-footer {
-    height: var(--footer-height);
+    flex-basis: var(--footer-height);
     background-color: var(--secondary-theme-color);
 }
 

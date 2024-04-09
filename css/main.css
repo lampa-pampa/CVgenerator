@@ -29,9 +29,9 @@ body {
 
 header {
     position: fixed;
+    height: var(--header-height);
     top: 0;
     z-index: 10;
-    height: var(--header-height);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -56,5 +56,5 @@ main {
 footer {
     background-color: var(--secondary-theme-color);
     font-size: medium;
-    height: var(--footer-height);
+    flex-basis: var(--footer-height);
 }
