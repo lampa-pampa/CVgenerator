@@ -14,8 +14,13 @@ class Subwindow
             next_button_refresher(values_validator(Object.values(this.#values)))
         }
         
-        this.#ui.create_window(this.#values, this.#update_value.bind(this))
+        this.#ui.create_window(this.#get_values.bind(this), this.#update_value.bind(this))
         this.#next_button_refresher()
+    }
+
+    #get_values()
+    {
+        return this.#values
     }
 
     #update_value(value_name, value, method_name = "set")

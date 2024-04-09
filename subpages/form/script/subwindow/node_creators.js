@@ -3,7 +3,7 @@ import {UiNode, UiNodeNs} from "../../../../script/ui_node.js"
 
 class SubwindowNodeCreators
 {
-    static labeled_text_field(content, value, value_updater)
+    static labeled_text_field(content, value_getter, value_updater)
     {
         return new UiNode({
             tag: "li",
@@ -17,7 +17,7 @@ class SubwindowNodeCreators
                 }),
                 SubwindowNodeCreators.#create_text_field(
                     content.text_field,
-                    value,
+                    value_getter(),
                     {
                         input: function(e) {
                             value_updater(this.value?.trim())
@@ -41,7 +41,7 @@ class SubwindowNodeCreators
         })
     }
 
-    static text_area(content, value, value_updater)
+    static text_area(content, value_getter, value_updater)
     {
         return new UiNode({
             tag: "li",
@@ -51,7 +51,7 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "textarea",
-                    text_content: value,
+                    text_content: value_getter(),
                     attributes: {
                         class: "text-field border focusable",
                         spellcheck: false,
@@ -68,7 +68,7 @@ class SubwindowNodeCreators
         })
     }
     
-    static message(content)
+    static message(value_getter)
     {
         return new UiNode({
             tag: "li",
@@ -78,13 +78,13 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "pre",
-                    text_content: content,
+                    text_content: value_getter(),
                 }),
             ],
         })
     }
 
-    static radio_buttons(content, value, value_updater)
+    static radio_buttons(content, value_getter, value_updater)
     {
         const radio_buttons = new Array()
         for(const [key, label] of Object.entries(this.buttons))
@@ -93,7 +93,7 @@ class SubwindowNodeCreators
                     SubwindowNodeCreators.#create_checkbox(
                         content,
                         true,
-                        key === value,
+                        key === value_getter(),
                         true,
                         function () {
                             if(this.checked)
@@ -114,7 +114,7 @@ class SubwindowNodeCreators
         })
     }
 
-    static checkbox_buttons(content, value, value_updater)
+    static checkbox_buttons(content, value_getter, value_updater)
     {
         return new UiNode({
             tag: "li",
@@ -125,16 +125,16 @@ class SubwindowNodeCreators
                         ...SubwindowNodeCreators.#create_checkbox_buttons(
                             this.values,
                             content.checkbox,
-                            value,
+                            value_getter(),
                             value_updater,
                         ),
                         ...SubwindowNodeCreators.#create_extra_checkboxes(
-                            value.filter(((value) => !this.values.includes(value))),
+                            value_getter().filter(((value) => !this.values.includes(value))),
                             content,
                             value_updater,
                         ),
                         SubwindowNodeCreators.#create_add_checkbox_section(
-                            this.values,
+                            value_getter,
                             content,
                             value_updater,
                         ),
@@ -185,14 +185,14 @@ class SubwindowNodeCreators
         return extra_checkboxes
     }
 
-    static #create_add_checkbox_section(values, content, value_updater)
+    static #create_add_checkbox_section(value_getter, content, value_updater)
     {
         const add_button = SubwindowNodeCreators.#create_button(
             content.buttons.add,
             false,
         )
         const text_field = SubwindowNodeCreators.#create_add_checkbox_text_field(
-            values,
+            value_getter,
             content.text_field,
             add_button,
         )
@@ -260,7 +260,7 @@ class SubwindowNodeCreators
         })
     }
 
-    static #create_add_checkbox_text_field(values, content, add_button)
+    static #create_add_checkbox_text_field(value_getter, content, add_button)
     {
         return SubwindowNodeCreators.#create_text_field(
             content,
@@ -268,7 +268,7 @@ class SubwindowNodeCreators
             {
                 input: function(e) {
                     const enabled = this.value
-                        && !values.includes(this.value.trim())
+                        && !value_getter().includes(this.value.trim())
                     add_button.set_attributes({
                         "data-disabled": !enabled,
                         tabindex: (enabled) ? 0 : -1,

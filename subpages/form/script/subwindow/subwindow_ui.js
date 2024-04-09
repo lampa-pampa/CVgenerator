@@ -13,21 +13,21 @@ class SubwindowUi
         this.#input_nodes_creator = input_nodes_creator
     }
 
-    create_window(values, value_updater)
+    create_window(values_getter, value_updater)
     {
         UiNode.get_by_class(this.#content_class_name).draw_nodes(
-            ...this.#create_input_nodes(values, this.#content, value_updater)
+            ...this.#create_input_nodes(values_getter, this.#content, value_updater)
         )
     }
 
-    #create_input_nodes(values, content, value_updater)
+    #create_input_nodes(values_getter, content, value_updater)
     {
         const input_nodes = new Array()
-        for(const [key, value] of Object.entries(values))
+        for(const key of Object.keys(values_getter()))
             input_nodes.push(
                 this.#input_nodes_creator(
                     content[key],
-                    value,
+                    () => values_getter()[key],
                     (...args) => value_updater(key, ...args)
                 )
             )
