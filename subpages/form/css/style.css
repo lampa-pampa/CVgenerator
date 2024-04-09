@@ -13,9 +13,9 @@
 .custom-checkbox-label {
     display: grid;
     align-items: center;
-    height: 36px;
+    height: 38px;
     width: 100%;
-    grid-template-columns: 36px 1fr 36px;
+    grid-template-columns: 38px 1fr 38px;
     column-gap: 1em;
 }
 
@@ -55,6 +55,6 @@
 
 .window-content textarea {
     width: 100%;
-    height: calc(var(--content-height) - 8.5em);
+    height: calc(var(--content-height) - 8em);
     padding: 0.2em;
 }
