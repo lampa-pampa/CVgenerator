@@ -33,7 +33,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "input",
             attributes: {
-                class: "text-field border focusable",    
+                class: "text-field border focusable max-height",    
                 value: value,
                 maxlength: content.max_length,
             },
@@ -210,6 +210,8 @@ class SubwindowNodeCreators
                 )
                 text_field_node.value = ""
                 text_field_node.dispatchEvent(new Event("input"))
+                const list = get_parent(this, 4)
+                list.scrollTo(0, list.scrollHeight);
             }
         })
         return new UiNode({

@@ -4,8 +4,9 @@
 }
 
 .window-content {
-    display: grid;  
-    grid-template-rows: 1fr auto;
+    display: grid;
+    font-size: large;
+    grid-template-rows: calc(var(--content-height) - 6.5em) 1fr;
     --border-color: var(--secondary-theme-color);
 }
 
@@ -21,7 +22,6 @@
 .buttons-container
 {
     --border-radius: calc(2 * var(--border-width));
-    font-size: large;
     color: var(--main-theme-color);
     display: flex;
     justify-content: space-between;
