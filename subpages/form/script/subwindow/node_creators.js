@@ -318,7 +318,10 @@ class SubwindowNodeCreators
         value_updater
     ){
         return new UiNode({
-            tag: "span",
+            tag: "div",
+            attributes: {
+                class: "max-height square"
+            },
             child_nodes: [
                 new UiNode({
                     tag: "input",

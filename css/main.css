@@ -23,12 +23,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     color: var(--main-theme-color);
-
-    display: grid;
-    grid-auto-columns: 100%;
-    grid-template-rows: 
-        1fr
-        var(--footer-height);
+    display: flex;
+    flex-flow: column;
 }
 
 header {
@@ -54,9 +50,11 @@ main {
         var(--gradient-color) 50%,
         var(--secondary-theme-color));
     padding-block: 5em;
+    flex: 1;
 }
 
 footer {
     background-color: var(--secondary-theme-color);
     font-size: medium;
+    height: var(--footer-height);
 }

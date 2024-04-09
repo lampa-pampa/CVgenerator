@@ -7,14 +7,12 @@
     width: 800px;
     font-size: x-large;
     overflow: hidden;
-    display: grid;
-    grid-template-rows:
-        var(--header-height)
-        var(--content-height)
-        var(--footer-height);
+    display: flex;
+    flex-flow: column;
 }
 
 .window-header {
+    height: var(--header-height);
     background-color: var(--secondary-theme-color);
     display: flex;
     align-items: center;
@@ -26,11 +24,13 @@
 }
 
 .window-content {
+    height: var(--content-height);
     color: var(--secondary-theme-color);
     background-color: var(--main-theme-color);
 }
 
 .window-footer {
+    height: var(--footer-height);
     background-color: var(--secondary-theme-color);
 }
 
@@ -39,7 +39,7 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding: 1em 1.6em;
-    scrollbar-color: var(--secondary-theme-color) transparent;
+    scrollbar-color: var(--secondary-theme-color) var(--main-theme-color);
 }
 
 .window-list-element {

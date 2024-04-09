@@ -4,19 +4,26 @@
 }
 
 .window-content {
-    display: grid;
+    display: flex;
+    flex-flow: column;
     font-size: large;
-    grid-template-rows: calc(var(--content-height) - 6.5em) 1fr;
     --border-color: var(--secondary-theme-color);
 }
 
+.window-list {
+    flex: 1;
+}
+
 .custom-checkbox-label {
-    display: grid;
-    align-items: center;
     height: 38px;
     width: 100%;
-    grid-template-columns: 38px 1fr 38px;
+    display: flex;
+    align-items: center;
     column-gap: 1em;
+}
+
+.custom-checkbox-label :nth-child(2) {
+    flex: 1;
 }
 
 .buttons-container
