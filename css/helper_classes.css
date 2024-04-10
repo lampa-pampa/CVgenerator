@@ -31,12 +31,15 @@
 .border {
     border-radius: var(--border-radius);
     border: var(--border-width) var(--border-style) var(--border-color);
-    transition: border-color 200ms;
+}
+
+.border.focusable {
+    transition-property: border-color, background-color;
+    transition-duration: 200ms;
 }
 
 .focusable {
     border-radius: var(--border-radius);
-    transition: background-color 200ms;
 }
 
 .focusable:focus-visible {
@@ -51,7 +54,7 @@
     cursor: text;
 }
 
-.border.focusable:hover:not(.text-field) {
+.border.focusable:hover:not(.text-field, [data-disabled="true"]) {
     border-color: var(--gradient-color);
 }
 
