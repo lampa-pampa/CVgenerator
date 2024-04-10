@@ -33,12 +33,12 @@ class SubwindowFactory
                 values_validator: SubwindowValuesValidators.at_least_one,
             },
             "4": {
-                node_creator: null,
-                values_validator: null,
+                node_creator: SubwindowNodeCreators.duration_and_place_list,
+                values_validator: SubwindowValuesValidators.at_least_one,
             },
             "5": {
-                node_creator: null,
-                values_validator: null,
+                node_creator: SubwindowNodeCreators.duration_and_place_list,
+                values_validator: SubwindowValuesValidators.at_least_one,
             },
             "6": {
                 node_creator: SubwindowNodeCreators.text_area,

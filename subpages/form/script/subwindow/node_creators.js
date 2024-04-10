@@ -33,7 +33,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "input",
             attributes: {
-                class: "text-field border focusable max-height",    
+                class: "text-field border focusable",    
                 value: value,
                 maxlength: content.max_length,
             },
@@ -64,6 +64,120 @@ class SubwindowNodeCreators
                         }
                     },
                 }),
+            ],
+        })
+    }
+
+    static duration_and_place_list(content, value_getter, value_updater)
+    {
+        return new UiNode({
+            tag: "ul",
+            attributes: {
+                tabindex: -1,
+            },
+            child_nodes: [
+                ...SubwindowNodeCreators.#create_duration_and_place_list(
+                    value_getter(),
+                    content.list_element,
+                    value_updater
+                ),
+                SubwindowNodeCreators.#create_add_duration_and_place_section(
+                    content.add_section,
+                    value_updater,
+                ),
+            ],
+        })
+    }
+
+    static #create_add_duration_and_place_section(content, value_updater)
+    {
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element",
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "ul",
+                    attributes: {
+                        tabindex: -1,
+                    },
+                    child_nodes: [
+                        SubwindowNodeCreators.labeled_text_field(
+                            content.text_fields.from,
+                            () => "",
+                            () => null,
+                        ),
+                        SubwindowNodeCreators.labeled_text_field(
+                            content.text_fields.to,
+                            () => "",
+                            () => null,
+                        ),
+                        SubwindowNodeCreators.labeled_text_field(
+                            content.text_fields.place,
+                            () => "",
+                            () => null,
+                        ),
+                        new UiNode({
+                            tag: "span",
+                            attributes: {
+                                class: "duration-and-date-element space-between",
+                            },
+                            child_nodes: [
+                                new UiNode({
+                                    tag: "span",
+                                }),
+                                SubwindowNodeCreators.#create_button(
+                                    content.button,
+                                    false,
+                                    function() {
+        
+                                    },
+                                ),
+                            ],
+                        }),
+                    ],
+                })
+            ]
+        })
+    }
+
+    static #create_duration_and_place_list(values, content, value_updater)
+    {
+        const elements = new Array()
+        for(const value of values)
+        {
+            elements.push(
+                SubwindowNodeCreators.#create_duration_and_place_element(
+                    value,
+                    content,
+                    value_updater
+                )
+            )
+        }
+        return elements
+    }
+
+    static #create_duration_and_place_element(value, content, value_updater)
+    {
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element duration-and-date-element space-between",
+            },
+            child_nodes: [
+                SubwindowNodeCreators.message(
+                    value[0] + content.duration_separator + value[1] + "\n"
+                        + content.place_prefix + value[2]
+                ),
+                SubwindowNodeCreators.#create_button(
+                    content.button,
+                    true,
+                    function() {
+                        value_updater(value, "remove")
+                        this.parentNode.remove()
+                    },
+                )
             ],
         })
     }
@@ -108,6 +222,9 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "ul",
+                    attributes: {
+                        tabindex: -1,
+                    },
                     child_nodes: radio_buttons,
                 }),
             ],
@@ -121,6 +238,9 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "ul",
+                    attributes: {
+                        tabindex: -1,
+                    },
                     child_nodes: [
                         ...SubwindowNodeCreators.#create_checkbox_buttons(
                             this.values,
@@ -247,7 +367,7 @@ class SubwindowNodeCreators
                     false,
                 ),
                 new UiNode({
-                    tag: "span",
+                    tag: "pre",
                     text_content: value
                 }),
                 SubwindowNodeCreators.#create_button(
@@ -319,9 +439,6 @@ class SubwindowNodeCreators
     ){
         return new UiNode({
             tag: "div",
-            attributes: {
-                class: "max-height square"
-            },
             child_nodes: [
                 new UiNode({
                     tag: "input",
@@ -340,7 +457,7 @@ class SubwindowNodeCreators
                 new UiNode({
                     tag: "div",
                     attributes: {
-                        class: "custom-checkbox max-height border focusable square",
+                        class: "custom-checkbox border focusable square",
                         tabindex: (enabled) ? 0 : -1,
                         "data-disabled": !enabled,
                     },
@@ -362,7 +479,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "button",
             attributes: {
-                class: "button max-height border focusable square",
+                class: "button border focusable square",
                 "data-title": content.title,
                 "data-disabled": !enabled,
                 tabindex: (enabled) ? 0 : -1,
