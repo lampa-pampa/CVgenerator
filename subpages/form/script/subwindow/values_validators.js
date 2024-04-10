@@ -9,7 +9,7 @@ class SubwindowValuesValidators
     {
         for(const value of values)
         {
-            if(value)
+            if(value?.length > 0)
                 return true
         }
         return false
@@ -19,7 +19,7 @@ class SubwindowValuesValidators
     {
         for(const value of values)
         {
-            if(!value)
+            if(!value?.length > 0)
                 return false
         }
         return true
