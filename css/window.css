@@ -45,6 +45,11 @@
 .window-list-element {
     margin-block: 0.8em;
     display: flex;
+    flex: 1 1 auto;
     align-items: center;
     font-size: x-large;
+}
+
+.window-list-element ul {
+    flex: 1 1 auto;
 }

@@ -15,11 +15,21 @@
 }
 
 .custom-checkbox-label {
-    height: 38px;
-    width: 100%;
     display: flex;
+    flex: 1 1 auto;
     align-items: center;
     column-gap: 1em;
+}
+
+.duration-and-date-element {
+    display: flex;
+    align-items: center;
+}
+
+.custom-checkbox,
+.window-list-element .button,
+.window-list-element .text-field {
+    height: 38px;
 }
 
 .custom-checkbox-label :nth-child(2) {
@@ -56,12 +66,15 @@
     font-size: medium;
 }
 
-.window-content pre {
-    line-height: 1.5em;
-}
-
-.window-content textarea {
+.window-content textarea.text-field {
     width: 100%;
     height: calc(var(--content-height) - 8em);
     padding: 0.2em;
+}
+
+.window-content pre {
+    line-height: 1.5em;
+    white-space: pre-wrap;
+    word-break: break-all;
+    flex: 1 1 auto;
 }
