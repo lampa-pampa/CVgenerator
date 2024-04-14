@@ -1,4 +1,4 @@
-import {get_parent, is_enabled} from "../../../../script/helpers.js"
+import {get_parent, is_enabled, make_copy} from "../../../../script/helpers.js"
 import {UiNode, UiNodeNs} from "../../../../script/ui_node.js"
 
 class SubwindowNodeCreators
@@ -82,7 +82,7 @@ class SubwindowNodeCreators
                     value_updater
                 ),
                 SubwindowNodeCreators.#create_add_duration_and_place_section(
-                    content.add_section,
+                    content,
                     value_updater,
                 ),
             ],
@@ -91,6 +91,69 @@ class SubwindowNodeCreators
 
     static #create_add_duration_and_place_section(content, value_updater)
     {
+        const value_pack = ["", "", ""]
+        
+        const text_fields = [
+            SubwindowNodeCreators.labeled_text_field(
+                content.add_section.text_fields.from,
+                () => "",
+                (value) => update_value_pack(value_pack, 0, value)
+            ),
+            SubwindowNodeCreators.labeled_text_field(
+                content.add_section.text_fields.to,
+                () => "",
+                (value) => update_value_pack(value_pack, 1, value)
+            ),
+            SubwindowNodeCreators.labeled_text_field(
+                content.add_section.text_fields.place,
+                () => "",
+                (value) => update_value_pack(value_pack, 2, value)
+            ),
+        ]
+        
+        const add_button = SubwindowNodeCreators.#create_button(
+            content.add_section.button,
+            false,
+            function() {
+                const value = [...value_pack]
+                value_updater(value, "add")
+                get_parent(this, 4).insertBefore(
+                    SubwindowNodeCreators.#create_duration_and_place_element(
+                        value,
+                        content.list_element,
+                        value_updater,
+                    ).get_dom(),
+                    get_parent(this, 3)
+                )
+                for(const text_field of text_fields)
+                {
+                    const dom = text_field.get_dom().childNodes[1]
+                    dom.value = ""
+                    dom.dispatchEvent(new Event("input"))
+                }
+            },
+        )
+
+        function value_pack_is_valid(pack)
+        {
+            for(const element of pack)
+            {
+                if(!element?.length > 0)
+                    return false
+            }
+            return true
+        }
+
+        function update_value_pack(value_pack, index, value)
+        {
+            value_pack[index] = value
+            const enabled = value_pack_is_valid(value_pack)
+            add_button.set_attributes({
+                "data-disabled": !enabled,
+                tabindex: (enabled) ? 0 : -1,
+            })
+        }
+
         return new UiNode({
             tag: "li",
             attributes: {
@@ -103,21 +166,7 @@ class SubwindowNodeCreators
                         tabindex: -1,
                     },
                     child_nodes: [
-                        SubwindowNodeCreators.labeled_text_field(
-                            content.text_fields.from,
-                            () => "",
-                            () => null,
-                        ),
-                        SubwindowNodeCreators.labeled_text_field(
-                            content.text_fields.to,
-                            () => "",
-                            () => null,
-                        ),
-                        SubwindowNodeCreators.labeled_text_field(
-                            content.text_fields.place,
-                            () => "",
-                            () => null,
-                        ),
+                        ...text_fields,
                         new UiNode({
                             tag: "span",
                             attributes: {
@@ -127,13 +176,7 @@ class SubwindowNodeCreators
                                 new UiNode({
                                     tag: "span",
                                 }),
-                                SubwindowNodeCreators.#create_button(
-                                    content.button,
-                                    false,
-                                    function() {
-        
-                                    },
-                                ),
+                                add_button,
                             ],
                         }),
                     ],
