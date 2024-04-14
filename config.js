@@ -122,16 +122,10 @@ const config = {
                     phone: "",
                 },
                 "4": {
-                    education: [
-                        ['2020', '2024', 'szkola'],
-                        ['2021', '2024', 'szkola'],
-                    ],
+                    education: [],
                 },
                 "5": {
-                    experience: [
-                        ['2022', '2024', 'szkola'],
-                        ['2023', '2024', 'szkola'],
-                    ],
+                    experience: [],
                 },
                 "6": {
                     about: "",
@@ -463,8 +457,8 @@ const config = {
         "1": "Image",
         "2": "Name & Surname",
         "3": "Contact",
-        "4": "Experience",
-        "5": "Education",
+        "4": "Education",
+        "5": "Experience",
         "6": "About you",
         "7": "Skills",
         "8": "Interests",
