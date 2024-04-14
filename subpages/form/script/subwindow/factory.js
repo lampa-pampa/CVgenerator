@@ -38,7 +38,7 @@ class SubwindowFactory
             },
             "5": {
                 node_creator: SubwindowNodeCreators.duration_and_place_list,
-                values_validator: SubwindowValuesValidators.at_least_one,
+                values_validator: SubwindowValuesValidators.optional,
             },
             "6": {
                 node_creator: SubwindowNodeCreators.text_area,
