@@ -40,6 +40,12 @@ class UiNode
             this.#dom.setAttribute(attribute, attributes[attribute])
     }
 
+    remove_attributes(...attributes)
+    {
+        for(const attribute_name of attributes)
+            this.#dom.removeAttribute(attribute_name)
+    }
+
     get_dom()
     {
         return this.#dom

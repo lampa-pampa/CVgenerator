@@ -1,8 +1,10 @@
 @import url("./animated_button.css");
-@import url("./custom_checkbox.css");
-@import url("./data_title.css");
-@import url("./disable_default.css");
-@import url("./helper_classes.css");
+@import url("./animations.css");
+@import url("./checkbox.css");
+@import url("./default.css");
 @import url("./main.css");
-@import url("./show_animations.css");
+@import url("./title.css");
+@import url("./transitions.css");
+@import url("./vars.css");
+@import url("./window_list_elements.css");
 @import url("./window.css");

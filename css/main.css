@@ -1,60 +1,52 @@
-:root {
-    --header-height: 70px;
-    --footer-height: 20px;
-
-    --main-theme-color: #fefefe;
-    --secondary-theme-color: #010101;
-    --gradient-color: #1100ff;
-    --border-width: 3px;
-    --border-style: solid;
-    --border-color: var(--main-theme-color);
-    --border-radius: var(--border-width);
-}
-
-::selection {
-    color: var(--main-theme-color);
-    background: var(--gradient-color);
-}
-
-body {
-    min-height: 100svh;
-    font-weight: 800;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    color: var(--main-theme-color);
-    display: flex;
-    flex-flow: column;
-}
-
-header {
+.main-header {
+    z-index: 1;
     position: fixed;
-    height: var(--header-height);
-    top: 0;
-    z-index: 10;
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-inline: 7em;
-    background-color: var(--secondary-theme-color);
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--main-header-height);
+    padding-inline: 120px;
+    background-color: var(--third-theme-color);
 }
 
-nav ul {
-    list-style-type: none;
+.main-baner {
+    height: 100%;
+}
+
+.main-nav-list {
     display: flex;
     column-gap: 1em;
+    font-size: large;
 }
 
-main {
-    background: linear-gradient(
-        var(--gradient-color) 50%,
-        var(--secondary-theme-color));
-    padding-block: 5em;
+.main-content {
+    z-index: 0;
     flex: 1 1 auto;
+    display: flex;
+    padding-block: var(--main-header-height);
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        var(--first-theme-color) 50%,
+        var(--third-theme-color));
 }
 
-footer {
-    background-color: var(--secondary-theme-color);
-    font-size: medium;
-    flex: 0 1 var(--footer-height);
+.main-footer {
+    flex: 0 1 var(--main-footer-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    background-color: var(--third-theme-color);
+}
+
+.spinner {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    border: var(--border-width) solid var(--second-theme-color);
+    border-right-color: transparent;
 }

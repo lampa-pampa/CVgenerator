@@ -37,6 +37,17 @@ function is_enabled(node)
     return node.getAttribute("data-disabled") !== "true"
 }
 
+function set_button_state(button, enabled)
+{
+    if(enabled)
+        button.remove_attributes("disabled")
+    
+    button.set_attributes({
+        ...(!enabled) ? {disabled: ""} : null,
+        zindex: (enabled) ? 0 : -1,
+    })
+}
+
 function get_parent(node, layer = 1)
 {
     for(let i = 0; i < layer; ++i)
@@ -44,4 +55,13 @@ function get_parent(node, layer = 1)
     return node
 }
 
-export {route, make_copy, match, has_key, remove_element, is_enabled, get_parent}
+export {
+    route,
+    make_copy,
+    match,
+    has_key,
+    remove_element,
+    is_enabled,
+    get_parent,
+    set_button_state
+}

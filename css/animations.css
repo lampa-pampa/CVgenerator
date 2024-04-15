@@ -1,0 +1,67 @@
+.window {
+    overflow: hidden;
+}
+
+.window-content {
+    overflow: hidden;
+}
+
+.window-title {
+    animation: show-title var(--transition-duration);
+}
+
+.window-list {
+    animation: show-list var(--transition-duration);
+}
+
+.spinner {
+    animation: spin var(--animation-duration) infinite;
+}
+
+:focus-visible {
+    animation: select var(--transition-duration) forwards;
+}
+
+.reset-button:hover {
+    animation: spin var(--animation-duration);
+}
+
+@keyframes spin {
+    from {
+        transform: none;
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes show-title {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes show-list {
+    from {
+        opacity: 0;
+        transform: translateY(2em);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes select {
+    from {
+        outline: var(--border-width) solid transparent;
+    }
+    to {
+        outline: var(--border-width) solid var(--first-theme-color);
+    }
+}

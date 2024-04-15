@@ -1,3 +1,4 @@
+import {set_button_state} from "../../../script/helpers.js"
 import {UiNode, UiNodeNs} from "../../../script/ui_node.js"
 
 class FormUi
@@ -74,7 +75,7 @@ class FormUi
 
     set_previous_button_state(enabled)
     {
-        this.#set_button_state(
+        set_button_state(
             this.#previous_button,
             enabled
         )
@@ -82,7 +83,7 @@ class FormUi
 
     set_next_button_state(enabled)
     {
-        this.#set_button_state(
+        set_button_state(
             this.#next_button,
             enabled
         )
@@ -116,14 +117,6 @@ class FormUi
         }))
         button.set_attributes({
             "data-title": title
-        })
-    }
-
-    #set_button_state(button, enabled)
-    {
-        button.set_attributes({
-            "data-disabled": !enabled,
-            tabindex: enabled ? 0 : -1,
         })
     }
 

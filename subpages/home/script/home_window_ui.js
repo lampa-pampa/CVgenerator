@@ -57,7 +57,7 @@ class HomeWindowUi {
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element",    
+                class: "window-list-element labeled-button",    
             },
             child_nodes: [
                 new UiNode({
@@ -74,7 +74,7 @@ class HomeWindowUi {
         return new UiNode({
             tag: "button",
             attributes: {
-                class: "button max-height center-content animated-button next border focusable",
+                class: "animated next",
                 "data-title": this.#content.button.title_prefix + profession_name
             },
             child_nodes: [

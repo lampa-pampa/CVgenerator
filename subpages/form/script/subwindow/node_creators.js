@@ -1,4 +1,4 @@
-import {get_parent, is_enabled, make_copy} from "../../../../script/helpers.js"
+import {get_parent, is_enabled, set_button_state} from "../../../../script/helpers.js"
 import {UiNode, UiNodeNs} from "../../../../script/ui_node.js"
 
 class SubwindowNodeCreators
@@ -8,7 +8,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "space-between window-list-element"
+                class: "window-list-element labeled-text-input"
             },
             child_nodes: [
                 new UiNode({
@@ -33,7 +33,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "input",
             attributes: {
-                class: "text-field border focusable",    
+                type: "text",
                 value: value,
                 maxlength: content.max_length,
             },
@@ -46,14 +46,13 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element"
+                class: "window-list-element text-area"
             },
             child_nodes: [
                 new UiNode({
                     tag: "textarea",
                     text_content: value_getter(),
                     attributes: {
-                        class: "text-field border focusable",
                         spellcheck: false,
                         placeholder: content.placeholder,
                         maxlength: content.max_length,
@@ -131,6 +130,8 @@ class SubwindowNodeCreators
                     dom.value = ""
                     dom.dispatchEvent(new Event("input"))
                 }
+                const list = get_parent(this, 5)
+                list.scrollTo(0, list.scrollHeight);
             },
         )
 
@@ -148,16 +149,13 @@ class SubwindowNodeCreators
         {
             value_pack[index] = value
             const enabled = value_pack_is_valid(value_pack)
-            add_button.set_attributes({
-                "data-disabled": !enabled,
-                tabindex: (enabled) ? 0 : -1,
-            })
+            set_button_state(add_button, enabled)
         }
 
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element",
+                class: "window-list-element add-duration-and-place-section",
             },
             child_nodes: [
                 new UiNode({
@@ -168,14 +166,11 @@ class SubwindowNodeCreators
                     child_nodes: [
                         ...text_fields,
                         new UiNode({
-                            tag: "span",
+                            tag: "div",
                             attributes: {
-                                class: "duration-and-date-element space-between",
+                                class: "add-button-container"
                             },
                             child_nodes: [
-                                new UiNode({
-                                    tag: "span",
-                                }),
                                 add_button,
                             ],
                         }),
@@ -206,13 +201,15 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element duration-and-date-element space-between",
+                class: "window-list-element duration-and-place-element",
             },
             child_nodes: [
-                SubwindowNodeCreators.message(
-                    value[0] + content.duration_separator + value[1] + "\n"
-                        + content.place_prefix + value[2]
-                ),
+                new UiNode({
+                    tag: "pre",
+                    text_content: value[0]
+                        + content.duration_separator + value[1] + "\n"
+                        + content.place_prefix + value[2] 
+                }),
                 SubwindowNodeCreators.#create_button(
                     content.button,
                     true,
@@ -230,7 +227,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element"
+                class: "window-list-element message"
             },
             child_nodes: [
                 new UiNode({
@@ -262,6 +259,9 @@ class SubwindowNodeCreators
             )
         return new UiNode({
             tag: "li",
+            attributes: {
+                class: "window-list-element radio-buttons"
+            },
             child_nodes: [
                 new UiNode({
                     tag: "ul",
@@ -278,6 +278,9 @@ class SubwindowNodeCreators
     {
         return new UiNode({
             tag: "li",
+            attributes: {
+                class: "window-list-element checkbox-buttons"
+            },
             child_nodes: [
                 new UiNode({
                     tag: "ul",
@@ -380,7 +383,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "custom-checkbox-label window-list-element",        
+                class: "window-list-element checkbox-with-button",        
             },
             child_nodes: [
                 SubwindowNodeCreators.#create_checkbox(
@@ -400,7 +403,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element custom-checkbox-label",
+                class: "window-list-element checkbox-with-button",
             },
             child_nodes: [
                 SubwindowNodeCreators.#create_checkbox(
@@ -434,10 +437,7 @@ class SubwindowNodeCreators
                 input: function(e) {
                     const enabled = this.value
                         && !value_getter().includes(this.value.trim())
-                    add_button.set_attributes({
-                        "data-disabled": !enabled,
-                        tabindex: (enabled) ? 0 : -1,
-                    })
+                    set_button_state(add_button, enabled)
                 },
                 keydown: function(e) {
                     const button = add_button.get_dom()
@@ -459,7 +459,7 @@ class SubwindowNodeCreators
                 new UiNode({
                     tag: "label",
                     attributes: {
-                        class: "custom-checkbox-label",        
+                        class: "custom-checkbox-label",      
                     },
                     child_nodes: [
                         checkbox,
@@ -486,7 +486,7 @@ class SubwindowNodeCreators
                 new UiNode({
                     tag: "input",
                     attributes: {
-                        class: "checkbox",
+                        class: "hidden-checkbox",
                         ...(!enabled) ? {disabled: ""} : null,
                         ...(radio)
                             ? {type: "radio", name: "radio-button"}
@@ -500,9 +500,9 @@ class SubwindowNodeCreators
                 new UiNode({
                     tag: "div",
                     attributes: {
-                        class: "custom-checkbox border focusable square",
+                        class: "custom-checkbox",
                         tabindex: (enabled) ? 0 : -1,
-                        "data-disabled": !enabled,
+                        ...(!enabled) ? {disabled: ""} : null,
                     },
                     child_nodes: [
                         new UiNode({
@@ -522,9 +522,9 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "button",
             attributes: {
-                class: "button border focusable square",
+                class: "square-button",
                 "data-title": content.title,
-                "data-disabled": !enabled,
+                ...(!enabled) ? {disabled: ""} : null,
                 tabindex: (enabled) ? 0 : -1,
             },
             child_nodes: [
@@ -541,7 +541,6 @@ class SubwindowNodeCreators
         return new UiNodeNs({
             tag: "svg",
             attributes: {
-                class: "icon",
                 viewBox: content.view_box,
                 toolBox: content.view_box,
             },

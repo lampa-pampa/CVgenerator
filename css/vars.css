@@ -1,0 +1,11 @@
+:root {
+    --first-theme-color: #1100ff;
+    --second-theme-color: #fefefe;
+    --third-theme-color: #010101;
+    --border-width: 3px;
+    --border-radius: calc(var(--border-width) * 2);
+    --square-button-size: 38px;
+
+    --transition-duration: 200ms;
+    --animation-duration: 500ms;
+}

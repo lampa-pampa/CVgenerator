@@ -31,7 +31,6 @@ const config = {
 
     main_ui: {
         section_class_names: {
-            header: "main-header",
             baner: "main-baner",
             nav_list: "main-nav-list",
             footer: "main-footer",
@@ -98,8 +97,8 @@ const config = {
                 // "1",
                 // "2",
                 // "3",
-                "4",
-                "5",
+                // "4",
+                // "5",
                 "6",
                 "7",
                 "8",
@@ -161,8 +160,8 @@ const config = {
                         previous: "previous-button",
                         next: "next-button",
                     },
-                    progress_bar: "progress-bar",
-                    progress_bar_state: "progress-bar-state",
+                    progress_bar: "window-progress-bar",
+                    progress_bar_state: "window-progress-bar-state",
                 },
                 content: {
                     step_number: {
@@ -424,8 +423,6 @@ const config = {
                         edit: "edit-button",
                         create: "create-button",
                     },
-                    progress_bar: "progress-bar",
-                    progress_bar_state: "progress-bar-state",
                 },
                 content: {
                     title: "Download your CV",

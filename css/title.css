@@ -1,0 +1,26 @@
+[data-title] {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+[data-title]::after {
+    z-index: 1;
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.8em);
+    white-space: nowrap;
+    font-size: small;
+    pointer-events: none;
+    padding: 0.8em 1em;
+    opacity: 0;
+    background-color: var(--third-theme-color);
+    color: var(--second-theme-color);
+    border-radius: var(--border-radius);
+    transition: opacity var(--transition-duration);
+}
+
+[data-title]:hover::after {
+    transition-delay: 500ms;
+    opacity: .9;
+}

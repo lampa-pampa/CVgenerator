@@ -4,39 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="css/style.css">
     <script src="script/main.js" type="module" defer></script>
 </head>
 <body>
     <header class="main-header">
         <img class="main-baner">
         <nav>
-            <ul class="main-nav-list max-height" tabindex="-1"></ul>
+            <ul class="main-nav-list" tabindex="-1"></ul>
         </nav>
     </header>
-    <main class="center-content">
-        <div class="window border">
-            <div class="window-header shadow space-between">
+    <main class="main-content">
+        <div class="window">
+            <div class="window-header">
                 <h2 class="window-title"></h2>
-                <div class="reset-button-container square center-content max-height">
-                    <button class="reset-button button spin-icon focusable square"></button>
+                <div class="reset-button-container">
+                    <button class="reset-button"></button>
                 </div>
             </div>
             <div class="window-content">
                 <div class="window-content">
                     <ul class="window-list" tabindex="-1"></ul>
-                    <div class="buttons-container shadow">
-                        <button class="previous-button button center-content animated-button previous border focusable" data-disabled="true"></button>
-                        <button class="next-button button center-content animated-button next border focusable" data-disabled="true"></button>
+                    <div class="window-buttons-container">
+                        <button class="previous-button animated previous" disabled></button>
+                        <button class="next-button animated next border" disabled></button>
                     </div>
                 </div>
             </div>
-            <div class="window-footer border">
-                <div class="progress-bar-state center-content"></div>
-                <div class="progress-bar max-height"></div>
+            <div class="window-footer">
+                <div class="window-progress-bar-state"></div>
+                <div class="window-progress-bar"></div>
             </div>
         </div>
     </main>
-    <footer class="center-content main-footer"></footer>
+    <footer class="main-footer"></footer>
 </body>
 </html>

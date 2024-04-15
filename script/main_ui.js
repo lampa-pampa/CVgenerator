@@ -69,15 +69,12 @@ class MainUi
     {
         return new UiNode({
             tag: "li",
-            attributes: {
-                class: "max-height center-content",
-            },
             child_nodes: [
                 new UiNode({
                     tag: "span",
                     text_content: content.text,
                     attributes: {
-                        class: "link focusable",
+                        class: "link",
                         tabindex: "0",
                     },
                     listeners: {

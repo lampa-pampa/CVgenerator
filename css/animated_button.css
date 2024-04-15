@@ -1,43 +1,43 @@
-.animated-button {
+button.animated {
     position: relative;
 }
 
-.animated-button.previous {
+button.animated.previous {
     --before-content: "<<";
     --hover-offset: 1em;
 }
 
-.animated-button.next {
+button.animated.next {
     --after-content: ">>";
     --hover-offset: -1em;
 }
 
-.animated-button > span {
-    transition: transform 200ms; 
+button.animated > span {
+    transition: transform var(--transition-duration);
 }
 
-.animated-button:hover > span {
+button.animated:hover > span {
     transform: translateX(var(--hover-offset));
 }
 
-.animated-button > span::before,
-.animated-button > span::after {
+button.animated > span::before,
+button.animated > span::after {
     position: absolute;
-    transition: opacity 200ms;
+    transition: opacity var(--transition-duration);
     opacity: 0;
 }
 
-.animated-button > span::before {
+button.animated > span::before {
     content: var(--before-content);
     right: calc(100% + 0.5em);
 }
 
-.animated-button > span::after {
+button.animated > span::after {
     content: var(--after-content);
     left: calc(100% + 0.5em);
 }
 
-.animated-button:hover > span::before,
-.animated-button:hover > span::after {
+button.animated:hover > span::before,
+button.animated:hover > span::after {
     opacity: 1;
 }
