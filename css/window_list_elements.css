@@ -14,6 +14,14 @@
     width: 10em;
 }
 
+.window-list-element.add-duration-and-place-section ul,
+.window-list-element.checkbox-buttons ul,
+.window-list-element.radio-buttons ul{
+    display: flex;
+    flex-flow: column;
+    row-gap: 0.8em;
+}
+
 .window-list-element.add-duration-and-place-section .add-button-container {
     display: flex;
     justify-content: flex-end;
@@ -27,13 +35,6 @@
 .window-list-element.text-area textarea {
     width: 100%;
     height: 100%;
-}
-
-.window-list-element.checkbox-buttons ul,
-.window-list-element.radio-buttons ul{
-    display: flex;
-    flex-flow: column;
-    row-gap: 0.8em;
 }
 
 .window-list-element.checkbox-with-button {
