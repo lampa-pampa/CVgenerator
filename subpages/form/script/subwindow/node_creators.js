@@ -482,6 +482,9 @@ class SubwindowNodeCreators
     ){
         return new UiNode({
             tag: "div",
+            attributes: {
+                class: "focusable",
+            },
             child_nodes: [
                 new UiNode({
                     tag: "input",

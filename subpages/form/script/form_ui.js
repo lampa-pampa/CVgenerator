@@ -100,24 +100,19 @@ class FormUi
         this.#set_button_value(
             this.#previous_button,
             this.#content.buttons.previous.text,
-            this.#content.buttons.previous.title,
         )
         this.#set_button_value(
             this.#next_button,
             this.#content.buttons.next.text,
-            this.#content.buttons.next.title,
         )
     }
 
-    #set_button_value(button, text_content, title)
+    #set_button_value(button, text_content)
     {
         button.draw_nodes(new UiNode({
             tag: "span",
             text_content: text_content,
         }))
-        button.set_attributes({
-            "data-title": title
-        })
     }
 
     set_next_button_value(change_to_submit)
@@ -126,13 +121,11 @@ class FormUi
             this.#set_button_value(
                 this.#next_button,
                 this.#content.buttons.submit.text,
-                this.#content.buttons.submit.title,
             )
         else    
             this.#set_button_value(
                 this.#next_button,
                 this.#content.buttons.next.text,
-                this.#content.buttons.next.title,
             )
     }
 

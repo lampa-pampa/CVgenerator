@@ -1,5 +1,7 @@
 button.animated {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 button.animated.previous {

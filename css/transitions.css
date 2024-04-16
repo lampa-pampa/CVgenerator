@@ -14,19 +14,23 @@
 
 button {
     font-size: large;
-    transition-property: background-color, border-color;
+    transition-property: 
+        box-shadow,
+        background-color,
+        border-color;
     transition-duration: var(--transition-duration);
 }
 
 button:hover, .custom-checkbox:hover {
-    border-color: var(--first-theme-color);
     cursor: pointer;
+    border-color: var(--first-theme-color);
+    box-shadow: 0 0 var(--border-radius) var(--third-theme-color);
 }
 
 [disabled],
-[disabled] span {
+.custom-checkbox[disabled] span {
     background-color: var(--third-theme-color);
-    pointer-events: none;
+    pointer-events: none !important;
 }
 
 .window-progress-bar {

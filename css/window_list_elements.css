@@ -7,19 +7,11 @@
 }
 
 .window-list-element.duration-and-place-element {
-    padding-bottom: 1.5em;
+    padding-bottom: 2em;
 }
 
 .window-list-element.labeled-button button {
     width: 10em;
-}
-
-.window-list-element.add-duration-and-place-section ul,
-.window-list-element.checkbox-buttons ul,
-.window-list-element.radio-buttons ul{
-    display: flex;
-    flex-flow: column;
-    row-gap: 0.8em;
 }
 
 .window-list-element.add-duration-and-place-section .add-button-container {

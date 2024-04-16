@@ -7,5 +7,5 @@
     --square-button-size: 38px;
 
     --transition-duration: 200ms;
-    --animation-duration: 500ms;
+    --animation-duration: calc(var(--transition-duration) * 2);
 }

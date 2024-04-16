@@ -73,3 +73,9 @@ textarea {
     padding: 0.2em;
     resize: none;
 }
+
+ul {
+    display: flex;
+    flex-flow: column;
+    row-gap: 0.8em;
+}

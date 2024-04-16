@@ -74,7 +74,7 @@ class MainUi
                     tag: "span",
                     text_content: content.text,
                     attributes: {
-                        class: "link",
+                        class: "link focusable",
                         tabindex: "0",
                     },
                     listeners: {
@@ -97,15 +97,12 @@ class MainUi
         for(const node of document.getElementsByClassName(
             this.#focusable_class_name
         )){
-            if(node.tagName !== "TEXTAREA")
-            {
-                node.removeEventListener("keydown", this.handle_keydown)
-                node.addEventListener("keydown", this.handle_keydown)
-            }
+            node.removeEventListener("keydown", this.#handle_keydown)
+            node.addEventListener("keydown", this.#handle_keydown)
         }
     }
 
-    handle_keydown(e)
+    #handle_keydown(e)
     {
         if(e.key === "Enter")
         {

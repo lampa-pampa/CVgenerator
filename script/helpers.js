@@ -34,7 +34,7 @@ function remove_element(array, element)
 
 function is_enabled(node)
 {
-    return node.getAttribute("data-disabled") !== "true"
+    return !node.getAttribute("disabled")
 }
 
 function set_button_state(button, enabled)
