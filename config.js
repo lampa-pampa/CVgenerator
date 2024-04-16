@@ -340,7 +340,7 @@ const config = {
                     },
                     "6": {
                         about: {
-                            placeholder: "Write something about you… (optional)",
+                            placeholder: "Write something about you…",
                             max_length: 256,
                         },
                     },
@@ -408,7 +408,7 @@ const config = {
                     },
                     "9": {
                         info: {
-                            placeholder: "Write some extra info here… (optional)",
+                            placeholder: "Write some extra info here…",
                             max_length: 256,
                         },
                     },
