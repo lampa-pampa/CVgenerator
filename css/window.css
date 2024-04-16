@@ -63,6 +63,7 @@
     height: var(--square-button-size);
     padding: 0;
     border-radius: var(--border-width);
+    flex: 0 0 auto;
 }
 
 .window-buttons-container {
