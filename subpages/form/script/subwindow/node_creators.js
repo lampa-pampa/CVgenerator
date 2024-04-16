@@ -44,7 +44,7 @@ class SubwindowNodeCreators
                     },
                     listeners: {
                         input: function() {
-                            const re = RegExp(`^(${content.format})$`)
+                            const re = RegExp(`^(${content.format})$`, "u")
                             if(re.test(this.value))
                             {
                                 value_updater(this.value)

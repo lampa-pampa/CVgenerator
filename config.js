@@ -207,7 +207,7 @@ const config = {
                             label: "Name:",
                             text_field: {
                                 max_length: 32,
-                                format: "[A-Za-z]+( [A-Za-z]+)*",
+                                format: "[\\p{L}]+( [\\p{L}]+)*",
                                 error_message: "Use only letters and spaces",
                             },
                         },
@@ -215,7 +215,7 @@ const config = {
                             label: "Surname:",
                             text_field: {
                                 max_length: 32,
-                                format: "[A-Za-z]+( [A-Za-z]+)*",
+                                format: "[\\p{L}]+( [\\p{L}]+)*",
                                 error_message: "Use only letters and spaces",
                             },
                         },
@@ -273,7 +273,7 @@ const config = {
                                         label: "University name:",
                                         text_field: {
                                             max_length: 32,
-                                            format: "[A-Za-z\\d]+( [A-Za-z\\d]+)*",
+                                            format: "[\\p{L}\\d]+( [\\p{L}\\d]+)*",
                                             error_message: "Use only letters, digits and spaces",
                                         },
                                     },
