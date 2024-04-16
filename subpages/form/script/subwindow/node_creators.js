@@ -5,7 +5,12 @@ class SubwindowNodeCreators
 {
     static labeled_text_field(content, value_getter, value_updater)
     {
-        return new UiNode({
+        const input = SubwindowNodeCreators.#create_text_field(
+            content.text_field,
+            value_getter(),
+            value_updater,
+        )
+        const labeled_text_field = new UiNode({
             tag: "li",
             attributes: {
                 class: "window-list-element labeled-text-input"
@@ -15,30 +20,54 @@ class SubwindowNodeCreators
                     tag: "label",
                     text_content: content.label,
                 }),
-                SubwindowNodeCreators.#create_text_field(
-                    content.text_field,
-                    value_getter(),
-                    {
-                        input: function(e) {
-                            value_updater(this.value?.trim())
-                        }
-                    },
-                )
+                input,       
             ],
         })
+        labeled_text_field.get_text_input = () => input.get_text_input()
+        return labeled_text_field
     }
 
-    static #create_text_field(content, value, listeners)
+    static #create_text_field(content, value, value_updater, extra_listeners)
     {
-        return new UiNode({
-            tag: "input",
+        const input = new UiNode({
+            tag: "div",
             attributes: {
-                type: "text",
-                value: value,
-                maxlength: content.max_length,
+                "data-error-message": content.error_message,
             },
-            listeners,
+            child_nodes: [
+                new UiNode({
+                    tag: "input",
+                    attributes: {
+                        type: "text",
+                        value: value,
+                        maxlength: content.max_length,
+                    },
+                    listeners: {
+                        input: function() {
+                            const re = RegExp(`^(${content.format})$`)
+                            if(re.test(this.value))
+                            {
+                                value_updater(this.value)
+                                this.parentNode.classList.remove("error")
+                            }
+                            else
+                            {
+                                value_updater("")
+                                if(this.value.length > 0)
+                                    this.parentNode.classList.add("error")
+                                else
+                                    this.parentNode.classList.remove("error")
+                            }
+                        },
+                        ...extra_listeners,
+                    },
+                })
+            ],
         })
+        input.get_text_input = function() {
+            return this.get_dom().childNodes[0]
+        }
+        return input
     }
 
     static text_area(content, value_getter, value_updater)
@@ -59,7 +88,7 @@ class SubwindowNodeCreators
                     },
                     listeners: {
                         input: function() {
-                            value_updater(this.value?.trim())
+                            value_updater(this.value)
                         }
                     },
                 }),
@@ -92,7 +121,32 @@ class SubwindowNodeCreators
     {
         const value_pack = ["", "", ""]
         
-        const text_fields = [
+        const add_button = SubwindowNodeCreators.#create_button(
+            content.add_section.button,
+            false,
+            function() {
+                const value = [...value_pack]
+                value_updater(value, "add")
+                get_parent(this, 4).insertBefore(
+                    SubwindowNodeCreators.#create_duration_and_place_element(
+                        value,
+                        content.list_element,
+                        value_updater,
+                    ).get_dom(),
+                    get_parent(this, 3)
+                )
+                for(const labeled_text_field of labeled_text_fields)
+                {
+                    const dom = labeled_text_field.get_text_input()
+                    dom.value = ""
+                    dom.dispatchEvent(new Event("input"))
+                }
+                const list = get_parent(this, 5)
+                list.scrollTo(0, list.scrollHeight);
+            },
+        )
+        
+        const labeled_text_fields = [
             SubwindowNodeCreators.labeled_text_field(
                 content.add_section.text_fields.from,
                 () => "",
@@ -109,31 +163,6 @@ class SubwindowNodeCreators
                 (value) => update_value_pack(value_pack, 2, value)
             ),
         ]
-        
-        const add_button = SubwindowNodeCreators.#create_button(
-            content.add_section.button,
-            false,
-            function() {
-                const value = [...value_pack]
-                value_updater(value, "add")
-                get_parent(this, 4).insertBefore(
-                    SubwindowNodeCreators.#create_duration_and_place_element(
-                        value,
-                        content.list_element,
-                        value_updater,
-                    ).get_dom(),
-                    get_parent(this, 3)
-                )
-                for(const text_field of text_fields)
-                {
-                    const dom = text_field.get_dom().childNodes[1]
-                    dom.value = ""
-                    dom.dispatchEvent(new Event("input"))
-                }
-                const list = get_parent(this, 5)
-                list.scrollTo(0, list.scrollHeight);
-            },
-        )
 
         function value_pack_is_valid(pack)
         {
@@ -164,7 +193,7 @@ class SubwindowNodeCreators
                         tabindex: -1,
                     },
                     child_nodes: [
-                        ...text_fields,
+                        ...labeled_text_fields,
                         new UiNode({
                             tag: "div",
                             attributes: {
@@ -364,11 +393,11 @@ class SubwindowNodeCreators
         )
         add_button.add_listeners({
             click: function(e) {
-                const text_field_node = text_field.get_dom()
-                value_updater(text_field_node.value.trim(), "add")
+                const text_field_node = text_field.get_text_input()
+                value_updater(text_field_node.value, "add")
                 get_parent(this, 2).insertBefore(
                     SubwindowNodeCreators.#create_extra_checkbox(
-                        text_field_node.value.trim(),
+                        text_field_node.value,
                         content,
                         value_updater,
                     ).get_dom(),
@@ -433,12 +462,11 @@ class SubwindowNodeCreators
         return SubwindowNodeCreators.#create_text_field(
             content,
             "",
+            function(value) {
+                const enabled = value && !value_getter().includes(value)
+                set_button_state(add_button, enabled)
+            },
             {
-                input: function(e) {
-                    const enabled = this.value
-                        && !value_getter().includes(this.value.trim())
-                    set_button_state(add_button, enabled)
-                },
                 keydown: function(e) {
                     const button = add_button.get_dom()
                     if(e.key === "Enter" && is_enabled(button))

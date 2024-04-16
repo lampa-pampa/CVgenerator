@@ -1,12 +1,11 @@
-[data-title] {
+[data-error-message], [data-title] {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-[data-title]::after {
+[data-error-message]::after, [data-title]::after {
     z-index: 1;
-    content: attr(data-title);
     position: absolute;
     top: calc(100% + 0.8em);
     white-space: nowrap;
@@ -20,7 +19,19 @@
     transition: opacity var(--transition-duration);
 }
 
+[data-title]::after {
+    content: attr(data-title);
+}
+
+[data-error-message]::after {
+    content: attr(data-error-message);
+}
+
 [data-title]:hover::after {
     transition-delay: 500ms;
+    opacity: .9;
+}
+
+[data-error-message].error::after {
     opacity: .9;
 }

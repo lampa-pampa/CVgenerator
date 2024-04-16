@@ -207,12 +207,16 @@ const config = {
                             label: "Name:",
                             text_field: {
                                 max_length: 32,
+                                format: "[A-Za-z]+( [A-Za-z]+)*",
+                                error_message: "Use only letters and spaces",
                             },
                         },
                         surname: {
                             label: "Surname:",
                             text_field: {
                                 max_length: 32,
+                                format: "[A-Za-z]+( [A-Za-z]+)*",
+                                error_message: "Use only letters and spaces",
                             },
                         },
                     },
@@ -221,12 +225,16 @@ const config = {
                             label: "Email:",
                             text_field: {
                                 max_length: 32,
+                                format: "[\\w\\.]+@\\w+\\.[\\w\\.]+",
+                                error_message: "Insert email",
                             },
                         },
                         phone: {
                             label: "Phone number:",
                             text_field: {
                                 max_length: 32,
+                                format: "(\\+\\d{2})?\\d{9}|(\\+\\d{2}-)?(\\d{3}-){2}\\d{3}|(\\+\\d{2} )?(\\d{3} ){2}\\d{3}",
+                                error_message: "Insert phone number",
                             },
                         },
                     },
@@ -249,18 +257,24 @@ const config = {
                                         label: "Since:",
                                         text_field: {
                                             max_length: 32,
+                                            format: "[12]\\d{3}",
+                                            error_message: "Insert year",
                                         },
                                     },
                                     to: {
                                         label: "To:",
                                         text_field: {
                                             max_length: 32,
+                                            format: "[12]\\d{3}",
+                                            error_message: "Insert year",
                                         },
                                     },
                                     place: {
                                         label: "University name:",
                                         text_field: {
                                             max_length: 32,
+                                            format: "[A-Za-z\\d]+( [A-Za-z\\d]+)*",
+                                            error_message: "Use only letters, digits and spaces",
                                         },
                                     },
                                 },
@@ -293,18 +307,24 @@ const config = {
                                         label: "Since:",
                                         text_field: {
                                             max_length: 32,
+                                            format: "[12]\\d{3}",
+                                            error_message: "Insert year",
                                         },
                                     },
                                     to: {
                                         label: "To:",
                                         text_field: {
                                             max_length: 32,
+                                            format: "[12]\\d{3}",
+                                            error_message: "Insert year",
                                         },
                                     },
                                     place: {
                                         label: "Company name:",
                                         text_field: {
                                             max_length: 32,
+                                            format: "[^\\s]+( [^\\s]+)*",
+                                            error_message: "Use any chars and spaces",
                                         },
                                     },
                                 },
@@ -334,6 +354,8 @@ const config = {
                             },
                             text_field: {
                                 max_length: 32,
+                                format: "[^\\s]+( [^\\s]+)*",
+                                error_message: "Use any chars and spaces",
                             },
                             buttons: {
                                 add: {
@@ -363,6 +385,8 @@ const config = {
                             },
                             text_field: {
                                 max_length: 32,
+                                format: "[^\\s]+( [^\\s]+)*",
+                                error_message: "Use any chars and spaces",
                             },
                             buttons: {
                                 add: {
@@ -393,6 +417,8 @@ const config = {
                             label: "Company Name:",
                             text_field: {
                                 max_length: 32,
+                                format: "[^\\s]+( [^\\s]+)*",
+                                error_message: "Use any chars and spaces",
                             },
                         },
                     },
