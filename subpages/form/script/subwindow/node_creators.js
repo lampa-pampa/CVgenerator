@@ -588,6 +588,7 @@ class SubwindowNodeCreators
             tag: "img",
             attributes: {
                 class: "image-preview",
+                draggable: false,
                 src: value_getter(),
             },
         })
