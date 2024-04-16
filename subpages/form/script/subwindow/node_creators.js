@@ -569,6 +569,7 @@ class SubwindowNodeCreators
             attributes: {
                 class: "hidden",
                 type: "file",
+                accept: ".gif, .jpg, .jpeg, .png",
             },
             listeners: {
                 change: function() {
