@@ -40,6 +40,10 @@
     flex: 1 1 auto;
 }
 
+.window-list-element.checkbox-with-button :nth-child(2) > input[type=text] {
+    width: 100%;
+}
+
 .window-list-element.image-input img {
     width: 150px;
     height: 200px;
