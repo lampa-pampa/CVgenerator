@@ -49,29 +49,23 @@ class GeneratorWindowUi {
         this.#set_button_value(
             this.#download_button,
             this.#content.buttons.download.text,
-            this.#content.buttons.download.title,
         )
         this.#set_button_value(
             this.#edit_button,
             this.#content.buttons.edit.text,
-            this.#content.buttons.edit.title,
         )
         this.#set_button_value(
             this.#create_button,
             this.#content.buttons.create.text,
-            this.#content.buttons.create.title,
         )
     }
 
-    #set_button_value(button, text_content, title)
+    #set_button_value(button, text_content)
     {
         button.draw_nodes(new UiNode({
             tag: "span",
             text_content: text_content,
         }))
-        button.set_attributes({
-            "data-title": title
-        })
     }
 }
 

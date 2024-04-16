@@ -23,7 +23,6 @@
 }
 
 .main-content {
-    z-index: 0;
     flex: 1 1 auto;
     display: flex;
     padding-block: var(--main-header-height);

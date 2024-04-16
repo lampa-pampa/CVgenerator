@@ -569,7 +569,7 @@ class SubwindowNodeCreators
             attributes: {
                 class: "hidden",
                 type: "file",
-                accept: ".gif, .jpg, .jpeg, .png",
+                accept: content.extensions,
             },
             listeners: {
                 change: function() {
@@ -599,6 +599,9 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "button",
+                    attributes: {
+                        "data-title": content.title,
+                    },
                     text_content: content.text,
                     listeners: {
                         click: function() {
@@ -606,7 +609,6 @@ class SubwindowNodeCreators
                         }
                     },
                 }),
-                image_input,
                 image_preview,
             ],
         })

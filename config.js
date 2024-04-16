@@ -197,7 +197,9 @@ const config = {
                 code_to_content: {
                     "1": {
                         image: {
-                            text: "Upload your profile image (150x200px)…"
+                            text: "Upload your profile image…",
+                            title: "preferred size is 150x200px",
+                            extensions: ".gif, .jpg, .jpeg, .png",
                         },
                     },
                     "2": {
@@ -431,15 +433,12 @@ const config = {
                     buttons: {
                         download: {
                             text: "DOWNLOAD",
-                            title: "Download your CV",
                         },
                         edit: {
                             text: "EDIT",
-                            title: "Back to edit",
                         },
                         create: {
                             text: "CREATE NEW",
-                            title: "Create another CV",
                         },
                     },
                     progress_bar_state: {
