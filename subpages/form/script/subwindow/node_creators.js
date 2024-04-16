@@ -489,7 +489,7 @@ class SubwindowNodeCreators
                 new UiNode({
                     tag: "input",
                     attributes: {
-                        class: "hidden-checkbox",
+                        class: "hidden checkbox",
                         ...(!enabled) ? {disabled: ""} : null,
                         ...(radio)
                             ? {type: "radio", name: "radio-button"}
@@ -554,6 +554,59 @@ class SubwindowNodeCreators
                         d: content.path
                     },
                 }),
+            ],
+        })
+    }
+
+    static image(content, value_getter, value_updater)
+    {
+        const file_reader = new FileReader()
+        file_reader.addEventListener("load", function() {
+            value_updater(file_reader.result)
+        })
+        const image_input = new UiNode({
+            tag: "input",
+            attributes: {
+                class: "hidden",
+                type: "file",
+            },
+            listeners: {
+                change: function() {
+                    const image = this.files[0]
+                    if(image)
+                    {
+                        image_preview.set_attributes({
+                            src: URL.createObjectURL(image),
+                        })
+                        file_reader.readAsDataURL(image)
+                    }
+                }
+            },
+        })
+        const image_preview = new UiNode({
+            tag: "img",
+            attributes: {
+                class: "image-preview",
+                src: value_getter(),
+            },
+        })
+        return new UiNode({
+            tag: "li",
+            attributes: {
+                class: "window-list-element image-input"
+            },
+            child_nodes: [
+                new UiNode({
+                    tag: "button",
+                    text_content: content.text,
+                    listeners: {
+                        click: function() {
+                            image_input.get_dom().click()
+                        }
+                    },
+                }),
+                image_input,
+                image_preview,
             ],
         })
     }

@@ -1,3 +1,4 @@
+.window-list-element.image-input,
 .window-list-element.labeled-button,
 .window-list-element.labeled-text-input,
 .window-list-element.duration-and-place-element {
@@ -36,4 +37,11 @@
 
 .window-list-element.checkbox-with-button :nth-child(2) {
     flex: 1 1 auto;
+}
+
+.window-list-element.image-input img {
+    width: 150px;
+    height: 200px;
+    border: var(--border-width) solid var(--third-theme-color);
+    border-radius: var(--border-radius);
 }

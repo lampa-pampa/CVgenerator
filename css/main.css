@@ -50,3 +50,7 @@
     border: var(--border-width) solid var(--second-theme-color);
     border-right-color: transparent;
 }
+
+.hidden {
+    display: none;
+}

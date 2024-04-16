@@ -21,8 +21,8 @@ class SubwindowFactory
         
         this.#code_to_creator_properties = {
             "1": {
-                node_creator: null,
-                values_validator: null,
+                node_creator: SubwindowNodeCreators.image,
+                values_validator: SubwindowValuesValidators.all,
             },
             "2": {
                 node_creator: SubwindowNodeCreators.labeled_text_field,

@@ -9,10 +9,6 @@
     background-color: var(--third-theme-color);
 }
 
-.hidden-checkbox {
-    display: none;
-}
-
 .custom-checkbox {
     position: relative;
     width: var(--square-button-size);
@@ -38,14 +34,14 @@
     opacity: 0;
 }
 
-.hidden-checkbox:checked + .custom-checkbox > span {
+.checkbox:checked + .custom-checkbox > span {
     transition-delay: 0ms;
     transform: scale(1);
     opacity: 1;
     border-radius: 0;
 }
 
-.hidden-checkbox:checked + .custom-checkbox svg {
+.checkbox:checked + .custom-checkbox svg {
     transition-duration: var(--transition-duration);
     transition-delay: var(--transition-duration);
     opacity: 1;
