@@ -1,3 +1,7 @@
+:focus-visible {
+    outline: var(--border-width) solid var(--first-theme-color);
+}
+
 .link:hover {
     text-decoration: underline;
     opacity: .8;
@@ -19,21 +23,10 @@ button:hover, .custom-checkbox:hover {
     cursor: pointer;
 }
 
-button:disabled,
-.custom-checkbox[disabled],
-.custom-checkbox[disabled] span {
+[disabled],
+[disabled] span {
     background-color: var(--third-theme-color);
     pointer-events: none;
-}
-
-input[type=text], textarea {
-    transition: border var(--transition-duration);
-}
-
-input[type=text]:focus-visible, textarea:focus-visible {
-    animation: none;
-    outline: none;
-    border-color: var(--first-theme-color);
 }
 
 .window-progress-bar {

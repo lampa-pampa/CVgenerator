@@ -18,10 +18,6 @@
     animation: spin var(--animation-duration) infinite;
 }
 
-:focus-visible {
-    animation: select var(--transition-duration) forwards;
-}
-
 .reset-button:hover {
     animation: spin var(--animation-duration);
 }
@@ -54,14 +50,5 @@
     to {
         opacity: 1;
         transform: none;
-    }
-}
-
-@keyframes select {
-    from {
-        outline: var(--border-width) solid transparent;
-    }
-    to {
-        outline: var(--border-width) solid var(--first-theme-color);
     }
 }

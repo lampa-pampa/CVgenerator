@@ -44,7 +44,7 @@ function set_button_state(button, enabled)
     
     button.set_attributes({
         ...(!enabled) ? {disabled: ""} : null,
-        zindex: (enabled) ? 0 : -1,
+        tabindex: (enabled) ? 0 : -1,
     })
 }
 
