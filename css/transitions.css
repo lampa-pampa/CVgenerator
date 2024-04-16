@@ -24,6 +24,9 @@ button {
 button:hover, .custom-checkbox:hover {
     cursor: pointer;
     border-color: var(--first-theme-color);
+}
+
+button:hover {
     box-shadow: 0 0 var(--border-radius) var(--third-theme-color);
 }
 
