@@ -58,7 +58,7 @@ class GeneratorWindow
         route(this.#home_subpage_path)
     }
 
-    async #handle_download_button_click()
+    #handle_download_button_click()
     {
         const opt = {
             filename: "cv.pdf",
