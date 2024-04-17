@@ -60,9 +60,12 @@ class GeneratorWindow
 
     #handle_download_button_click()
     {
-        console.log(this.#cv.get_dom())
+        const opt = {
+            filename: "cv.pdf",
+            image: {type: 'png'},
+        };
         this.#ui.animate_progress_bar()
-        html2pdf(this.#cv.get_dom())
+        html2pdf(this.#cv.get_dom(), opt)
     }
 }
 
