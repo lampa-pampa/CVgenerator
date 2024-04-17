@@ -21,12 +21,21 @@
             <div class="window-content">
                 <div class="window-preview"></div>
                 <div class="window-buttons-container window-shadow">
-                    <button class="edit-button animated previous"></button>
-                    <button class="download-button animated" disabled></button>
-                    <button class="create-button animated next"></button>
+                    <button class="edit-button animated previous">
+                        <span class="spinner"></span>
+                    </button>
+                    <button class="download-button animated" disabled>
+                        <span class="spinner"></span>
+                    </button>
+                    <button class="create-button animated next">
+                        <span class="spinner"></span>
+                    </button>
                 </div>
             </div>
-            <div class="window-footer"></div>
+            <div class="window-footer">
+                <div class="window-progress-bar-state"></div>
+                <div class="window-progress-bar"></div>
+            </div>
         </div>
     </main>
     <footer class="main-footer"></footer>
