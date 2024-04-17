@@ -11,6 +11,7 @@
 }
 
 .window-header {
+    z-index: 1;
     flex: 0 1 var(--header-height);
     display: flex;
     justify-content: space-between;
