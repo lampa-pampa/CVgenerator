@@ -58,11 +58,15 @@ class GeneratorWindow
         route(this.#home_subpage_path)
     }
 
-    #handle_download_button_click()
+    async #handle_download_button_click()
     {
         const opt = {
             filename: "cv.pdf",
             image: {type: 'png'},
+            html2canvas: {
+                scale: 3,
+                imageTimeout: 2000,
+            },
         };
         this.#ui.animate_progress_bar()
         html2pdf(this.#cv.get_dom(), opt)

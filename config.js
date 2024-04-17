@@ -473,9 +473,8 @@ const config = {
                         },
                     },
                     progress_bar_state: {
-                        prefix: "Generating your CV - ",
-                        suffix: "% done…",
-                        completed: "Completed!",
+                        preparing: "Preparing download…",
+                        completed: "Downloading started!",
                     },
                 },
             }

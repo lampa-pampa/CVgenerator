@@ -23,7 +23,7 @@
 }
 
 .window-progress-bar {
-    animation: var(--animation-duration) forwards;
+    animation-fill-mode: forwards;
 }
 
 @keyframes loading {

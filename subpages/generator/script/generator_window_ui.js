@@ -88,14 +88,22 @@ class GeneratorWindowUi {
     async animate_progress_bar()
     {
         set_button_state(this.#download_button, false)
+        this.#set_progress_bar_state(
+            this.#content.progress_bar_state.preparing
+        )
         UiNode.get_by_class(this.#section_class_names.progress_bar).remove_attributes(
             "style"
         )
         document.body.offsetWidth
         UiNode.get_by_class(this.#section_class_names.progress_bar).set_attributes({
-            style: `animation-name: loading`
+            style: `animation-duration: 2000ms; animation-name: loading;`
         })
-        this.#animate_progress_bar_state(0)
+
+        await new Promise((resolve) => setTimeout(resolve, 2000))
+        set_button_state(this.#download_button, true)
+        this.#set_progress_bar_state(
+            this.#content.progress_bar_state.completed
+        )
     }
 
     #set_progress_bar_state(state)
@@ -103,26 +111,6 @@ class GeneratorWindowUi {
         UiNode.get_by_class(this.#section_class_names.progress_bar_state).set_text_content(
             state
         )
-    }
-
-    async #animate_progress_bar_state(value)
-    {
-        if(value < 100)
-        {
-            this.#set_progress_bar_state(
-                this.#content.progress_bar_state.prefix
-                    + value + this.#content.progress_bar_state.suffix
-            )
-            await new Promise((resolve) => setTimeout(resolve, 10))
-            this.#animate_progress_bar_state(value + 5)
-        }
-        else
-        {
-            this.#set_progress_bar_state(
-                this.#content.progress_bar_state.completed
-            )
-            set_button_state(this.#download_button, true)
-        }
     }
 }
 
