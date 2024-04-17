@@ -88,18 +88,18 @@ const config = {
 
         form: {
             subwindow_codes: [
-                // "1",
+                "1",
                 "2",
-                // "3",
-                // "4",
-                // "5",
-                // "6",
-                // "7",
-                // "8",
-                // "9",
-                // "10",
-                // "11",
-                // "12",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
                 "13",
             ],
             default_values: {
@@ -113,6 +113,7 @@ const config = {
                 "3": {
                     email: "",
                     phone: "",
+                    socials: "",
                 },
                 "4": {
                     education: [],
@@ -218,7 +219,7 @@ const config = {
                             label: "Email:",
                             text_field: {
                                 max_length: 32,
-                                format: "[\\w\\.]+@\\w+\\.[\\w\\.]+",
+                                format: "[\\w\\-\\.]+@[\\w\\-\\.]+\\.[\\w\\-\\.]+",
                                 error_message: "Insert email",
                             },
                         },
@@ -228,6 +229,14 @@ const config = {
                                 max_length: 32,
                                 format: "(\\+\\d{2})?\\d{9}|(\\+\\d{2}-)?(\\d{3}-){2}\\d{3}|(\\+\\d{2} )?(\\d{3} ){2}\\d{3}",
                                 error_message: "Insert phone number",
+                            },
+                        },
+                        socials: {
+                            label: "Socials (link):",
+                            text_field: {
+                                max_length: 32,
+                                format: "https?://[^\\s]+",
+                                error_message: "Insert link (starting with http:// or https://)",
                             },
                         },
                     },
