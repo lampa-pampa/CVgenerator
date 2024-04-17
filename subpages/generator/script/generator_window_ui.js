@@ -26,6 +26,7 @@ class GeneratorWindowUi {
     {
         this.#setup_title()
         this.#setup_buttons(click_handlers)
+        this.#animate_progress_bar()
     }
 
     #setup_title()
@@ -66,6 +67,40 @@ class GeneratorWindowUi {
             tag: "span",
             text_content: text_content,
         }))
+    }
+
+    #animate_progress_bar()
+    {
+        UiNode.get_by_class(this.#section_class_names.progress_bar).set_attributes({
+            style: `width: 100%;`
+        })
+        this.#animate_progress_bar_state(0)
+    }
+
+    #set_progress_bar_state(state)
+    {
+        UiNode.get_by_class(this.#section_class_names.progress_bar_state).set_text_content(
+            state
+        )
+    }
+
+    async #animate_progress_bar_state(value)
+    {
+        if(value < 100)
+        {
+            this.#set_progress_bar_state(
+                this.#content.progress_bar_state.prefix
+                    + value + this.#content.progress_bar_state.suffix
+            )
+            await new Promise((resolve) => setTimeout(resolve, 10))
+            this.#animate_progress_bar_state(value + 5)
+        }
+        else
+        {
+            this.#set_progress_bar_state(
+                this.#content.progress_bar_state.completed
+            )
+        }
     }
 }
 
