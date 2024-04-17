@@ -50,9 +50,3 @@
     border: var(--border-width) solid var(--third-theme-color);
     border-radius: var(--border-radius);
 }
-
-.window-list-element.cv-preview img {
-    width: 100%;
-    border: var(--border-width) solid var(--third-theme-color);
-    border-radius: var(--border-radius);
-}
