@@ -1,4 +1,5 @@
 import {UiNode} from "../../../script/ui_node.js"
+import {set_button_state} from "../../../script/helpers.js"
 
 class GeneratorWindowUi {
     #section_class_names
@@ -22,11 +23,18 @@ class GeneratorWindowUi {
         )
     }
 
-    create_window(click_handlers)
+    create_window(click_handlers, cv_node)
     {
         this.#setup_title()
         this.#setup_buttons(click_handlers)
-        this.#animate_progress_bar()
+        this.#setup_cv_preview(cv_node)
+    }
+
+    #setup_cv_preview(cv_node)
+    {
+        UiNode.get_by_class(
+            this.#section_class_names.cv_preview
+        ).draw_nodes(cv_node)
     }
 
     #setup_title()
@@ -59,6 +67,14 @@ class GeneratorWindowUi {
             this.#create_button,
             this.#content.buttons.create.text,
         )
+        set_button_state(
+            this.#edit_button,
+            true
+        )
+        set_button_state(
+            this.#create_button,
+            true
+        )
     }
 
     #set_button_value(button, text_content)
@@ -69,10 +85,15 @@ class GeneratorWindowUi {
         }))
     }
 
-    #animate_progress_bar()
+    async animate_progress_bar()
     {
+        set_button_state(this.#download_button, false)
+        UiNode.get_by_class(this.#section_class_names.progress_bar).remove_attributes(
+            "style"
+        )
+        document.body.offsetWidth
         UiNode.get_by_class(this.#section_class_names.progress_bar).set_attributes({
-            style: `width: 100%;`
+            style: `animation-name: loading`
         })
         this.#animate_progress_bar_state(0)
     }
@@ -100,6 +121,7 @@ class GeneratorWindowUi {
             this.#set_progress_bar_state(
                 this.#content.progress_bar_state.completed
             )
+            set_button_state(this.#download_button, true)
         }
     }
 }

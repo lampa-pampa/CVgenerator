@@ -135,17 +135,10 @@ class FormUi
             style: `width: ${cur_step_index / steps_quantity * 100}%;`
         })
         UiNode.get_by_class(this.#section_class_names.progress_bar_state).set_text_content(
-            this.#create_progress_bar_state(cur_step_index, steps_quantity)
+            cur_step_index
+                + this.#content.progress_bar_state.separator
+                + steps_quantity
         )
-    }
-
-    #create_progress_bar_state(cur_step_index, steps_quantity)
-    {
-        if(cur_step_index == steps_quantity)
-            return this.#content.progress_bar_state.completed
-        return cur_step_index
-            + this.#content.progress_bar_state.separator
-            + steps_quantity
     }
 }
 

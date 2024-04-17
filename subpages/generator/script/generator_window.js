@@ -11,12 +11,14 @@ class GeneratorWindow
     #profession_code_storage_key
     #home_subpage_path
     #form_subpage_path
+    #cv
 
     constructor(
         main_ui,
         ui,
         profession_code,
         form_values,
+        cv_generator,
         form_values_storage_key,
         profession_code_storage_key,
         home_subpage_path,
@@ -30,13 +32,17 @@ class GeneratorWindow
         this.#profession_code_storage_key = profession_code_storage_key
         this.#home_subpage_path = home_subpage_path
         this.#form_subpage_path = form_subpage_path
+        this.#cv = cv_generator.generate(form_values)
         
         this.#main_ui.create_window()
-        this.#ui.create_window({
-            edit: () => this.#handle_edit_button_click(),
-            create: () => this.#handle_create_button_click(),
-            download: () => this.#handle_download_button_click(),
-        })
+        this.#ui.create_window(
+            {
+                edit: () => this.#handle_edit_button_click(),
+                create: () => this.#handle_create_button_click(),
+                download: () => this.#handle_download_button_click(),
+            },
+            this.#cv,
+        )
         this.#main_ui.enable_all_focusable_nodes()
     }
 
@@ -54,7 +60,9 @@ class GeneratorWindow
 
     #handle_download_button_click()
     {
-        console.log("download")
+        console.log(this.#cv.get_dom())
+        this.#ui.animate_progress_bar()
+        html2pdf(this.#cv.get_dom())
     }
 }
 

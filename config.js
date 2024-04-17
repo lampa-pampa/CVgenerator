@@ -88,18 +88,18 @@ const config = {
 
         form: {
             subwindow_codes: [
-                "1",
+                // "1",
                 "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
-                "11",
-                "12",
+                // "3",
+                // "4",
+                // "5",
+                // "6",
+                // "7",
+                // "8",
+                // "9",
+                // "10",
+                // "11",
+                // "12",
                 "13",
             ],
             default_values: {
@@ -182,7 +182,6 @@ const config = {
                     },
                     progress_bar_state: {
                         separator: " / ",
-                        completed: "Completed!",
                     },
                 },
             },
@@ -447,6 +446,9 @@ const config = {
                         edit: "edit-button",
                         create: "create-button",
                     },
+                    cv_preview: "cv-preview",
+                    progress_bar: "window-progress-bar",
+                    progress_bar_state: "window-progress-bar-state",
                 },
                 content: {
                     title: "Download your CV",

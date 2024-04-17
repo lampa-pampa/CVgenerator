@@ -11,14 +11,14 @@
 <body>
     <header class="main-header"></header>
     <main class="main-content">
-        <span class="spinner"></span>
+        <div class="spinner"></div>
         <span class="window-footer-label"></span>
     </main>
     <footer class="main-footer"></footer>
     <script type="module">
         import {route} from "./script/helpers.js"
         import {UiNode} from "./script/ui_node.js"
-        import config from "../../config.js"    
+        import config from "../../config.js"
 
         UiNode.get_by_class(config.window.router.ui.content_class_name).set_text_content(
             config.window.router.ui.content.loading_text

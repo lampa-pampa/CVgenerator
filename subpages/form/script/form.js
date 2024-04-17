@@ -87,8 +87,8 @@ class Form
     #update_progress_bar()
     {
         this.#ui.set_progress_bar_value(
-            this.#cur_subwindow_code_index,
-            this.#compute_last_subwindow_index(),
+            this.#cur_subwindow_code_index + 1,
+            this.#subwindow_codes.length,
         )
     }
 

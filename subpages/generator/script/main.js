@@ -1,9 +1,10 @@
+import {route, match, has_key} from "../../../script/helpers.js"
 import config from "../../../config.js"
+import CvGenerator from "./cv_generator.js"
 import GeneratorWindow from "./generator_window.js"
 import GeneratorWindowUi from "./generator_window_ui.js"
 import MainUi from "../../../script/main_ui.js"
 import SessionStorageManager from "../../../script/session_storage_manager.js"
-import {route, match, has_key} from "../../../script/helpers.js"
 
 main()
 
@@ -31,6 +32,9 @@ function main()
         ),
         profession_code,
         form_values,
+        new CvGenerator(
+            
+        ),
         config.storage_keys.form_values,
         config.storage_keys.profession_code,
         config.subpage_paths.home,

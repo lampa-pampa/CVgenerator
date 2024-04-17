@@ -46,10 +46,6 @@
     color: var(--third-theme-color);
 }
 
-.window-preview {
-    flex: 1 1 auto;
-}
-
 .window-list {
     flex: 1 1 auto;
     overflow-y: scroll;
