@@ -47,16 +47,10 @@ const config = {
         },
     },
 
-    router_ui: {
-        content: {
-            text: "Loading…",
-        },
-    },
-
     window: {
         router: {
             ui: {
-                content_class_name: "loading-text",
+                content_class_name: "window-footer-label",
                 content: {
                     loading_text: "Loading…"
                 },
