@@ -1,4 +1,4 @@
-import { UiNode } from "../../../script/ui_node.js"
+import {UiNode} from "../../../script/ui_node.js"
 
 class CvGenerator
 {
