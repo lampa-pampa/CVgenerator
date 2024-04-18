@@ -7,6 +7,7 @@ class GeneratorWindowUi {
     #download_button
     #edit_button
     #create_button
+    #cv
     
     constructor(section_class_names, content)
     {
@@ -25,16 +26,31 @@ class GeneratorWindowUi {
 
     create_window(click_handlers, cv_node)
     {
+        this.#setup_html2pdf_script()
         this.#setup_title()
         this.#setup_buttons(click_handlers)
-        this.#setup_cv_preview(cv_node)
+        this.#cv = cv_node
+        this.#setup_cv_preview()
     }
 
-    #setup_cv_preview(cv_node)
+    #setup_html2pdf_script()
+    {
+        UiNode.get_head().append_nodes(
+            new UiNode({
+                tag: "script",
+                attributes: {
+                    type: "application/javascript",
+                    src: this.#content.html2pdf.script_src,
+                },
+            })
+        )
+    }
+
+    #setup_cv_preview()
     {
         UiNode.get_by_class(
             this.#section_class_names.cv_preview
-        ).draw_nodes(cv_node)
+        ).draw_nodes(this.#cv)
     }
 
     #setup_title()
@@ -85,7 +101,7 @@ class GeneratorWindowUi {
         }))
     }
 
-    async animate_progress_bar()
+    async #animate_progress_bar()
     {
         set_button_state(this.#download_button, false)
         this.#set_progress_bar_state(
@@ -96,7 +112,7 @@ class GeneratorWindowUi {
         )
         document.body.offsetWidth
         UiNode.get_by_class(this.#section_class_names.progress_bar).set_attributes({
-            style: `animation-duration: 2000ms; animation-name: loading;`
+            style: `animation-duration: ${this.#content.download_animation_duration}ms; animation-name: loading;`
         })
 
         await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -111,6 +127,21 @@ class GeneratorWindowUi {
         UiNode.get_by_class(this.#section_class_names.progress_bar_state).set_text_content(
             state
         )
+    }
+
+    download_cv()
+    {
+        this.#animate_progress_bar()
+        html2pdf(this.#cv.get_dom(), {
+            filename: this.#content.html2pdf.file_name,
+            image: {
+                type: this.#content.html2pdf.image_extension
+            },
+            html2canvas: {
+                scale: this.#content.html2pdf.pixel_ratio,
+                imageTimeout: this.#content.download_animation_duration,
+            },
+        })
     }
 }
 
