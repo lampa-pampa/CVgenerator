@@ -2,6 +2,25 @@ import { UiNode } from "../../../script/ui_node.js"
 
 class CvGenerator
 {
+    #theme_code_to_colors
+    #layout_code_to_section_creators
+
+    constructor(theme_code_to_colors)
+    {
+        this.#theme_code_to_colors = theme_code_to_colors
+        this.#layout_code_to_section_creators = {
+            "1": {
+
+            },
+            "2": {
+
+            },
+            "3": {
+
+            },
+        }
+    }
+
     generate(values)
     {
         return new UiNode({
@@ -19,11 +38,11 @@ class CvGenerator
                 }),
                 new UiNode({
                     tag: "pre",
-                    text_content: values["2"].name + " " + values["2"].surname,
+                    text_content: `${values["2"].name} ${values["2"].surname}`,
                 }),
                 new UiNode({
                     tag: "pre",
-                    text_content: values["3"].email + " " + values["3"].phone,
+                    text_content: `${values["3"].email} ${values["3"].phone}`,
                 }),
                 new UiNode({
                     tag: "a",

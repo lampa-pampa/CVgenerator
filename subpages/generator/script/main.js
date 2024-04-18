@@ -33,7 +33,7 @@ function main()
         profession_code,
         form_values,
         new CvGenerator(
-            
+            config.theme_code_to_colors,
         ),
         config.storage_keys.form_values,
         config.storage_keys.profession_code,
