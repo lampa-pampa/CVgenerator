@@ -23,52 +23,97 @@ class CvGenerator
 
     #create_image_section(content)
     {
-
+        return new UiNode({
+            tag: "img",
+            attributes: {
+                src: content.image,
+                style: "width: 150px; height: 200px;"
+            },
+        })
     }
 
     #create_name_and_surname_section(content, profession_name)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: `${content.name} ${content.surname} ${profession_name}`,
+        })
     }
 
     #create_contact_section(content)
     {
-
+        return new UiNode({
+            tag: "div",
+            child_nodes: [
+                new UiNode({
+                    tag: "pre",
+                    text_content: `${content.email} ${content.phone}`,
+                }),
+                new UiNode({
+                    tag: "a",
+                    text_content: content.socials,
+                    attributes: {
+                        href: content.socials,
+                    },
+                }),
+            ],
+        })
     }
     
     #create_education_section(content)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: content.education.join("\n"),
+        })
     }
 
     #create_experience_section(content)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: content.experience.join("\n"),
+        })
     }
 
     #create_about_me_section(content)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: content.about,
+        })
     }
 
     #create_skills_section(content)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: content.skills.join("\n"),
+        })
     }
 
     #create_interests_section(content)
     {
-        
+        return new UiNode({
+            tag: "pre",
+            text_content: content.interests.join("\n"),
+        })
     }
 
     #create_additional_info_section(content)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: content.info,
+        })
     }
 
     #create_clause_section(content)
     {
-
+        return new UiNode({
+            tag: "pre",
+            text_content: content.company_name,
+        })
     }
 
     generate(values, profession_name)
@@ -76,67 +121,19 @@ class CvGenerator
         return new UiNode({
             tag: "div",
             attributes: {
-                style: "color: black; width: 100%;"
+                class: "cv"
             },
             child_nodes: [
-                new UiNode({
-                    tag: "img",
-                    attributes: {
-                        src: values["1"].image,
-                        style: "width: 150px; height: 200px;"
-                    },
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: `${values["2"].name} ${values["2"].surname} ${profession_name}`,
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: `${values["3"].email} ${values["3"].phone}`,
-                }),
-                new UiNode({
-                    tag: "a",
-                    text_content: values["3"].socials,
-                    attributes: {
-                        href: values["3"].socials,
-                    },
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["4"].education.join("\n"),
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["5"].experience.join("\n"),
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["6"].about,
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["7"].skills.join("\n"),
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["8"].interests.join("\n"),
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["9"].info,
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["10"].company_name,
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["11"].theme_code,
-                }),
-                new UiNode({
-                    tag: "pre",
-                    text_content: values["12"].layout_code,
-                }),
+                this.#create_image_section(values["1"]),
+                this.#create_name_and_surname_section(values["2"], profession_name),
+                this.#create_contact_section(values["3"]),
+                this.#create_education_section(values["4"]),
+                this.#create_experience_section(values["5"]),
+                this.#create_about_me_section(values["6"]),
+                this.#create_skills_section(values["7"]),
+                this.#create_interests_section(values["8"]),
+                this.#create_additional_info_section(values["9"]),
+                this.#create_clause_section(values["10"]),                
             ],
         })
     }
