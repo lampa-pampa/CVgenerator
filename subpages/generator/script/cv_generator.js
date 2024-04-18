@@ -21,7 +21,57 @@ class CvGenerator
         }
     }
 
-    generate(values)
+    #create_image_section(content)
+    {
+
+    }
+
+    #create_name_and_surname_section(content, profession_name)
+    {
+
+    }
+
+    #create_contact_section(content)
+    {
+
+    }
+    
+    #create_education_section(content)
+    {
+
+    }
+
+    #create_experience_section(content)
+    {
+
+    }
+
+    #create_about_me_section(content)
+    {
+
+    }
+
+    #create_skills_section(content)
+    {
+
+    }
+
+    #create_interests_section(content)
+    {
+        
+    }
+
+    #create_additional_info_section(content)
+    {
+
+    }
+
+    #create_clause_section(content)
+    {
+
+    }
+
+    generate(values, profession_name)
     {
         return new UiNode({
             tag: "div",
@@ -38,7 +88,7 @@ class CvGenerator
                 }),
                 new UiNode({
                     tag: "pre",
-                    text_content: `${values["2"].name} ${values["2"].surname}`,
+                    text_content: `${values["2"].name} ${values["2"].surname} ${profession_name}`,
                 }),
                 new UiNode({
                     tag: "pre",

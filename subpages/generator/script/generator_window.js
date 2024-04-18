@@ -17,7 +17,7 @@ class GeneratorWindow
         ui,
         profession_code,
         form_values,
-        cv_generator,
+        cv_node,
         form_values_storage_key,
         profession_code_storage_key,
         home_subpage_path,
@@ -39,7 +39,7 @@ class GeneratorWindow
                 create: () => this.#handle_create_button_click(),
                 download: () => this.#handle_download_button_click(),
             },
-            cv_generator.generate(form_values),
+            cv_node,
         )
         this.#main_ui.enable_all_focusable_nodes()
     }

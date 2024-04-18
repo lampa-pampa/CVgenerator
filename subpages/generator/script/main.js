@@ -19,6 +19,8 @@ function main()
         route(config.subpage_paths.home)
         return
     }
+
+    const cv_generator = new CvGenerator(config.theme_code_to_colors) 
     
     new GeneratorWindow(
         new MainUi(
@@ -32,8 +34,9 @@ function main()
         ),
         profession_code,
         form_values,
-        new CvGenerator(
-            config.theme_code_to_colors,
+        cv_generator.generate(
+            form_values,
+            config.profession_code_to_name[profession_code],
         ),
         config.storage_keys.form_values,
         config.storage_keys.profession_code,
