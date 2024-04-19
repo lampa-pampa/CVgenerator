@@ -101,15 +101,23 @@ class Form
     #handle_previous_button_click()
     {
         if(this.#cur_subwindow_code_index > 0)
+        {
             this.#open_subwindow(--this.#cur_subwindow_code_index)
+            this.#ui.animate_previous_step()
+        }
     }
 
     #handle_next_button_click()
     {
         if(this.#cur_subwindow_code_index < this.#compute_last_subwindow_index())
+        {
             this.#open_subwindow(++this.#cur_subwindow_code_index)
+            this.#ui.animate_next_step()
+        }
         else
+        {
             this.#generate_cv()
+        }
     }
 
     #compute_last_subwindow_index()

@@ -35,7 +35,3 @@ button:hover {
     background-color: var(--third-theme-color);
     pointer-events: none !important;
 }
-
-.window-progress-bar {
-    transition: width var(--animation-duration);
-}

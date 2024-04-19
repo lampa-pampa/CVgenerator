@@ -31,9 +31,6 @@ const config = {
             "2": {
                 
             },
-            "3": {
-                
-            }
         },
         profile_image: {
             width: 150,
@@ -169,7 +166,7 @@ const config = {
                 section_class_names: {
                     title: "window-title",
                     reset_button: "reset-button",
-                    subwindow_display: "window-content",
+                    subwindow_list: "window-list",
                     buttons: {
                         previous: "previous-button",
                         next: "next-button",
@@ -181,6 +178,16 @@ const config = {
                     step_number: {
                         prefix: "Step ",
                         suffix: " | ",
+                    },
+                    animations: {
+                        previous_step: {
+                            duration: 300,
+                            name: "previous-step",
+                        },
+                        next_step: {
+                            duration: 300,
+                            name: "next-step",
+                        },
                     },
                     buttons: {
                         previous: {
@@ -200,9 +207,12 @@ const config = {
                             }
                         },
                     },
-                    progress_bar_state: {
-                        separator: " / ",
-                    },
+                    progress_bar: {
+                        width_transition_duration: 300,
+                        state: {
+                            separator: " / ",
+                        },
+                    }
                 },
             },
             subwindow: {
@@ -508,7 +518,10 @@ const config = {
                         preparing: "Preparing download…",
                         completed: "Downloading started!",
                     },
-                    download_animation_duration: 1000,
+                    download_animation: {
+                        duration: 1000,
+                        name: "loading",
+                    },
                     html2pdf: {
                         script_src: "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js",
                         file_name: "cv.pdf",

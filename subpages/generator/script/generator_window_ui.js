@@ -1,5 +1,5 @@
 import {UiNode} from "../../../script/ui_node.js"
-import {set_button_state} from "../../../script/helpers.js"
+import {run_animation, set_button_state} from "../../../script/helpers.js"
 
 class GeneratorWindowUi {
     #section_class_names
@@ -107,15 +107,13 @@ class GeneratorWindowUi {
         this.#set_progress_bar_state(
             this.#content.progress_bar_state.preparing
         )
-        UiNode.get_by_class(this.#section_class_names.progress_bar).remove_attributes(
-            "style"
+        run_animation(
+            UiNode.get_by_class(this.#section_class_names.progress_bar),
+            this.#content.download_animation.name,
+            this.#content.download_animation.duration,
         )
-        document.body.offsetWidth
-        UiNode.get_by_class(this.#section_class_names.progress_bar).set_attributes({
-            style: `animation-duration: ${this.#content.download_animation_duration}ms; animation-name: loading;`
-        })
 
-        await new Promise((resolve) => setTimeout(resolve, this.#content.download_animation_duration))
+        await new Promise((resolve) => setTimeout(resolve, this.#content.download_animation.duration))
         set_button_state(this.#download_button, true)
         this.#set_progress_bar_state(
             this.#content.progress_bar_state.completed
@@ -141,7 +139,7 @@ class GeneratorWindowUi {
             html2canvas: {
                 logging: false,
                 scale: this.#content.html2pdf.pixel_ratio,
-                imageTimeout: this.#content.download_animation_duration,
+                imageTimeout: this.#content.download_animation.duration,
             },
         })
     }

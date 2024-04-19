@@ -4,6 +4,7 @@
     --footer-height: 40px;
     
     display: flex;
+    overflow: hidden;
     flex-flow: column;
     width: 800px;
     background-color: var(--second-theme-color);

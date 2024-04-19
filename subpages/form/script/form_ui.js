@@ -1,4 +1,4 @@
-import {set_button_state} from "../../../script/helpers.js"
+import {run_animation, set_button_state} from "../../../script/helpers.js"
 import {UiNode, UiNodeNs} from "../../../script/ui_node.js"
 
 class FormUi
@@ -132,12 +132,33 @@ class FormUi
     set_progress_bar_value(cur_step_index, steps_quantity)
     {
         UiNode.get_by_class(this.#section_class_names.progress_bar).set_attributes({
-            style: `width: ${cur_step_index / steps_quantity * 100}%;`
+            style: `
+                width: ${cur_step_index / steps_quantity * 100}%;
+                transition: width ${this.#content.progress_bar.width_transition_duration}ms;    
+            `
         })
         UiNode.get_by_class(this.#section_class_names.progress_bar_state).set_text_content(
             cur_step_index
-                + this.#content.progress_bar_state.separator
+                + this.#content.progress_bar.state.separator
                 + steps_quantity
+        )
+    }
+
+    animate_previous_step()
+    {
+        run_animation(
+            UiNode.get_by_class(this.#section_class_names.subwindow_list),
+            this.#content.animations.previous_step.name,
+            this.#content.animations.previous_step.duration,
+        )
+    }
+
+    animate_next_step()
+    {
+        run_animation(
+            UiNode.get_by_class(this.#section_class_names.subwindow_list),
+            this.#content.animations.next_step.name,
+            this.#content.animations.next_step.duration,
         )
     }
 }

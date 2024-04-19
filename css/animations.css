@@ -1,4 +1,4 @@
-.window {
+.window-header {
     overflow: hidden;
 }
 
@@ -7,11 +7,11 @@
 }
 
 .window-title {
-    animation: show-title var(--transition-duration);
+    animation: fade-in-title var(--animation-duration);
 }
 
 .window-list {
-    animation: show-list var(--transition-duration);
+    animation: fade-in-list var(--animation-duration);
 }
 
 .spinner {
@@ -44,7 +44,7 @@
     }
 }
 
-@keyframes show-title {
+@keyframes previous-step {
     from {
         transform: translateX(-100%);
         opacity: 0;
@@ -55,7 +55,29 @@
     }
 }
 
-@keyframes show-list {
+@keyframes next-step {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-title {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade-in-list {
     from {
         opacity: 0;
         transform: translateY(2em);
