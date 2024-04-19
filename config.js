@@ -220,13 +220,17 @@ const config = {
                 code_to_content: {
                     "1": {
                         image: {
-                            text: "Upload your profile image…",
-                            title: "preferred size is 150x200px",
+                            label: "Upload your profile image…\npreferred size is 150x200px",
+                            title: "Click to upload",
                             extensions: ".gif, .jpg, .jpeg, .png",
                             size: {
                                 width: 150,
                                 height: 200,
                                 unit: "px",
+                            },
+                            svg: {
+                                view_box: "0 0 24 24",
+                                path: "M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z"
                             },
                         },
                     },
