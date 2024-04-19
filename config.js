@@ -26,7 +26,7 @@ const config = {
     cv: {
         theme_code_to_colors: {
             "1": {
-    
+                
             },
             "2": {
                 
@@ -72,11 +72,11 @@ const config = {
             },
         },
         home: {
-            custom_profession_code: "0",
             profession_codes: [
                 "1",
                 "2",
                 "3",
+                "4",
             ],
             ui: {
                 section_class_names: {
@@ -550,15 +550,13 @@ const config = {
     },
 
     theme_code_to_name: {
-        "1": "theme 1",
-        "2": "theme 2",
-        "3": "theme 3",
+        "1": "Light theme",
+        "2": "Dark theme",
     },
 
     layout_code_to_name: {
-        "1": "layout 1",
-        "2": "layout 2",
-        "3": "layout 3",
+        "1": "Rectangle boxes layout",
+        "2": "List layout",
     },
 
     skill_code_to_name: {
@@ -575,11 +573,14 @@ const config = {
         "4": "interest 4",
     },
 
+    custom_profession_code: "0",
+
     profession_code_to_name: {
         "0": "custom",
-        "1": "Profession 1",
-        "2": "Profession 2",
-        "3": "Profession 3",
+        "1": "C++ Programmer",
+        "2": "Python Programmer",
+        "3": "JS Programmer",
+        "4": "Rust Programmer",
     },
     
     profession_code_to_skill_codes: {

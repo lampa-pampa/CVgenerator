@@ -18,7 +18,7 @@ function main()
             config.window.home.ui.content,
         ),
         config.window.home.profession_codes,
-        config.window.home.custom_profession_code,
+        config.custom_profession_code,
         config.profession_code_to_name,
         config.storage_keys.profession_code,
         config.subpage_paths.form,

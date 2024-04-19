@@ -34,11 +34,13 @@ function main()
         new SubwindowFactory(
             config.window.form.subwindow,
             get_code_names(
-                config.profession_code_to_skill_codes[profession_code],
+                profession_code,
+                config.profession_code_to_skill_codes,
                 config.skill_code_to_name,
             ),
             get_code_names(
-                config.profession_code_to_interest_codes[profession_code],
+                profession_code,
+                config.profession_code_to_interest_codes,
                 config.interest_code_to_name,
             ),
             config.theme_code_to_name,
@@ -65,7 +67,9 @@ function get_form_values()
     return config.window.form.default_values
 }
 
-function get_code_names(codes, code_to_names)
+function get_code_names(key, key_to_codes, code_to_names)
 {
-    return codes.map((code) => code_to_names[code])
+    if(!has_key(key_to_codes, key))
+        key = config.custom_profession_code
+    return key_to_codes[key].map((code) => code_to_names[code])
 }

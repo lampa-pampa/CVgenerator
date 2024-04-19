@@ -17,9 +17,6 @@ class CvGenerator
             "2": {
 
             },
-            "3": {
-
-            },
         }
     }
 
