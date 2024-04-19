@@ -135,9 +135,11 @@ class GeneratorWindowUi {
         html2pdf(this.#cv.get_dom(), {
             filename: this.#content.html2pdf.file_name,
             image: {
-                type: this.#content.html2pdf.image_extension
+                type: this.#content.html2pdf.image_extension,
+                quality: 1,
             },
             html2canvas: {
+                logging: false,
                 scale: this.#content.html2pdf.pixel_ratio,
                 imageTimeout: this.#content.download_animation_duration,
             },

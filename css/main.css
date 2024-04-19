@@ -23,6 +23,7 @@
 }
 
 .main-content {
+    isolation: isolate;
     flex: 1 1 auto;
     display: flex;
     padding-block: var(--main-header-height);

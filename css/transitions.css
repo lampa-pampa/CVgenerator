@@ -12,7 +12,7 @@
     opacity: .8;
 }
 
-button {
+button, .custom-checkbox {
     font-size: large;
     transition-property: 
         box-shadow,
