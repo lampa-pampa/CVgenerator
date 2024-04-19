@@ -22,6 +22,7 @@ ul {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    flex: 0 0 auto;
     margin: 0;
     padding: 0;
 }
@@ -32,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
+    flex: 0 0 auto;
     font-family: inherit;
     font-weight: inherit;
     padding: 1em;
@@ -39,9 +41,11 @@ button {
     color: var(--second-theme-color);
     border: var(--border-width) solid var(--third-theme-color);
     border-radius: var(--border-radius);
+    text-shadow: 0 0 1px var(--third-theme-color);
 }
 
 input[type=text], textarea {
+    flex: 0 0 auto;
     height: var(--square-button-size);
     font-size: inherit;
     font-family: inherit;
@@ -59,6 +63,7 @@ svg {
 }
 
 pre {
+    flex: 0 0 auto;
     font-size: inherit;
     font-family: inherit;
     font-weight: inherit;
@@ -78,4 +83,9 @@ ul {
     display: flex;
     flex-flow: column;
     row-gap: 0.8em;
+}
+
+img[src=""] {
+    flex: 0 0 auto;
+    display: none;
 }
