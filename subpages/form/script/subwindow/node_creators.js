@@ -632,7 +632,11 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "pre",
-                    text_content: content.label,
+                    text_content: content.label
+                        + content.size.width
+                        + content.size.separator
+                        + content.size.height
+                        + content.size.unit,
                 }),
                 new UiNode({
                     tag: "button",

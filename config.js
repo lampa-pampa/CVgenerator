@@ -220,10 +220,11 @@ const config = {
                 code_to_content: {
                     "1": {
                         image: {
-                            label: "Upload your profile image…\npreferred size is 150x200px",
+                            label: "Upload your profile image…\npreferred size is ",
                             title: "Click to upload",
                             extensions: ".gif, .jpg, .jpeg, .png",
                             size: {
+                                separator: " × ",
                                 width: 150,
                                 height: 200,
                                 unit: "px",
