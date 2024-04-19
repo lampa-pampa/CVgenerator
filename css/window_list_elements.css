@@ -1,6 +1,6 @@
 .window-list-element.image-input,
 .window-list-element.labeled-button,
-.window-list-element.labeled-text-input,
+.window-list-element.labeled-text-input label,
 .window-list-element.duration-and-place-element {
     display: flex;
     justify-content: space-between;
@@ -44,7 +44,14 @@
     width: 100%;
 }
 
+.window-list-element.image-input button {
+    position: relative;
+}
+
 .window-list-element.image-input img {
-    border: var(--border-width) solid var(--third-theme-color);
-    border-radius: var(--border-radius);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--border-width);
 }

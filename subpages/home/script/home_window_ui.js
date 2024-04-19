@@ -61,7 +61,7 @@ class HomeWindowUi {
             },
             child_nodes: [
                 new UiNode({
-                    tag: "span",
+                    tag: "pre",
                     text_content: profession_name,
                 }),
                 this.#create_list_element_button(profession_name, handler),
