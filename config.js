@@ -512,7 +512,7 @@ const config = {
                     html2pdf: {
                         script_src: "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js",
                         file_name: "cv.pdf",
-                        image_extension: "png",
+                        image_extension: "jpeg",
                         pixel_ratio: 4,
                     }
                 },
