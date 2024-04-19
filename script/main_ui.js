@@ -49,6 +49,7 @@ class MainUi
     {
         UiNode.get_by_class(this.#section_class_names.baner).set_attributes({
             src: path,
+            draggable: false,
         })
     }
 

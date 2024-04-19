@@ -109,6 +109,7 @@ const config = {
                 "2": {
                     name: "",
                     surname: "",
+                    job_position: "",
                 },
                 "3": {
                     email: "",
@@ -213,6 +214,14 @@ const config = {
                                 error_message: "Use only letters and spaces",
                             },
                         },
+                        job_position: {
+                            label: "Job position:",
+                            text_field: {
+                                max_length: 32,
+                                format: "[^\\s]+( [^\\s]+)*",
+                                error_message: "Use any chars and spaces",
+                            },
+                        },
                     },
                     "3": {
                         email: {
@@ -227,7 +236,7 @@ const config = {
                             label: "Phone number:",
                             text_field: {
                                 max_length: 32,
-                                format: "(\\+\\d{2})?\\d{9}|(\\+\\d{2}-)?(\\d{3}-){2}\\d{3}|(\\+\\d{2} )?(\\d{3} ){2}\\d{3}",
+                                format: "(\\+\\d+)?(\\d{9}|( \\d{3}){3}|(-\\d{3}){3})",
                                 error_message: "Insert phone number",
                             },
                         },
@@ -235,7 +244,7 @@ const config = {
                             label: "Socials (link):",
                             text_field: {
                                 max_length: 32,
-                                format: "https?://[^\\s]+",
+                                format: "https?://[^\\s\\.]+\\.[^\\s]+",
                                 error_message: "Insert link (starting with http:// or https://)",
                             },
                         },

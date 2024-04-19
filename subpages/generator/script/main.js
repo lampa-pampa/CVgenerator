@@ -34,10 +34,7 @@ function main()
         ),
         profession_code,
         form_values,
-        cv_generator.generate(
-            form_values,
-            config.profession_code_to_name[profession_code],
-        ),
+        cv_generator.generate(form_values),
         config.storage_keys.form_values,
         config.storage_keys.profession_code,
         config.subpage_paths.home,

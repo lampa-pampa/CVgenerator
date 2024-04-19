@@ -32,11 +32,11 @@ class CvGenerator
         })
     }
 
-    #create_name_and_surname_section(content, profession_name)
+    #create_name_and_surname_section(content)
     {
         return new UiNode({
             tag: "pre",
-            text_content: `${content.name} ${content.surname} ${profession_name}`,
+            text_content: `${content.name} ${content.surname} ${content.job_position}`,
         })
     }
 
@@ -116,7 +116,7 @@ class CvGenerator
         })
     }
 
-    generate(values, profession_name)
+    generate(values)
     {
         return new UiNode({
             tag: "div",
@@ -125,7 +125,7 @@ class CvGenerator
             },
             child_nodes: [
                 this.#create_image_section(values["1"]),
-                this.#create_name_and_surname_section(values["2"], profession_name),
+                this.#create_name_and_surname_section(values["2"]),
                 this.#create_contact_section(values["3"]),
                 this.#create_education_section(values["4"]),
                 this.#create_experience_section(values["5"]),

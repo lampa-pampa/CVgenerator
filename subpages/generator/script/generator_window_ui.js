@@ -115,7 +115,7 @@ class GeneratorWindowUi {
             style: `animation-duration: ${this.#content.download_animation_duration}ms; animation-name: loading;`
         })
 
-        await new Promise((resolve) => setTimeout(resolve, 2000))
+        await new Promise((resolve) => setTimeout(resolve, this.#content.download_animation_duration))
         set_button_state(this.#download_button, true)
         this.#set_progress_bar_state(
             this.#content.progress_bar_state.completed
