@@ -20,7 +20,10 @@ function main()
         return
     }
 
-    const cv_generator = new CvGenerator(config.theme_code_to_colors) 
+    const cv_generator = new CvGenerator(
+        config.cv.profile_image,
+        config.cv.theme_code_to_colors,
+    ) 
     
     new GeneratorWindow(
         new MainUi(

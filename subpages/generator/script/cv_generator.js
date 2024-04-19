@@ -2,11 +2,13 @@ import {UiNode} from "../../../script/ui_node.js"
 
 class CvGenerator
 {
+    #profile_image_size
     #theme_code_to_colors
     #layout_code_to_section_creators
 
-    constructor(theme_code_to_colors)
+    constructor(profile_image_size, theme_code_to_colors)
     {
+        this.#profile_image_size = profile_image_size
         this.#theme_code_to_colors = theme_code_to_colors
         this.#layout_code_to_section_creators = {
             "1": {
@@ -27,7 +29,10 @@ class CvGenerator
             tag: "img",
             attributes: {
                 src: content.image,
-                style: "width: 150px; height: 200px;"
+                style: `
+                    width: ${this.#profile_image_size.width + this.#profile_image_size.unit};
+                    height: ${this.#profile_image_size.height + this.#profile_image_size.unit};
+                `
             },
         })
     }

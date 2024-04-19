@@ -618,6 +618,10 @@ class SubwindowNodeCreators
                 class: "image-preview",
                 draggable: false,
                 src: value_getter(),
+                style: `
+                    width: ${content.size.width + content.size.unit};
+                    height: ${content.size.height + content.size.unit};
+                `
             },
         })
         return new UiNode({
