@@ -1,3 +1,5 @@
+import {UiNode} from "./ui_node.js"
+
 function route(path_name)
 {
     document.location.pathname = path_name
@@ -55,6 +57,18 @@ function get_parent(node, layer = 1)
     return node
 }
 
+function run_animation(node, name, duration)
+{
+    node.remove_attributes("style")
+    UiNode.reflow()
+    node.set_attributes({
+        style: `
+            animation-duration: ${duration}ms;
+            animation-name: ${name};
+        `
+    })
+}
+
 export {
     route,
     make_copy,
@@ -63,5 +77,6 @@ export {
     remove_element,
     is_enabled,
     get_parent,
-    set_button_state
+    set_button_state,
+    run_animation,
 }
