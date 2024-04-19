@@ -45,8 +45,6 @@
 }
 
 .window-list-element.image-input img {
-    width: 150px;
-    height: 200px;
     border: var(--border-width) solid var(--third-theme-color);
     border-radius: var(--border-radius);
 }
