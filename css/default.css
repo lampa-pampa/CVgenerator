@@ -11,7 +11,7 @@ body {
     margin: 0;
     min-height: 100svh;
     font-weight: 800;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Tahoma, sans-serif;
     color: var(--second-theme-color);
 }
 
@@ -41,7 +41,7 @@ button {
     color: var(--second-theme-color);
     border: var(--border-width) solid var(--third-theme-color);
     border-radius: var(--border-radius);
-    text-shadow: 0 0 1px var(--third-theme-color);
+    text-shadow: 0 0 var(--border-width) var(--third-theme-color);
 }
 
 input[type=text], textarea {
@@ -51,7 +51,7 @@ input[type=text], textarea {
     font-family: inherit;
     font-weight: inherit;
     background-color: var(--second-theme-color);
-    color: var(--third-theme-color);
+    color: var(--first-theme-color);
     border: var(--border-width) solid var(--third-theme-color);
     border-radius: var(--border-width);
 }

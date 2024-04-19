@@ -437,7 +437,7 @@ class SubwindowNodeCreators
         return new UiNode({
             tag: "li",
             attributes: {
-                class: "window-list-element checkbox-with-button",
+                class: "window-list-element checkbox-with-button extra",
             },
             child_nodes: [
                 SubwindowNodeCreators.#create_checkbox(

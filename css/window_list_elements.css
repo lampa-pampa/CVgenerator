@@ -9,6 +9,7 @@
 
 .window-list-element.duration-and-place-element {
     padding-bottom: 2em;
+    color: var(--first-theme-color);
 }
 
 .window-list-element.labeled-button button {
@@ -34,6 +35,10 @@
     display: flex;
     align-items: center;
     column-gap: 0.5em;
+}
+
+.window-list-element.checkbox-with-button.extra {
+    color: var(--first-theme-color);
 }
 
 .window-list-element.checkbox-with-button :nth-child(2) {

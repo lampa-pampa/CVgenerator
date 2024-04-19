@@ -5,13 +5,13 @@ button.animated {
 }
 
 button.animated.previous {
-    --before-content: "<<";
-    --hover-offset: 1em;
+    --before-content: "⬅";
+    --hover-offset: 0.6em;
 }
 
 button.animated.next {
-    --after-content: ">>";
-    --hover-offset: -1em;
+    --after-content: "➡";
+    --hover-offset: -0.6em;
 }
 
 button.animated > span {

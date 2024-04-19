@@ -15,9 +15,9 @@
 button, .custom-checkbox {
     font-size: large;
     transition-property: 
+        border-color,
         box-shadow,
-        background-color,
-        border-color;
+        background-color;
     transition-duration: var(--transition-duration);
 }
 
