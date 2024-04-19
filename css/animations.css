@@ -1,11 +1,3 @@
-.window-header {
-    overflow: hidden;
-}
-
-.window-content {
-    overflow: hidden;
-}
-
 .window-title {
     animation: fade-in-title var(--animation-duration);
 }
