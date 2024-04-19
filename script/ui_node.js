@@ -2,6 +2,11 @@ class UiNode
 {
     #dom
 
+    static reflow()
+    {
+        document.body.offsetWidth
+    }
+
     static get_by_class(class_name)
     {
         const ui_node = new UiNode()
