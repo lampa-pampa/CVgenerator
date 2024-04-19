@@ -18,9 +18,14 @@ class SubwindowNodeCreators
             child_nodes: [
                 new UiNode({
                     tag: "label",
-                    text_content: content.label,
-                }),
-                input,       
+                    child_nodes: [
+                        new UiNode({
+                            tag: "pre",
+                            text_content: content.label,
+                        }),
+                        input,  
+                    ]
+                })
             ],
         })
         labeled_text_field.get_text_input = () => input.get_text_input()
@@ -492,7 +497,7 @@ class SubwindowNodeCreators
                     child_nodes: [
                         checkbox,
                         new UiNode({
-                            tag: "span",
+                            tag: "pre",
                             text_content: label,
                         }),
                     ],
@@ -592,6 +597,13 @@ class SubwindowNodeCreators
         file_reader.addEventListener("load", function() {
             value_updater(file_reader.result)
         })
+        const image_preview = new UiNode({
+            tag: "img",
+            attributes: {
+                draggable: false,
+                src: value_getter(),
+            },
+        })
         const image_input = new UiNode({
             tag: "input",
             attributes: {
@@ -612,18 +624,6 @@ class SubwindowNodeCreators
                 }
             },
         })
-        const image_preview = new UiNode({
-            tag: "img",
-            attributes: {
-                class: "image-preview",
-                draggable: false,
-                src: value_getter(),
-                style: `
-                    width: ${content.size.width + content.size.unit};
-                    height: ${content.size.height + content.size.unit};
-                `
-            },
-        })
         return new UiNode({
             tag: "li",
             attributes: {
@@ -631,18 +631,28 @@ class SubwindowNodeCreators
             },
             child_nodes: [
                 new UiNode({
+                    tag: "pre",
+                    text_content: content.label,
+                }),
+                new UiNode({
                     tag: "button",
+                    child_nodes: [
+                        SubwindowNodeCreators.#create_icon(content.svg),
+                        image_preview,
+                    ],
                     attributes: {
                         "data-title": content.title,
+                        style: `
+                            width: ${content.size.width + content.size.unit};
+                            height: ${content.size.height + content.size.unit};
+                        `
                     },
-                    text_content: content.text,
                     listeners: {
                         click: function() {
                             image_input.get_dom().click()
                         }
                     },
                 }),
-                image_preview,
             ],
         })
     }
