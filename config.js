@@ -236,7 +236,7 @@ const config = {
                             label: "Phone number:",
                             text_field: {
                                 max_length: 32,
-                                format: "(\\+\\d+)?(\\d{9}|( \\d{3}){3}|(-\\d{3}){3})",
+                                format: "(\\+\\d+)?(\\d{9}|(\\+\\d+ )?\\d{3}( \\d{3}){2}|(\\+\\d+-)?\\d{3}(-\\d{3}){2}",
                                 error_message: "Insert phone number",
                             },
                         },
