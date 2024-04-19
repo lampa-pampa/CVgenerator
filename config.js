@@ -23,6 +23,24 @@ const paths = {
 }
 
 const config = {
+    cv: {
+        theme_code_to_colors: {
+            "1": {
+    
+            },
+            "2": {
+                
+            },
+            "3": {
+                
+            }
+        },
+        profile_image: {
+            width: 150,
+            height: 200,
+            unit: "px",
+        },
+    },
     subpage_paths: {
         home: paths.get("subpages", "home"),
         form: paths.get("subpages", "form"),
@@ -195,6 +213,11 @@ const config = {
                             text: "Upload your profile image…",
                             title: "preferred size is 150x200px",
                             extensions: ".gif, .jpg, .jpeg, .png",
+                            size: {
+                                width: 150,
+                                height: 200,
+                                unit: "px",
+                            },
                         },
                     },
                     "2": {
@@ -544,18 +567,6 @@ const config = {
         "1": "Profession 1",
         "2": "Profession 2",
         "3": "Profession 3",
-    },
-
-    theme_code_to_colors: {
-        "1": {
-
-        },
-        "2": {
-            
-        },
-        "3": {
-            
-        }
     },
     
     profession_code_to_skill_codes: {
