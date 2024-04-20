@@ -335,6 +335,7 @@ const config = {
                                     },
                                 },
                             },
+                            max_quantity: 5,
                         },
                     },
                     "5": {
@@ -385,6 +386,7 @@ const config = {
                                     },
                                 },
                             },
+                            max_quantity: 5,
                         },
                     },
                     "6": {
@@ -422,6 +424,7 @@ const config = {
                                     },
                                 },
                             },
+                            max_quantity: 5,
                         },
                     },
                     "8": {
@@ -453,6 +456,7 @@ const config = {
                                     },
                                 },
                             },
+                            max_quantity: 5,
                         },
                     },
                     "9": {

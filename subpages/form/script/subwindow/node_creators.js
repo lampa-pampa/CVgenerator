@@ -116,13 +116,14 @@ class SubwindowNodeCreators
                 ),
                 SubwindowNodeCreators.#create_add_duration_and_place_section(
                     content,
+                    value_getter,
                     value_updater,
                 ),
             ],
         })
     }
 
-    static #create_add_duration_and_place_section(content, value_updater)
+    static #create_add_duration_and_place_section(content, value_getter, value_updater)
     {
         const value_pack = ["", "", ""]
         
@@ -155,17 +156,32 @@ class SubwindowNodeCreators
             SubwindowNodeCreators.labeled_text_field(
                 content.add_section.text_fields.from,
                 () => "",
-                (value) => update_value_pack(value_pack, 0, value)
+                (value) => update_value_pack(
+                    value_getter().length < content.max_quantity,
+                    value_pack,
+                    0,
+                    value
+                )
             ),
             SubwindowNodeCreators.labeled_text_field(
                 content.add_section.text_fields.to,
                 () => "",
-                (value) => update_value_pack(value_pack, 1, value)
+                (value) => update_value_pack(
+                    value_getter().length < content.max_quantity,
+                    value_pack,
+                    1,
+                    value
+                )
             ),
             SubwindowNodeCreators.labeled_text_field(
                 content.add_section.text_fields.place,
                 () => "",
-                (value) => update_value_pack(value_pack, 2, value)
+                (value) => update_value_pack(
+                    value_getter().length < content.max_quantity,
+                    value_pack,
+                    2,
+                    value
+                )
             ),
         ]
 
@@ -179,10 +195,11 @@ class SubwindowNodeCreators
             return true
         }
 
-        function update_value_pack(value_pack, index, value)
+        function update_value_pack(can_add_new_element, value_pack2, index, value)
         {
             value_pack[index] = value
             const enabled = value_pack_is_valid(value_pack)
+                && can_add_new_element
             set_button_state(add_button, enabled)
         }
 
@@ -334,6 +351,7 @@ class SubwindowNodeCreators
                             value_updater,
                         ),
                         SubwindowNodeCreators.#create_add_checkbox_section(
+                            this.values,
                             value_getter,
                             content,
                             value_updater,
@@ -385,15 +403,16 @@ class SubwindowNodeCreators
         return extra_checkboxes
     }
 
-    static #create_add_checkbox_section(value_getter, content, value_updater)
+    static #create_add_checkbox_section(default_values, value_getter, content, value_updater)
     {
         const add_button = SubwindowNodeCreators.#create_button(
             content.buttons.add,
             false,
         )
         const text_field = SubwindowNodeCreators.#create_add_checkbox_text_field(
+            default_values,
             value_getter,
-            content.text_field,
+            content,
             add_button,
         )
         add_button.add_listeners({
@@ -462,19 +481,28 @@ class SubwindowNodeCreators
         })
     }
 
-    static #create_add_checkbox_text_field(value_getter, content, add_button)
+    static #create_add_checkbox_text_field(default_values, value_getter, content, add_button)
     {
         return SubwindowNodeCreators.#create_text_field(
-            content,
+            content.text_field,
             "",
             function(value) {
-                const enabled = value && !value_getter().includes(value)
+                const enabled = value
+                    && !value_getter().includes(value)
+                    && !default_values.includes(value)
+                    && value_getter().filter(
+                        (value) => !default_values.includes(value)
+                    ).length < content.max_quantity
                 set_button_state(add_button, enabled)
             },
             {
                 keydown: function(e) {
                     const button = add_button.get_dom()
-                    if(e.key === "Enter" && is_enabled(button))
+                    if(value_getter().filter(
+                        (value) => !default_values.includes(value)
+                    ).length >= content.max_quantity)
+                        e.preventDefault()
+                    else if(e.key === "Enter" && is_enabled(button))
                         button.click()
                 }
             },
