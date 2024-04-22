@@ -7,7 +7,7 @@
 }
 
 .spinner {
-    animation: spin calc(var(--animation-duration) * 1.5) infinite;
+    animation: spin calc(var(--animation-duration) * 1.5) infinite linear;
 }
 
 .reset-button:hover {
