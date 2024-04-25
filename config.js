@@ -25,17 +25,44 @@ const paths = {
 const config = {
     cv: {
         theme_code_to_colors: {
-            "1": {
-                
-            },
-            "2": {
-                
-            },
+            "1": [
+
+            ],
+            "2": [
+
+            ],
         },
         profile_image: {
             width: 150,
             height: 200,
             unit: "px",
+        },
+        content: {
+            contact: {
+                labels: {
+                    email: "Email: ",
+                    phone: "Phone: ",
+                    socials: "Socials: ",
+                }
+            },
+            date_list: {
+                separators: {
+                    date: " - ",
+                    text: "\n",
+                },
+            },
+            subsection_titles: {
+                education: "Education",
+                experience: "Experience",
+                about_me: "About me",
+                skills: "Skills",
+                interests: "Interests",
+                additional_info: "Additional info",
+            },
+            clause: {
+                prefix: "prefix ",
+                suffix: " suffix",
+            },
         },
     },
     subpage_paths: {

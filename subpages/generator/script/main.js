@@ -23,6 +23,7 @@ function main()
     const cv_generator = new CvGenerator(
         config.cv.profile_image,
         config.cv.theme_code_to_colors,
+        config.cv.content,
     ) 
     
     new GeneratorWindow(
