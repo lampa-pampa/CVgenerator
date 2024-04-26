@@ -123,7 +123,7 @@ class CvGenerator
             },
             child_nodes: [
                 new UiNode({
-                    tag: "h2",
+                    tag: "h3",
                     text_content: title,
                 }),
                 new UiNode({
@@ -162,7 +162,7 @@ class CvGenerator
             },
             child_nodes: [
                 new UiNode({
-                    tag: "h2",
+                    tag: "h3",
                     text_content: title,
                 }),
                 new UiNode({
@@ -184,7 +184,7 @@ class CvGenerator
             },
             child_nodes: [
                 new UiNode({
-                    tag: "h2",
+                    tag: "h3",
                     text_content: title,
                 }),
                 new UiNode({
@@ -225,8 +225,17 @@ class CvGenerator
     #create_name_and_surname_node(name, surname, job_position)
     {
         return new UiNode({
-            tag: "pre",
-            text_content: `${name} ${surname}\n${job_position}`,
+            tag: "div",
+            child_nodes: [
+                new UiNode({
+                    tag: "div",
+                    text_content: `${name} ${surname}`,
+                }),
+                new UiNode({
+                    tag: "div",
+                    text_content: job_position,
+                })
+            ],
         })
     }
 
@@ -280,15 +289,20 @@ class CvGenerator
             )
             
         return new UiNode({
-            tag: "ul",
-            child_nodes: child_nodes,
+            tag: "section",
+            child_nodes: [
+                new UiNode({
+                    tag: "ul",
+                    child_nodes: child_nodes,
+                }),
+            ],
         })
     }
 
     #create_clause_node(content)
     {
         return new UiNode({
-            tag: "pre",
+            tag: "div",
             text_content: this.#content.clause.prefix
                 + content.company_name
                 + this.#content.clause.suffix,
