@@ -60,8 +60,8 @@ const config = {
                 additional_info: "Additional info",
             },
             clause: {
-                prefix: "prefix ",
-                suffix: " suffix",
+                prefix: "I hereby give consent for my personal data to be processed by ",
+                suffix: " for the purpose of conducting recruitment for the position for which I am applying.",
             },
         },
     },
