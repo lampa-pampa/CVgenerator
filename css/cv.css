@@ -1,4 +1,50 @@
 .cv {
     color: var(--third-theme-color);
     width: 100%;
+    display: flex;
+    flex-flow: column;
+    padding: 2em;
+    row-gap: 2em;
+    font-size: medium;
+}
+
+.cv-header {
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+}
+
+.cv-header-image-box {
+    width: 50%;
+}
+
+.cv-header-title-box {
+    flex: 1 1 auto;
+    font-size: x-large;
+    color: var(--first-theme-color);
+}
+
+.cv-content {
+    display: flex;
+}
+
+.cv-content section {
+    padding-bottom: 2em;
+}
+
+[class$="list"] h3 {
+    color: var(--first-theme-color);
+    margin-bottom: 0.5em;
+}
+
+.cv-content-left {
+    flex: 1 1 auto;
+}
+
+.cv-content-right {
+    flex: 1 1 auto;   
+}
+
+.cv-footer {
+    font-size: small;
 }
