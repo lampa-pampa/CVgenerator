@@ -49,6 +49,12 @@
     color: var(--third-theme-color);
 }
 
+.window-list-container {
+    flex: 1 1 0;
+    display: flex;
+    overflow: hidden;
+}
+
 .window-list {
     isolation: isolate;
     flex: 1 1 0;
