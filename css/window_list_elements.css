@@ -62,7 +62,7 @@
 }
 
 .window-list-element.cv-preview {
-    width: 797px;
+    width: 796px;
     transform-origin: left top;
     transform: scale(calc((800 - 14 * 6) / (800 - 2 * 6) * 100%));
     user-select: none;
