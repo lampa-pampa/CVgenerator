@@ -28,6 +28,7 @@ button:hover, .custom-checkbox:hover {
 
 button:hover {
     box-shadow: 0 0 var(--border-radius) var(--third-theme-color);
+    text-shadow: 0 0 var(--border-width) var(--third-theme-color);
 }
 
 [disabled],

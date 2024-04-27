@@ -41,7 +41,6 @@ button {
     color: var(--second-theme-color);
     border: var(--border-width) solid var(--third-theme-color);
     border-radius: var(--border-radius);
-    text-shadow: 0 0 var(--border-width) var(--third-theme-color);
 }
 
 input[type=text], textarea {
